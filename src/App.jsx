@@ -6,7 +6,7 @@ import Portfolio from './pages/Portfolio'
 import Contact from './pages/Contact'
 import Resume from './pages/Resume'
 import { ThemeProvider } from './context/ThemeContext'
-import ThemeSwitcher from './components/ThemeSwitcher'
+import NavControls from './components/NavControls'
 import './styles/App.css'
 import './styles/themes.css'
 
@@ -65,6 +65,7 @@ export default function App() {
             <li><NavLink to="/resume"       >~/resume</NavLink></li>
             <li><NavLink to="/contact"     >~/contact</NavLink></li>
           </ul>
+          <NavControls isMobile={isMobile} onToggleView={toggleView} />
         </nav>
 
         <main className="content">
@@ -79,17 +80,6 @@ export default function App() {
             {' '}· [system.online]
           </p>
         </footer>
-
-        <button
-          className={`view-toggle${isMobile ? ' is-active' : ''}`}
-          onClick={toggleView}
-          title={isMobile ? '切換回桌機版' : '預覽手機版'}
-        >
-          <span className="vt-icon">{isMobile ? '🖥️' : '📱'}</span>
-          <span className="vt-label">{isMobile ? 'Desktop' : 'Mobile'}</span>
-        </button>
-
-        <ThemeSwitcher />
 
       </div>
     </Router>

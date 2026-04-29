@@ -1,0 +1,202 @@
+/* ── Navbar Controls ─────────────────────────────────────────── */
+.nav-controls {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-left: 0.4rem;
+}
+
+/* 向左滑入的兩個按鈕 */
+.nc-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  animation: nc-slide 0.18s ease both;
+}
+
+@keyframes nc-slide {
+  from { opacity: 0; transform: translateX(10px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* 動作按鈕（平台 / 主題）*/
+.nc-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.38rem 0.7rem;
+  background: transparent;
+  border: 1px solid var(--border-hi);
+  border-radius: 6px;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+
+.nc-btn:hover {
+  color: var(--text);
+  background: var(--surface-2);
+  border-color: var(--border-hi);
+}
+
+.nc-btn.is-active {
+  color: var(--primary);
+  border-color: var(--primary);
+  background: var(--primary-dim);
+}
+
+.nc-icon  { font-size: 0.78rem; line-height: 1; }
+
+/* 標籤文字在小螢幕隱藏 */
+.nc-label { display: none; }
+
+@media (min-width: 720px) {
+  .nc-label { display: inline; }
+}
+
+/* ⚙ 主切換鈕 */
+.nc-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid var(--border-hi);
+  border-radius: 6px;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+
+.nc-toggle-icon { font-size: 0.82rem; line-height: 1; }
+
+.nc-toggle:hover,
+.nc-toggle.is-open {
+  color: var(--primary);
+  border-color: var(--primary);
+  background: var(--primary-dim);
+}
+
+/* 主題下拉面板 */
+.nc-theme-panel {
+  position: absolute;
+  top: calc(100% + 0.6rem);
+  right: 0;
+  z-index: 500;
+  background: var(--surface);
+  border: 1px solid var(--border-hi);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 0.4rem;
+  min-width: 178px;
+  animation: nc-drop 0.15s ease both;
+}
+
+@keyframes nc-drop {
+  from { opacity: 0; transform: translateY(-5px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.nc-panel-header {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  color: var(--dim);
+  letter-spacing: 0.14em;
+  padding: 0.18rem 0.5rem 0.32rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0.12rem;
+}
+
+.nc-theme-option {
+  display: flex;
+  align-items: center;
+  gap: 0.58rem;
+  padding: 0.42rem 0.5rem;
+  border: 1px solid transparent;
+  border-radius: max(0px, calc(var(--radius) - 2px));
+  background: transparent;
+  color: var(--text-2);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  cursor: pointer;
+  transition: background 0.12s, border-color 0.12s, color 0.12s;
+  text-align: left;
+  width: 100%;
+}
+
+.nc-theme-option:hover  { background: var(--surface-2); border-color: var(--border); }
+.nc-theme-option.is-active {
+  background: var(--primary-dim);
+  border-color: var(--border-hi);
+  color: var(--primary);
+}
+
+.nc-swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.nc-swatch-cyber     { background: linear-gradient(135deg, #00e5ff, #a855f7); }
+.nc-swatch-pokemon   { background: linear-gradient(135deg, #cc0000, #ffd700); }
+.nc-swatch-corporate { background: linear-gradient(135deg, #2563eb, #7c3aed); }
+.nc-swatch-blog      { background: linear-gradient(135deg, #e25c2c, #f57f17); }
+
+.nc-option-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.04rem;
+}
+
+.nc-option-label { font-size: 0.67rem; line-height: 1.3; }
+
+.nc-option-desc {
+  font-size: 0.55rem;
+  color: var(--dim);
+  font-style: italic;
+  font-family: var(--font-display);
+}
+.nc-theme-option.is-active .nc-option-desc { color: var(--primary); opacity: 0.75; }
+
+.nc-check { font-size: 0.68rem; flex-shrink: 0; }
+
+/* ── Pokemon 主題覆寫 ─────────────────────────────── */
+[data-theme="pokemon"] .nc-toggle,
+[data-theme="pokemon"] .nc-btn {
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 0;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.1);
+}
+[data-theme="pokemon"] .nc-toggle:hover,
+[data-theme="pokemon"] .nc-toggle.is-open,
+[data-theme="pokemon"] .nc-btn:hover,
+[data-theme="pokemon"] .nc-btn.is-active {
+  border-color: #ffd700;
+  color: #ffd700;
+  background: rgba(255, 215, 0, 0.12);
+}
+[data-theme="pokemon"] .nc-theme-panel {
+  border: 2px solid #1a1a1a;
+  box-shadow: 4px 4px 0 #1a1a1a;
+}
+
+/* ── Blog 主題覆寫 ────────────────────────────────── */
+[data-theme="blog"] .nc-theme-panel {
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+[data-theme="blog"] .nc-option-label {
+  font-family: 'Lora', Georgia, serif;
+  font-style: italic;
+}
