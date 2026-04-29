@@ -1,0 +1,215 @@
+/* ── Header ──────────────────────────────────────── */
+.contact-header {
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px dashed var(--border);
+}
+
+.ct-prompt {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--neon-green);
+  margin: 0 0 0.75rem;
+  letter-spacing: 0.02em;
+}
+
+.ct-prompt::after {
+  content: '_';
+  animation: cursor-blink 1.1s step-end infinite;
+  margin-left: 2px;
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0; }
+}
+
+.contact-header h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.03em;
+  margin: 0 0 0.75rem;
+}
+
+.ct-desc {
+  color: var(--muted);
+  font-size: 0.97rem;
+  margin: 0;
+  max-width: 500px;
+  line-height: 1.7;
+}
+
+/* ── Body ────────────────────────────────────────── */
+.contact-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* ── Link Cards ──────────────────────────────────── */
+.links-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 600px) {
+  .links-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.link-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+/* Top glow line per colour */
+.link-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.link-card:hover {
+  transform: translateY(-4px);
+}
+
+.link-card:hover::before { opacity: 1; }
+
+/* Colour variants */
+.color-cyan   { --card-color: var(--neon-cyan);   --card-bg: var(--primary-dim); }
+.color-purple { --card-color: var(--neon-purple); --card-bg: rgba(168, 85, 247, 0.12); }
+.color-amber  { --card-color: var(--neon-amber);  --card-bg: rgba(251, 191, 36, 0.1); }
+.color-green  { --card-color: var(--neon-green);  --card-bg: rgba(0, 255, 159, 0.1); }
+
+.link-card {
+  border-color: var(--border);
+}
+
+.link-card:hover {
+  border-color: var(--card-color);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 229, 255, 0.15);
+}
+
+.link-card::before {
+  background: linear-gradient(90deg, transparent, var(--card-color), transparent);
+}
+
+/* Icon */
+.lc-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: var(--card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: var(--card-color);
+  flex-shrink: 0;
+  transition: box-shadow 0.25s;
+}
+
+.link-card:hover .lc-icon {
+  box-shadow: 0 0 16px rgba(0, 229, 255, 0.3);
+}
+
+/* Content */
+.lc-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.lc-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--card-color);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.lc-value {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text-2);
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.2s;
+}
+
+a.lc-value:hover {
+  color: var(--card-color);
+}
+
+/* Arrow */
+.lc-arrow {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--dim);
+  flex-shrink: 0;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.link-card:hover .lc-arrow {
+  color: var(--card-color);
+  transform: translateX(4px);
+}
+
+/* ── Open To ─────────────────────────────────────── */
+.section-title {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 1rem;
+  letter-spacing: 0.06em;
+}
+
+.open-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.open-list li {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 1rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  transition: border-color 0.2s, color 0.2s;
+  max-width: 400px;
+}
+
+.open-list li:hover {
+  border-color: var(--neon-green);
+  color: var(--text-2);
+}

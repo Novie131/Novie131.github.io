@@ -1,0 +1,310 @@
+/* ══════════════════════════════════════════════════════
+   THEMES — CSS variable overrides per [data-theme] on <html>
+   Imported AFTER App.css so specificity takes effect.
+   ══════════════════════════════════════════════════════ */
+
+/* ── Pixel / Pokémon ──────────────────────────────────────────── */
+[data-theme="pokemon"] {
+  --bg-deep:      #e8e8e8;
+  --bg:           #f0f0f0;
+  --surface:      #ffffff;
+  --surface-2:    #e0e0e0;
+  --border:       #1a1a1a;
+  --border-hi:    #cc0000;
+  --text:         #1a1a1a;
+  --text-2:       #2a2a2a;
+  --muted:        #555555;
+  --dim:          #888888;
+  --neon-cyan:    #3b4cca;
+  --neon-purple:  #cc0000;
+  --neon-green:   #3da35d;
+  --neon-pink:    #ff5252;
+  --neon-amber:   #ffd700;
+  --primary:      #cc0000;
+  --primary-dim:  rgba(204, 0, 0, 0.1);
+  --primary-glow: rgba(204, 0, 0, 0.35);
+  --font-display: 'Press Start 2P', monospace;
+  --font-mono:    'Press Start 2P', monospace;
+  --radius:       0px;
+  --nav-bg:       #cc0000;
+}
+
+[data-theme="pokemon"] body {
+  background-color: #f0f0f0;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.06) 1px, transparent 1px);
+  background-size: 16px 16px;
+  background-attachment: fixed;
+}
+
+[data-theme="pokemon"] .navbar {
+  background: #cc0000;
+  border-bottom: 3px solid #1a1a1a;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+[data-theme="pokemon"] .logo { color: #ffffff; }
+[data-theme="pokemon"] .logo-bracket { color: #ffd700; }
+[data-theme="pokemon"] .logo-slash   { color: #3b4cca; }
+
+[data-theme="pokemon"] .nav-links a {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.58rem;
+}
+[data-theme="pokemon"] .nav-links a:hover {
+  color: #ffd700;
+  background: rgba(255, 255, 255, 0.12);
+}
+[data-theme="pokemon"] .nav-links a.active {
+  color: #ffd700;
+  background: rgba(255, 255, 255, 0.18);
+  border-color: #ffd700;
+  text-shadow: none;
+}
+
+[data-theme="pokemon"] .page {
+  border: 3px solid #1a1a1a;
+  box-shadow: 6px 6px 0 #1a1a1a;
+}
+[data-theme="pokemon"] .page::before,
+[data-theme="pokemon"] .page::after { display: none; }
+
+[data-theme="pokemon"] .hero-name {
+  font-size: clamp(1.0rem, 2.4vw, 1.5rem);
+  background: none;
+  -webkit-text-fill-color: var(--primary);
+  color: var(--primary);
+  text-shadow: 3px 3px 0 #1a1a1a;
+  letter-spacing: 0.04em;
+}
+[data-theme="pokemon"] .hero-prompt { font-size: 0.58rem; }
+[data-theme="pokemon"] .hero-sub    { font-size: 0.6rem; line-height: 2.2; }
+
+[data-theme="pokemon"] .stat-item {
+  border: 2px solid #1a1a1a;
+  box-shadow: 3px 3px 0 #1a1a1a;
+}
+
+[data-theme="pokemon"] .btn {
+  border: 2px solid #1a1a1a;
+  box-shadow: 3px 3px 0 #1a1a1a;
+  font-size: 0.6rem;
+  transition: transform 0.08s, box-shadow 0.08s;
+}
+[data-theme="pokemon"] .btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 #1a1a1a;
+}
+[data-theme="pokemon"] .btn-primary {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: #1a1a1a;
+}
+[data-theme="pokemon"] .btn-outline {
+  background: #ffffff;
+  color: var(--text);
+  border-color: #1a1a1a;
+}
+
+[data-theme="pokemon"] .footer {
+  font-size: 0.58rem;
+  border-top: 3px solid #1a1a1a;
+  color: var(--dim);
+}
+[data-theme="pokemon"] .footer a { color: var(--primary); }
+
+[data-theme="pokemon"] .nf-code {
+  background: none;
+  -webkit-text-fill-color: var(--primary);
+  color: var(--primary);
+  text-shadow: 4px 4px 0 #1a1a1a;
+}
+
+/* ── Corporate ────────────────────────────────────────────────── */
+[data-theme="corporate"] {
+  --bg-deep:      #f1f5f9;
+  --bg:           #f8fafc;
+  --surface:      #ffffff;
+  --surface-2:    #f1f5f9;
+  --border:       #e2e8f0;
+  --border-hi:    #cbd5e1;
+  --text:         #0f172a;
+  --text-2:       #1e293b;
+  --muted:        #64748b;
+  --dim:          #94a3b8;
+  --neon-cyan:    #2563eb;
+  --neon-purple:  #7c3aed;
+  --neon-green:   #059669;
+  --neon-pink:    #db2777;
+  --neon-amber:   #d97706;
+  --primary:      #2563eb;
+  --primary-dim:  rgba(37, 99, 235, 0.08);
+  --primary-glow: rgba(37, 99, 235, 0.2);
+  --font-display: 'Inter', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+  --radius:       6px;
+  --nav-bg:       rgba(255, 255, 255, 0.93);
+}
+
+[data-theme="corporate"] body {
+  background-color: var(--bg-deep);
+  background-image: none;
+}
+
+[data-theme="corporate"] .navbar {
+  background: var(--nav-bg);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.07);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+[data-theme="corporate"] .page {
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+}
+[data-theme="corporate"] .page::before,
+[data-theme="corporate"] .page::after { display: none; }
+
+[data-theme="corporate"] .hero-name {
+  background: none;
+  -webkit-text-fill-color: var(--text);
+  color: var(--text);
+  font-weight: 800;
+}
+
+[data-theme="corporate"] .btn-primary {
+  background: var(--primary);
+  border-color: var(--primary);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.28);
+  color: #ffffff;
+}
+[data-theme="corporate"] .btn-primary:hover {
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.4);
+}
+[data-theme="corporate"] .btn-outline {
+  color: var(--primary);
+  border-color: var(--primary);
+  background: var(--primary-dim);
+}
+[data-theme="corporate"] .btn-outline:hover {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+[data-theme="corporate"] .nf-code {
+  background: none;
+  -webkit-text-fill-color: var(--primary);
+  color: var(--primary);
+  text-shadow: none;
+}
+
+[data-theme="corporate"] .footer {
+  background: var(--surface);
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+}
+[data-theme="corporate"] .footer a { color: var(--primary); }
+
+/* ── Blog ─────────────────────────────────────────────────────── */
+[data-theme="blog"] {
+  --bg-deep:      #faf9f7;
+  --bg:           #fefefe;
+  --surface:      #ffffff;
+  --surface-2:    #f5f3f0;
+  --border:       #e8e4df;
+  --border-hi:    #d4cfc9;
+  --text:         #2c2825;
+  --text-2:       #4a4540;
+  --muted:        #7a7470;
+  --dim:          #b0aaa4;
+  --neon-cyan:    #e25c2c;
+  --neon-purple:  #8b3a8a;
+  --neon-green:   #2e7d32;
+  --neon-pink:    #c62828;
+  --neon-amber:   #f57f17;
+  --primary:      #e25c2c;
+  --primary-dim:  rgba(226, 92, 44, 0.08);
+  --primary-glow: rgba(226, 92, 44, 0.3);
+  --font-display: 'Lora', Georgia, 'Times New Roman', serif;
+  --font-mono:    'JetBrains Mono', monospace;
+  --radius:       4px;
+  --nav-bg:       rgba(254, 254, 254, 0.94);
+}
+
+[data-theme="blog"] body {
+  background-color: var(--bg-deep);
+  background-image: none;
+  line-height: 1.8;
+}
+
+[data-theme="blog"] .navbar {
+  background: var(--nav-bg);
+  border-bottom: 1px solid var(--border);
+  box-shadow: none;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+[data-theme="blog"] .logo {
+  font-family: 'Lora', Georgia, serif;
+  font-style: italic;
+  letter-spacing: 0;
+}
+
+[data-theme="blog"] .page {
+  border: none;
+  border-top: 3px solid var(--primary);
+  box-shadow: none;
+}
+[data-theme="blog"] .page::before,
+[data-theme="blog"] .page::after { display: none; }
+
+[data-theme="blog"] .hero-name {
+  background: none;
+  -webkit-text-fill-color: var(--text);
+  color: var(--text);
+  font-weight: 700;
+  font-style: italic;
+}
+
+[data-theme="blog"] .btn-primary {
+  background: var(--primary);
+  border-color: var(--primary);
+  box-shadow: none;
+  color: #ffffff;
+}
+[data-theme="blog"] .btn-primary:hover {
+  box-shadow: 0 2px 12px rgba(226, 92, 44, 0.35);
+}
+[data-theme="blog"] .btn-outline {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+[data-theme="blog"] .btn-outline:hover {
+  background: var(--primary-dim);
+}
+
+[data-theme="blog"] .stat-item {
+  border: 1px solid var(--border);
+  box-shadow: none;
+}
+
+[data-theme="blog"] .nf-code {
+  background: none;
+  -webkit-text-fill-color: var(--primary);
+  color: var(--primary);
+  text-shadow: none;
+}
+
+[data-theme="blog"] .footer {
+  font-family: 'Lora', Georgia, serif;
+  font-style: italic;
+  font-size: 0.88rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+[data-theme="blog"] .footer a { color: var(--primary); }
