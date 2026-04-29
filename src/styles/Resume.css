@@ -1,0 +1,368 @@
+/* ── Header ──────────────────────────────────────── */
+.resume-header {
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px dashed var(--border);
+}
+
+.resume-prompt {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--neon-green);
+  margin: 0 0 0.75rem;
+  letter-spacing: 0.02em;
+}
+
+.resume-prompt::after {
+  content: '_';
+  animation: cursor-blink 1.1s step-end infinite;
+  margin-left: 2px;
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0; }
+}
+
+.resume-header h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.03em;
+  margin: 0 0 0.75rem;
+}
+
+.resume-desc {
+  color: var(--muted);
+  font-size: 0.97rem;
+  margin: 0;
+  line-height: 1.7;
+}
+
+/* ── Section ─────────────────────────────────────── */
+.resume-section {
+  margin-bottom: 3rem;
+}
+
+.resume-section-title {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 1.25rem;
+  letter-spacing: 0.06em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.resume-count {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--dim);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 0.1rem 0.5rem;
+  border-radius: 9999px;
+}
+
+/* ── Cert Cards Grid ─────────────────────────────── */
+.cert-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .cert-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.cert-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--card-accent, var(--neon-cyan));
+  border-radius: 0 var(--radius) var(--radius) 0;
+  transition: all 0.25s ease;
+}
+
+.cert-card:hover {
+  background: var(--card-bg, var(--primary-dim));
+  border-color: var(--card-accent, var(--neon-cyan));
+  border-left-color: var(--card-accent, var(--neon-cyan));
+  transform: translateX(4px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3), -4px 0 16px rgba(0,229,255,0.15);
+}
+
+.cert-tag {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--card-accent, var(--neon-cyan));
+  background: var(--card-bg, var(--primary-dim));
+  border: 1px solid var(--card-border, rgba(0,229,255,0.25));
+  padding: 0.25rem 0.55rem;
+  border-radius: 4px;
+  letter-spacing: 0.08em;
+  margin-top: 0.15rem;
+}
+
+.cert-body { flex: 1; min-width: 0; }
+
+.cert-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 0.3rem;
+  line-height: 1.35;
+}
+
+.cert-issuer {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin: 0 0 0.5rem;
+}
+
+.cert-meta {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.cert-date,
+.cert-id {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--dim);
+  letter-spacing: 0.04em;
+}
+
+.cert-link {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--card-accent, var(--neon-cyan));
+  text-decoration: none;
+  align-self: flex-end;
+  flex-shrink: 0;
+  letter-spacing: 0.04em;
+  transition: opacity 0.2s;
+}
+
+.cert-link:hover { opacity: 0.7; }
+
+/* ── Competition Cards Grid ──────────────────────── */
+.comp-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .comp-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.comp-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.25rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--card-accent, var(--neon-cyan));
+  border-radius: 0 var(--radius) var(--radius) 0;
+  transition: all 0.25s ease;
+}
+
+.comp-card:hover {
+  background: var(--card-bg, var(--primary-dim));
+  border-color: var(--card-accent, var(--neon-cyan));
+  border-left-color: var(--card-accent, var(--neon-cyan));
+  transform: translateX(4px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3), -4px 0 16px rgba(255,45,149,0.15);
+}
+
+.comp-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.comp-award {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--card-accent, var(--neon-cyan));
+  background: var(--card-bg, var(--primary-dim));
+  border: 1px solid var(--card-border, rgba(0,229,255,0.25));
+  padding: 0.25rem 0.55rem;
+  border-radius: 4px;
+  letter-spacing: 0.08em;
+}
+
+.comp-date {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--dim);
+}
+
+.comp-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.comp-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+  line-height: 1.35;
+}
+
+.comp-event {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--card-accent, var(--neon-cyan));
+  margin: 0;
+}
+
+.comp-organizer {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+.comp-desc-text {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin: 0.25rem 0 0;
+  line-height: 1.6;
+}
+
+.comp-link {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--card-accent, var(--neon-cyan));
+  text-decoration: none;
+  align-self: flex-start;
+  letter-spacing: 0.04em;
+  transition: opacity 0.2s;
+}
+
+.comp-link:hover { opacity: 0.7; }
+
+/* ── Course List ─────────────────────────────────── */
+.course-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.course-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.875rem 1.25rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.course-row::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 2px;
+  background: var(--card-accent, var(--neon-cyan));
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.course-row:hover {
+  border-color: var(--card-accent, var(--neon-cyan));
+  background: rgba(255,255,255,0.02);
+  transform: translateX(3px);
+}
+
+.course-row:hover::before { opacity: 1; }
+
+.course-num {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  min-width: 1.5rem;
+  flex-shrink: 0;
+}
+
+.course-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.course-title {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.course-issuer {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+.course-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.2rem;
+  flex-shrink: 0;
+}
+
+.course-modules {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--card-accent, var(--neon-cyan));
+  letter-spacing: 0.04em;
+}
+
+.course-date {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--dim);
+}
+
+.course-link {
+  color: var(--muted);
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  transition: color 0.2s, transform 0.2s;
+  display: inline-block;
+}
+
+.course-link:hover {
+  color: var(--card-accent, var(--neon-cyan));
+  transform: translateX(3px);
+}

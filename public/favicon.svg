@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- Background -->
+  <rect width="32" height="32" rx="7" fill="#0a1020"/>
+  <!-- Border glow -->
+  <rect x="0.75" y="0.75" width="30.5" height="30.5" rx="6.25" stroke="#00e5ff" stroke-width="1.5" stroke-opacity="0.45"/>
+  <!-- < symbol -->
+  <path d="M7 16 L12 11 L12 13 L9.5 16 L12 19 L12 21 Z" fill="#00e5ff"/>
+  <!-- / symbol -->
+  <path d="M19 10 L13.5 22 L15.5 22 L21 10 Z" fill="#a855f7"/>
+  <!-- > symbol -->
+  <path d="M25 16 L20 11 L20 13 L22.5 16 L20 19 L20 21 Z" fill="#00e5ff"/>
+</svg>

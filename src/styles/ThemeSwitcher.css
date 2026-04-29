@@ -1,0 +1,172 @@
+/* ── Theme Switcher — fixed bottom-left ─────────────────────── */
+.theme-switcher {
+  position: fixed;
+  bottom: 1.75rem;
+  left: 1.75rem;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  pointer-events: none;
+}
+
+.theme-switcher > * { pointer-events: auto; }
+
+/* Toggle pill */
+.ts-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border-hi);
+  border-radius: 9999px;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.ts-toggle:hover,
+.ts-toggle.is-open {
+  border-color: var(--primary);
+  color: var(--primary);
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.3);
+  transform: translateY(-1px);
+}
+
+.ts-icon { font-size: 0.85rem; line-height: 1; }
+
+/* Pop-up panel */
+.ts-panel {
+  background: var(--surface);
+  border: 1px solid var(--border-hi);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.12);
+  padding: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 180px;
+  animation: ts-rise 0.15s ease both;
+}
+
+@keyframes ts-rise {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0);   }
+}
+
+.ts-header {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--dim);
+  letter-spacing: 0.14em;
+  padding: 0.2rem 0.55rem 0.35rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0.1rem;
+}
+
+/* Option rows */
+.ts-option {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.45rem 0.55rem;
+  border: 1px solid transparent;
+  border-radius: max(0px, calc(var(--radius) - 2px));
+  background: transparent;
+  color: var(--text-2);
+  font-family: var(--font-mono);
+  font-size: 0.69rem;
+  cursor: pointer;
+  transition: background 0.12s, border-color 0.12s, color 0.12s;
+  text-align: left;
+  width: 100%;
+}
+
+.ts-option:hover {
+  background: var(--surface-2);
+  border-color: var(--border);
+}
+
+.ts-option.is-active {
+  background: var(--primary-dim);
+  border-color: var(--border-hi);
+  color: var(--primary);
+}
+
+/* Color swatch */
+.ts-swatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.ts-swatch-cyber     { background: linear-gradient(135deg, #00e5ff, #a855f7); }
+.ts-swatch-pokemon   { background: linear-gradient(135deg, #cc0000, #ffd700); }
+.ts-swatch-corporate { background: linear-gradient(135deg, #2563eb, #7c3aed); }
+.ts-swatch-blog      { background: linear-gradient(135deg, #e25c2c, #f57f17); }
+
+.ts-option-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.06rem;
+}
+
+.ts-option-label { font-size: 0.68rem; line-height: 1.3; }
+
+.ts-option-desc {
+  font-size: 0.57rem;
+  color: var(--dim);
+  font-family: var(--font-display);
+  font-style: italic;
+}
+.ts-option.is-active .ts-option-desc { color: var(--primary); opacity: 0.75; }
+
+.ts-check { font-size: 0.7rem; flex-shrink: 0; }
+
+/* ── Pokemon theme overrides ───────────────────────────────── */
+[data-theme="pokemon"] .ts-toggle {
+  border-radius: 0;
+  border: 2px solid #1a1a1a;
+  box-shadow: 3px 3px 0 #1a1a1a;
+  background: #ffffff;
+  color: #1a1a1a;
+}
+[data-theme="pokemon"] .ts-toggle:hover,
+[data-theme="pokemon"] .ts-toggle.is-open {
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: none;
+  box-shadow: 3px 3px 0 var(--primary);
+}
+
+[data-theme="pokemon"] .ts-panel {
+  border: 2px solid #1a1a1a;
+  box-shadow: 4px 4px 0 #1a1a1a;
+}
+
+/* ── Corporate theme overrides ─────────────────────────────── */
+[data-theme="corporate"] .ts-toggle {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* ── Blog theme overrides ──────────────────────────────────── */
+[data-theme="blog"] .ts-panel {
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+[data-theme="blog"] .ts-option-label {
+  font-family: 'Lora', Georgia, serif;
+  font-style: italic;
+}
