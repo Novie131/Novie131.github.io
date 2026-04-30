@@ -113,50 +113,32 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Right: 寶可夢對戰場景（pokemon 主題專用） */}
-        <section className="pokemon-battle">
-          <div className="pb-arena">
-            {/* 敵方：呆火鱷（右上） */}
-            <div className="pb-enemy-row">
-              <div className="pb-infobox">
-                <span className="pb-name">呆火鱷 <span className="pb-lv">Lv.5</span></span>
-                <div className="pb-hp-row">
-                  <span className="pb-hp-label">HP</span>
-                  <div className="pb-hp-track">
-                    <div className="pb-hp-fill type-fire" style={{ width: '82%' }} />
-                  </div>
-                </div>
-              </div>
+        {/* Right: 寶可夢玩樂場景（pokemon 主題專用） */}
+        <section className="pokemon-playground">
+          <div className="playground-field">
+            <span className="pg-cloud" style={{ left: '10%' }}>☁</span>
+            <span className="pg-cloud" style={{ left: '38%' }}>☁</span>
+            <span className="pg-cloud" style={{ right: '8%'  }}>☁</span>
+
+            <div className="playground-poke">
               <img
                 src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/909.png"
                 alt="Fuecoco"
-                className="pb-sprite pb-enemy-sprite"
+                className="playground-sprite bounce-a"
               />
+              <span className="playground-name">呆火鱷</span>
             </div>
 
-            {/* 我方：水水獺（左下） */}
-            <div className="pb-player-row">
+            <div className="playground-poke">
               <img
                 src={BW_SPRITE(501)}
                 alt="Oshawott"
-                className="pb-sprite pb-player-sprite"
+                className="playground-sprite bounce-b"
               />
-              <div className="pb-infobox">
-                <span className="pb-name">水水獺 <span className="pb-lv">Lv.5</span></span>
-                <div className="pb-hp-row">
-                  <span className="pb-hp-label">HP</span>
-                  <div className="pb-hp-track">
-                    <div className="pb-hp-fill type-water" style={{ width: '95%' }} />
-                  </div>
-                </div>
-              </div>
+              <span className="playground-name">水水獺</span>
             </div>
           </div>
-
-          {/* 對話框 */}
-          <div className="pb-dialog">
-            <p className="pb-text">▶ 野生的 呆火鱷 出現了！</p>
-          </div>
+          <div className="playground-ground" />
         </section>
 
       </div>
