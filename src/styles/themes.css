@@ -5,10 +5,10 @@
 
 /* ── Pixel / Pokémon ──────────────────────────────────────────── */
 [data-theme="pokemon"] {
-  --bg-deep:      #e8e8e8;
-  --bg:           #f0f0f0;
-  --surface:      #ffffff;
-  --surface-2:    #e0e0e0;
+  --bg-deep:      #90d050;
+  --bg:           #a8e070;
+  --surface:      #f8f8f0;
+  --surface-2:    #e8e8d8;
   --border:       #1a1a1a;
   --border-hi:    #cc0000;
   --text:         #1a1a1a;
@@ -16,7 +16,7 @@
   --muted:        #555555;
   --dim:          #888888;
   --neon-cyan:    #3b4cca;
-  --neon-purple:  #cc0000;
+  --neon-purple:  #7038f8;
   --neon-green:   #3da35d;
   --neon-pink:    #ff5252;
   --neon-amber:   #ffd700;
@@ -29,18 +29,23 @@
   --nav-bg:       #cc0000;
 }
 
+/* B/W 路線草地背景 */
 [data-theme="pokemon"] body {
-  background-color: #f0f0f0;
+  background-color: #90d050;
   background-image:
-    linear-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.06) 1px, transparent 1px);
-  background-size: 16px 16px;
+    repeating-linear-gradient(0deg,   transparent, transparent 15px, rgba(0,0,0,0.10) 15px, rgba(0,0,0,0.10) 16px),
+    repeating-linear-gradient(90deg,  transparent, transparent 15px, rgba(0,0,0,0.10) 15px, rgba(0,0,0,0.10) 16px),
+    radial-gradient(ellipse 80px 50px at 18% 35%, #58a820 0%, transparent 100%),
+    radial-gradient(ellipse 60px 40px at 75% 65%, #58a820 0%, transparent 100%),
+    radial-gradient(ellipse 50px 35px at 42% 80%, #68b830 0%, transparent 100%);
+  background-size: 16px 16px, 16px 16px, 100% 100%, 100% 100%, 100% 100%;
   background-attachment: fixed;
 }
 
+/* 導覽列：寶可夢紅 + 黑底線 */
 [data-theme="pokemon"] .navbar {
   background: #cc0000;
-  border-bottom: 3px solid #1a1a1a;
+  border-bottom: 4px solid #1a1a1a;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
 }
@@ -48,10 +53,11 @@
 [data-theme="pokemon"] .logo { color: #ffffff; }
 [data-theme="pokemon"] .logo-bracket { color: #ffd700; }
 [data-theme="pokemon"] .logo-slash   { color: #3b4cca; }
+[data-theme="pokemon"] .logo-dot { background: #ffd700; box-shadow: 0 0 6px #ffd700; }
 
 [data-theme="pokemon"] .nav-links a {
   color: rgba(255, 255, 255, 0.82);
-  font-size: 0.58rem;
+  font-size: 0.5rem;
 }
 [data-theme="pokemon"] .nav-links a:hover {
   color: #ffd700;
@@ -64,9 +70,11 @@
   text-shadow: none;
 }
 
+/* 頁面主框：Pokemon Center 室內風（白底、厚黑框） */
 [data-theme="pokemon"] .page {
-  border: 3px solid #1a1a1a;
-  box-shadow: 6px 6px 0 #1a1a1a;
+  background: #f8f8f0;
+  border: 4px solid #1a1a1a;
+  box-shadow: 8px 8px 0 #1a1a1a;
 }
 [data-theme="pokemon"] .page::before,
 [data-theme="pokemon"] .page::after { display: none; }
@@ -79,22 +87,32 @@
   text-shadow: 3px 3px 0 #1a1a1a;
   letter-spacing: 0.04em;
 }
-[data-theme="pokemon"] .hero-prompt { font-size: 0.58rem; }
-[data-theme="pokemon"] .hero-sub    { font-size: 0.6rem; line-height: 2.2; }
+[data-theme="pokemon"] .hero-prompt { font-size: 0.52rem; }
+[data-theme="pokemon"] .hero-sub    { font-size: 0.54rem; line-height: 2.4; }
+[data-theme="pokemon"] .hero-badge  {
+  background: #ffd700;
+  border: 2px solid #1a1a1a;
+  border-radius: 0;
+  color: #1a1a1a;
+  font-size: 0.44rem;
+  box-shadow: 2px 2px 0 #1a1a1a;
+}
 
 [data-theme="pokemon"] .stat-item {
-  border: 2px solid #1a1a1a;
-  box-shadow: 3px 3px 0 #1a1a1a;
+  background: #f8f8f0;
+  border: 3px solid #1a1a1a;
+  box-shadow: 4px 4px 0 #1a1a1a;
 }
 
 [data-theme="pokemon"] .btn {
-  border: 2px solid #1a1a1a;
-  box-shadow: 3px 3px 0 #1a1a1a;
-  font-size: 0.6rem;
+  border: 3px solid #1a1a1a;
+  box-shadow: 4px 4px 0 #1a1a1a;
+  font-size: 0.5rem;
+  border-radius: 0;
   transition: transform 0.08s, box-shadow 0.08s;
 }
 [data-theme="pokemon"] .btn:hover {
-  transform: translate(2px, 2px);
+  transform: translate(3px, 3px);
   box-shadow: 1px 1px 0 #1a1a1a;
 }
 [data-theme="pokemon"] .btn-primary {
@@ -109,9 +127,10 @@
 }
 
 [data-theme="pokemon"] .footer {
-  font-size: 0.58rem;
-  border-top: 3px solid #1a1a1a;
+  font-size: 0.48rem;
+  border-top: 4px solid #1a1a1a;
   color: var(--dim);
+  background: #f8f8f0;
 }
 [data-theme="pokemon"] .footer a { color: var(--primary); }
 
@@ -121,6 +140,199 @@
   color: var(--primary);
   text-shadow: 4px 4px 0 #1a1a1a;
 }
+
+/* ── 對戰場景（Terminal 替換） ────────────────────── */
+.pokemon-battle       { display: none; }
+.pokemon-grass-strip  { display: none; }
+
+[data-theme="pokemon"] .terminal-col    { display: none; }
+[data-theme="pokemon"] .pokemon-battle  { display: flex; flex-direction: column; }
+[data-theme="pokemon"] .pokemon-grass-strip {
+  display: flex;
+  align-items: flex-end;
+  gap: 0;
+  margin: 1.5rem 0 0;
+  border: 4px solid #1a1a1a;
+  box-shadow: 6px 6px 0 #1a1a1a;
+  overflow: hidden;
+}
+
+/* 對戰場地 */
+.pb-arena {
+  background: linear-gradient(to bottom, #4878b8 0%, #4878b8 52%, #68b030 52%, #68b030 100%);
+  border: 4px solid #1a1a1a;
+  border-bottom: 2px solid #888;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 210px;
+  padding: 0.75rem;
+  image-rendering: pixelated;
+}
+
+.pb-enemy-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.pb-player-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+/* HP 資訊框 */
+.pb-infobox {
+  background: #f0f0e0;
+  border: 3px solid #1a1a1a;
+  box-shadow: 3px 3px 0 #1a1a1a;
+  padding: 0.35rem 0.55rem;
+  min-width: 130px;
+}
+
+.pb-name {
+  display: block;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.4rem;
+  color: #1a1a1a;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.3rem;
+  line-height: 1.6;
+}
+
+.pb-lv { color: #555; font-size: 0.36rem; }
+
+.pb-hp-row {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.pb-hp-label {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.36rem;
+  font-weight: bold;
+  color: #1a1a1a;
+}
+
+.pb-hp-track {
+  flex: 1;
+  height: 7px;
+  background: #444;
+  border: 1px solid #1a1a1a;
+  overflow: hidden;
+}
+
+.pb-hp-fill { height: 100%; }
+.type-fire  { background: linear-gradient(90deg, #f08030, #f8b030); }
+.type-water { background: linear-gradient(90deg, #3890f0, #70b8f8); }
+
+/* 寶可夢精靈圖 */
+.pb-sprite {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.pb-enemy-sprite {
+  transform: scaleX(-1);
+  filter: drop-shadow(-3px 3px 0 rgba(0,0,0,0.35));
+  align-self: flex-end;
+}
+
+.pb-player-sprite {
+  filter: drop-shadow(3px 3px 0 rgba(0,0,0,0.35));
+  align-self: flex-start;
+}
+
+/* 對話框 */
+.pb-dialog {
+  background: #f0f0e0;
+  border: 4px solid #1a1a1a;
+  border-top: 2px solid #888;
+  padding: 0.85rem 1rem;
+  box-shadow: 0 5px 0 #1a1a1a;
+}
+
+.pb-text {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.46rem;
+  color: #1a1a1a;
+  line-height: 2.4;
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+/* ── 草叢精靈條 ───────────────────────────────────── */
+.pgs-label {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.4rem;
+  color: #fff;
+  text-shadow: 1px 1px 0 #1a1a1a;
+  background: #3da35d;
+  border-right: 4px solid #1a1a1a;
+  padding: 0 0.6rem;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  letter-spacing: 0.1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+}
+
+.grass-poke {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.75rem 0.5rem 0.5rem;
+  background: repeating-linear-gradient(
+    90deg,
+    #68b830 0px, #68b830 8px,
+    #78c840 8px, #78c840 16px
+  );
+  border-right: 2px solid rgba(0,0,0,0.2);
+  transition: transform 0.15s;
+  cursor: default;
+}
+
+.grass-poke:last-child { border-right: none; }
+.grass-poke:hover { transform: translateY(-6px); }
+
+.grass-sprite {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  filter: drop-shadow(0 3px 0 rgba(0,0,0,0.5));
+}
+
+.grass-name {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.34rem;
+  color: #fff;
+  text-shadow: 1px 1px 0 #1a1a1a;
+  white-space: nowrap;
+  letter-spacing: 0.04em;
+}
+
+/* Ticker 微調 */
+[data-theme="pokemon"] .ticker-wrap {
+  border-top: 4px solid #1a1a1a;
+  background: #f8f8f0;
+}
+[data-theme="pokemon"] .ticker-item {
+  font-size: 0.52rem;
+  color: #333;
+}
+[data-theme="pokemon"] .ticker-fade-left  { background: linear-gradient(to right, #f8f8f0, transparent); }
+[data-theme="pokemon"] .ticker-fade-right { background: linear-gradient(to left,  #f8f8f0, transparent); }
 
 /* ── Corporate ────────────────────────────────────────────────── */
 [data-theme="corporate"] {

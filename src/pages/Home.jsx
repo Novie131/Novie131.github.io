@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import '../styles/Home.css'
 
-
 const tickerItems = [
   { label: 'React',          color: 'cyan'   },
   { label: 'Go',             color: 'cyan'   },
@@ -30,8 +29,17 @@ const stats = [
   { value: '∞',   label: 'Commits pushed',   color: 'amber'  },
 ]
 
-/* 複製兩次確保無縫迴圈 */
 const tickerLoop = [...tickerItems, ...tickerItems]
+
+const GRASS_POKEMON = [
+  { id: 25,  name: '皮卡丘' },
+  { id: 133, name: '伊布'   },
+  { id: 94,  name: '耿鬼'   },
+  { id: 448, name: '路卡利歐' },
+]
+
+const BW_SPRITE = id =>
+  `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${id}.gif`
 
 export default function Home() {
   return (
@@ -69,7 +77,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Right: Terminal */}
+        {/* Right: Terminal（其他主題） */}
         <section className="terminal-col">
           <div className="terminal-window">
             <div className="terminal-titlebar">
@@ -105,6 +113,52 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Right: 寶可夢對戰場景（pokemon 主題專用） */}
+        <section className="pokemon-battle">
+          <div className="pb-arena">
+            {/* 敵方：呆火鱷（右上） */}
+            <div className="pb-enemy-row">
+              <div className="pb-infobox">
+                <span className="pb-name">呆火鱷 <span className="pb-lv">Lv.5</span></span>
+                <div className="pb-hp-row">
+                  <span className="pb-hp-label">HP</span>
+                  <div className="pb-hp-track">
+                    <div className="pb-hp-fill type-fire" style={{ width: '82%' }} />
+                  </div>
+                </div>
+              </div>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/909.png"
+                alt="Fuecoco"
+                className="pb-sprite pb-enemy-sprite"
+              />
+            </div>
+
+            {/* 我方：水水獺（左下） */}
+            <div className="pb-player-row">
+              <img
+                src={BW_SPRITE(501)}
+                alt="Oshawott"
+                className="pb-sprite pb-player-sprite"
+              />
+              <div className="pb-infobox">
+                <span className="pb-name">水水獺 <span className="pb-lv">Lv.5</span></span>
+                <div className="pb-hp-row">
+                  <span className="pb-hp-label">HP</span>
+                  <div className="pb-hp-track">
+                    <div className="pb-hp-fill type-water" style={{ width: '95%' }} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 對話框 */}
+          <div className="pb-dialog">
+            <p className="pb-text">▶ 野生的 呆火鱷 出現了！</p>
+          </div>
+        </section>
+
       </div>
 
       {/* ── Stats Bar ───────────────────────────────── */}
@@ -113,6 +167,21 @@ export default function Home() {
           <div key={i} className={`stat-item stat-${s.color}`}>
             <span className="stat-value">{s.value}</span>
             <span className="stat-label">{s.label}</span>
+          </div>
+        ))}
+      </div>
+
+      {/* ── 寶可夢草叢（pokemon 主題專用） ─────────── */}
+      <div className="pokemon-grass-strip">
+        <div className="pgs-label">！ 野草區域</div>
+        {GRASS_POKEMON.map(p => (
+          <div key={p.id} className="grass-poke">
+            <img
+              src={BW_SPRITE(p.id)}
+              alt={p.name}
+              className="grass-sprite"
+            />
+            <span className="grass-name">{p.name}</span>
           </div>
         ))}
       </div>
