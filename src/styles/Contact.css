@@ -34,11 +34,11 @@
 }
 
 .ct-desc {
-  color: var(--muted);
-  font-size: 0.97rem;
+  color: var(--text-2);
+  font-size: 1.05rem;
   margin: 0;
   max-width: 500px;
-  line-height: 1.7;
+  line-height: 1.8;
 }
 
 /* ── Body ────────────────────────────────────────── */

@@ -86,16 +86,16 @@
 }
 
 .si-key {
-  min-width: 60px;
+  min-width: 65px;
   font-weight: 700;
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   letter-spacing: 0.02em;
   flex-shrink: 0;
 }
 
 .si-val {
-  color: var(--text-2);
-  font-size: 0.78rem;
+  color: var(--text);
+  font-size: 0.9rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -127,7 +127,7 @@
 /* Section titles */
 .section-title {
   font-family: var(--font-mono);
-  font-size: 0.88rem;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--text);
   margin: 0 0 1rem;
@@ -136,10 +136,10 @@
 
 /* Bio */
 .about-bio p {
-  color: var(--muted);
-  line-height: 1.85;
+  color: var(--text-2);
+  line-height: 1.9;
   margin: 0 0 0.875rem;
-  font-size: 0.95rem;
+  font-size: 1.05rem;
 }
 
 .about-bio p:last-child { margin: 0; }
@@ -174,7 +174,7 @@
 
 .tl-year {
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: 0.88rem;
   font-weight: 700;
   color: var(--text);
   letter-spacing: 0.04em;
@@ -233,7 +233,7 @@
 
 .tl-title {
   font-family: var(--font-display);
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: var(--text);
   margin: 0 0 0.2rem;
@@ -242,16 +242,16 @@
 
 .tl-sub {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   color: var(--muted);
   margin: 0 0 0.4rem;
 }
 
 .tl-desc {
-  font-size: 0.85rem;
-  color: var(--dim);
+  font-size: 0.95rem;
+  color: var(--text-2);
   margin: 0;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 /* Skills */
@@ -335,15 +335,15 @@
 
 .skill-name {
   font-family: var(--font-mono);
-  font-size: 0.76rem;
-  color: var(--text-2);
+  font-size: 0.88rem;
+  color: var(--text);
   line-height: 1;
 }
 
 .skill-pct {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
-  color: var(--dim);
+  font-size: 0.8rem;
+  color: var(--muted);
   letter-spacing: 0.02em;
 }
 

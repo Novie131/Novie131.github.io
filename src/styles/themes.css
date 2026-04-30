@@ -31,6 +31,7 @@
 
 /* B/W 路線草地背景 */
 [data-theme="pokemon"] body {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
   background-color: #90d050;
   background-image:
     repeating-linear-gradient(0deg,   transparent, transparent 15px, rgba(0,0,0,0.10) 15px, rgba(0,0,0,0.10) 16px),
