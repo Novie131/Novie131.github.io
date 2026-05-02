@@ -23,15 +23,16 @@
   --primary:      #cc0000;
   --primary-dim:  rgba(204, 0, 0, 0.1);
   --primary-glow: rgba(204, 0, 0, 0.35);
-  --font-display: 'Press Start 2P', monospace;
-  --font-mono:    'Press Start 2P', monospace;
+  --font-display: 'Microsoft JhengHei', '微軟正黑體', sans-serif;
+  --font-mono:    'Microsoft JhengHei', '微軟正黑體', sans-serif;
+  --font-pixel:   'Microsoft JhengHei', '微軟正黑體', sans-serif;
   --radius:       0px;
   --nav-bg:       #cc0000;
 }
 
 /* B/W 路線草地背景 */
 [data-theme="pokemon"] body {
-  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-family: 'Microsoft JhengHei', '微軟正黑體', sans-serif;
   background-color: #90d050;
   background-image:
     repeating-linear-gradient(0deg,   transparent, transparent 15px, rgba(0,0,0,0.10) 15px, rgba(0,0,0,0.10) 16px),
@@ -58,7 +59,7 @@
 
 [data-theme="pokemon"] .nav-links a {
   color: rgba(255, 255, 255, 0.82);
-  font-size: 0.55rem;
+  font-size: 0.85rem;
 }
 [data-theme="pokemon"] .nav-links a:hover {
   color: #ffd700;
@@ -88,14 +89,14 @@
   text-shadow: 3px 3px 0 #1a1a1a;
   letter-spacing: 0.04em;
 }
-[data-theme="pokemon"] .hero-prompt { font-size: 0.65rem; }
-[data-theme="pokemon"] .hero-sub    { font-size: 0.65rem; line-height: 2.4; }
+[data-theme="pokemon"] .hero-prompt { font-size: 0.85rem; }
+[data-theme="pokemon"] .hero-sub    { font-size: 0.85rem; line-height: 2.2; }
 [data-theme="pokemon"] .hero-badge  {
   background: #ffd700;
   border: 2px solid #1a1a1a;
   border-radius: 0;
   color: #1a1a1a;
-  font-size: 0.5rem;
+  font-size: 0.75rem;
   box-shadow: 2px 2px 0 #1a1a1a;
 }
 
@@ -108,7 +109,7 @@
 [data-theme="pokemon"] .btn {
   border: 3px solid #1a1a1a;
   box-shadow: 4px 4px 0 #1a1a1a;
-  font-size: 0.5rem;
+  font-size: 0.8rem;
   border-radius: 0;
   transition: transform 0.08s, box-shadow 0.08s;
 }
@@ -128,7 +129,7 @@
 }
 
 [data-theme="pokemon"] .footer {
-  font-size: 0.48rem;
+  font-size: 0.75rem;
   border-top: 4px solid #1a1a1a;
   color: var(--dim);
   background: #f8f8f0;
@@ -225,12 +226,12 @@
 .bounce-b { animation: bounce-b 2.2s ease-in-out infinite 0.8s; }
 
 .playground-name {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 0.65rem;
+  font-family: 'Microsoft JhengHei', '微軟正黑體', sans-serif;
+  font-size: 0.9rem;
   color: #1a1a1a;
   background: rgba(255,255,255,0.8);
   border: 2px solid #1a1a1a;
-  padding: 0.22rem 0.55rem 0.45rem;
+  padding: 0.22rem 0.55rem;
   letter-spacing: 0.04em;
   white-space: nowrap;
   margin-bottom: 0.5rem;
@@ -252,8 +253,8 @@
 
 /* ── 草叢精靈條 ───────────────────────────────────── */
 .pgs-label {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 0.44rem;
+  font-family: 'Microsoft JhengHei', '微軟正黑體', sans-serif;
+  font-size: 0.75rem;
   color: #fff;
   text-shadow: 1px 1px 0 #1a1a1a;
   background: #3da35d;
@@ -296,8 +297,8 @@
 }
 
 .grass-name {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 0.46rem;
+  font-family: 'Microsoft JhengHei', '微軟正黑體', sans-serif;
+  font-size: 0.75rem;
   color: #fff;
   text-shadow: 1px 1px 0 #1a1a1a;
   white-space: nowrap;
@@ -310,7 +311,7 @@
   background: #f8f8f0;
 }
 [data-theme="pokemon"] .ticker-item {
-  font-size: 0.58rem;
+  font-size: 0.85rem;
   color: #333;
 }
 [data-theme="pokemon"] .ticker-fade-left  { background: linear-gradient(to right, #f8f8f0, transparent); }
