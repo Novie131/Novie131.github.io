@@ -122,11 +122,11 @@ export default function Home() {
 
             <div className="playground-poke">
               <img
-                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/909.png"
-                alt="Fuecoco"
+                src={BW_SPRITE(612)}
+                alt="Haxorus"
                 className="playground-sprite bounce-a"
               />
-              <span className="playground-name">呆火鱷</span>
+              <span className="playground-name">哈力栗</span>
             </div>
 
             <div className="playground-poke">
