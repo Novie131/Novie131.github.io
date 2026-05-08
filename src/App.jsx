@@ -61,11 +61,11 @@ function AppInner() {
             <span className="logo-bracket">&gt;</span>
           </div>
           <ul className={`nav-links${menuOpen ? ' nav-open' : ''}`}>
-            <li><NavLink to="/"          end onClick={closeMenu}>~/home</NavLink></li>
-            <li><NavLink to="/about"         onClick={closeMenu}>~/about</NavLink></li>
-            <li><NavLink to="/portfolio"     onClick={closeMenu}>~/projects</NavLink></li>
-            <li><NavLink to="/resume"        onClick={closeMenu}>~/resume</NavLink></li>
-            <li><NavLink to="/contact"       onClick={closeMenu}>~/contact</NavLink></li>
+            <li><NavLink to="/"          end onClick={closeMenu}>{t('nav.home')}</NavLink></li>
+            <li><NavLink to="/about"         onClick={closeMenu}>{t('nav.about')}</NavLink></li>
+            <li><NavLink to="/portfolio"     onClick={closeMenu}>{t('nav.projects')}</NavLink></li>
+            <li><NavLink to="/resume"        onClick={closeMenu}>{t('nav.resume')}</NavLink></li>
+            <li><NavLink to="/contact"       onClick={closeMenu}>{t('nav.contact')}</NavLink></li>
           </ul>
           <button
             className={`hamburger${menuOpen ? ' is-open' : ''}`}

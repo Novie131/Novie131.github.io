@@ -153,11 +153,6 @@
 .nc-swatch-lang-zh   { background: linear-gradient(135deg, #cc0000, #1a1a1a); }
 .nc-swatch-lang-en   { background: linear-gradient(135deg, #0033a0, #bf0a30); }
 
-.nc-panel-divider {
-  height: 1px;
-  background: var(--border);
-  margin: 0.3rem 0.1rem;
-}
 
 .nc-option-info {
   flex: 1;

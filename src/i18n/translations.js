@@ -1,5 +1,12 @@
 const translations = {
   zh: {
+    // Nav links
+    'nav.home':     '~/首頁',
+    'nav.about':    '~/關於',
+    'nav.projects': '~/作品集',
+    'nav.resume':   '~/履歷',
+    'nav.contact':  '~/聯絡',
+
     'theme.cyber.label':     '未來科技',
     'theme.cyber.desc':      'Cyberpunk',
     'theme.pokemon.label':   '像素寶可夢',
@@ -25,6 +32,13 @@ const translations = {
     'menu.close': '關閉選單',
   },
   en: {
+    // Nav links
+    'nav.home':     '~/home',
+    'nav.about':    '~/about',
+    'nav.projects': '~/projects',
+    'nav.resume':   '~/resume',
+    'nav.contact':  '~/contact',
+
     'theme.cyber.label':     'Cyberpunk',
     'theme.cyber.desc':      'Neon future',
     'theme.pokemon.label':   'Pixel Pokémon',
