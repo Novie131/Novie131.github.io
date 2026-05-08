@@ -86,7 +86,6 @@
   background: none;
   -webkit-text-fill-color: var(--primary);
   color: var(--primary);
-  text-shadow: 3px 3px 0 #1a1a1a;
   letter-spacing: 0.04em;
 }
 [data-theme="pokemon"] .hero-prompt { font-size: 0.85rem; }
@@ -140,7 +139,6 @@
   background: none;
   -webkit-text-fill-color: var(--primary);
   color: var(--primary);
-  text-shadow: 4px 4px 0 #1a1a1a;
 }
 
 /* ── 玩樂場景（Terminal 替換） ────────────────────── */
@@ -256,7 +254,6 @@
   font-family: 'Microsoft JhengHei', '微軟正黑體', sans-serif;
   font-size: 0.75rem;
   color: #fff;
-  text-shadow: 1px 1px 0 #1a1a1a;
   background: #3da35d;
   border-right: 4px solid #1a1a1a;
   padding: 0 0.75rem;
@@ -300,7 +297,6 @@
   font-family: 'Microsoft JhengHei', '微軟正黑體', sans-serif;
   font-size: 0.75rem;
   color: #fff;
-  text-shadow: 1px 1px 0 #1a1a1a;
   white-space: nowrap;
   letter-spacing: 0.04em;
 }
@@ -351,6 +347,51 @@
   .playground-name    { font-size: 0.44rem; }
   .grass-sprite       { width: 50px; height: 50px; }
   .pgs-label          { display: none; }
+}
+
+/* ── Pokemon 漢堡選單 ────────────────────────── */
+[data-theme="pokemon"] .hamburger {
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="pokemon"] .hamburger span { background: #ffffff; }
+
+[data-theme="pokemon"] .hamburger:hover,
+[data-theme="pokemon"] .hamburger.is-open {
+  border-color: #ffd700;
+  background: rgba(255, 215, 0, 0.15);
+}
+
+[data-theme="pokemon"] .hamburger:hover span,
+[data-theme="pokemon"] .hamburger.is-open span { background: #ffd700; }
+
+@media (max-width: 639px) {
+  [data-theme="pokemon"] .nav-links {
+    background: #cc0000;
+    border-bottom: 4px solid #1a1a1a;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  /* Override old inline-nav tiny font-size hacks */
+  [data-theme="pokemon"] .nav-links a {
+    font-size: 0.88rem !important;
+    padding: 0.75rem 1rem !important;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  [data-theme="pokemon"] .nav-links a:hover {
+    color: #ffd700;
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  [data-theme="pokemon"] .nav-links a.active {
+    color: #ffd700;
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 215, 0, 0.5);
+  }
 }
 
 /* ── Corporate ────────────────────────────────────────────────── */

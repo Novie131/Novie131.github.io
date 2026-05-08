@@ -147,7 +147,6 @@
 .about-bio strong {
   color: var(--primary);
   font-weight: 600;
-  text-shadow: 0 0 8px rgba(0, 229, 255, 0.2);
 }
 
 /* ── Timeline ────────────────────────────────────── */
@@ -365,4 +364,14 @@
 
 @keyframes skill-grow {
   to { width: var(--level); }
+}
+
+/* ── Step 3: Timeline mobile fix ─────────────── */
+@media (max-width: 480px) {
+  .tl-item {
+    grid-template-columns: 62px 18px 1fr;
+    gap: 0 0.4rem;
+  }
+  .tl-year { font-size: 0.76rem; letter-spacing: 0; }
+  .tl-type { font-size: 0.5rem; padding: 0.06rem 0.25rem; }
 }

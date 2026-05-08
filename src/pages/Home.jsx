@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useLang } from '../context/LangContext'
 import '../styles/Home.css'
 
 const tickerItems = [
@@ -42,6 +43,7 @@ const BW_SPRITE = id =>
   `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${id}.gif`
 
 export default function Home() {
+  const { t } = useLang()
   return (
     <div className="page home">
 
@@ -122,8 +124,8 @@ export default function Home() {
 
             <div className="playground-poke">
               <img
-                src={BW_SPRITE(612)}
-                alt="Haxorus"
+                src={BW_SPRITE(650)}
+                alt="Chespin"
                 className="playground-sprite bounce-a"
               />
               <span className="playground-name">哈力栗</span>
@@ -155,7 +157,7 @@ export default function Home() {
 
       {/* ── 寶可夢草叢（pokemon 主題專用） ─────────── */}
       <div className="pokemon-grass-strip">
-        <div className="pgs-label">！ 野草區域</div>
+        <div className="pgs-label">{t('poke.grass')}</div>
         {GRASS_POKEMON.map(p => (
           <div key={p.id} className="grass-poke">
             <img

@@ -1,3 +1,4 @@
+import { useLang } from '../context/LangContext'
 import '../styles/Competitions.css'
 
 // ── 請替換為你的真實資料 ──────────────────────────────
@@ -25,15 +26,14 @@ const colorMap = {
 }
 
 export default function Competitions() {
+  const { t } = useLang()
   return (
     <div className="page competitions">
 
       <header className="comp-header">
         <p className="comp-prompt">~/comps $ cat history.json | jq '.competitions'</p>
         <h1>Competitions</h1>
-        <p className="comp-desc">
-          參賽足跡 — 競賽、黑客松與挑戰賽紀錄。
-        </p>
+        <p className="comp-desc">{t('comp.desc')}</p>
       </header>
 
       <section className="comp-section">

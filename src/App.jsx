@@ -6,6 +6,7 @@ import Portfolio from './pages/Portfolio'
 import Contact from './pages/Contact'
 import Resume from './pages/Resume'
 import { ThemeProvider } from './context/ThemeContext'
+import { LangProvider, useLang } from './context/LangContext'
 import NavControls from './components/NavControls'
 import './styles/App.css'
 import './styles/themes.css'
@@ -28,25 +29,26 @@ function AnimatedRoutes() {
 }
 
 function NotFound() {
+  const { t } = useLang()
   return (
     <div className="page not-found">
       <p className="nf-prompt">~/404 $ cat error.log</p>
       <h1 className="nf-code">404</h1>
-      <p className="nf-msg">
-        <span className="tc-green">❯</span> Page not found — 頁面不存在
-      </p>
+      <p className="nf-msg">{t('404.msg')}</p>
       <a href="#/" className="btn btn-outline nf-btn">cd ~/home</a>
     </div>
   )
 }
 
-export default function App() {
+function AppInner() {
+  const { t } = useLang()
   const [viewMode, setViewMode] = useState('desktop')
+  const [menuOpen, setMenuOpen] = useState(false)
   const toggleView = () => setViewMode(v => v === 'desktop' ? 'mobile' : 'desktop')
   const isMobile = viewMode === 'mobile'
+  const closeMenu = () => setMenuOpen(false)
 
   return (
-    <ThemeProvider>
     <Router>
       <div className="app-root" data-view={viewMode}>
 
@@ -58,15 +60,25 @@ export default function App() {
             <span className="logo-slash">/</span>
             <span className="logo-bracket">&gt;</span>
           </div>
-          <ul className="nav-links">
-            <li><NavLink to="/"         end>~/home</NavLink></li>
-            <li><NavLink to="/about"       >~/about</NavLink></li>
-            <li><NavLink to="/portfolio"   >~/projects</NavLink></li>
-            <li><NavLink to="/resume"       >~/resume</NavLink></li>
-            <li><NavLink to="/contact"     >~/contact</NavLink></li>
+          <ul className={`nav-links${menuOpen ? ' nav-open' : ''}`}>
+            <li><NavLink to="/"          end onClick={closeMenu}>~/home</NavLink></li>
+            <li><NavLink to="/about"         onClick={closeMenu}>~/about</NavLink></li>
+            <li><NavLink to="/portfolio"     onClick={closeMenu}>~/projects</NavLink></li>
+            <li><NavLink to="/resume"        onClick={closeMenu}>~/resume</NavLink></li>
+            <li><NavLink to="/contact"       onClick={closeMenu}>~/contact</NavLink></li>
           </ul>
+          <button
+            className={`hamburger${menuOpen ? ' is-open' : ''}`}
+            onClick={() => setMenuOpen(v => !v)}
+            aria-label={menuOpen ? t('menu.close') : t('menu.open')}
+            aria-expanded={menuOpen}
+          >
+            <span /><span /><span />
+          </button>
           <NavControls isMobile={isMobile} onToggleView={toggleView} />
         </nav>
+
+        {menuOpen && <div className="nav-overlay" onClick={closeMenu} aria-hidden="true" />}
 
         <main className="content">
           <AnimatedRoutes />
@@ -83,6 +95,15 @@ export default function App() {
 
       </div>
     </Router>
+  )
+}
+
+export default function App() {
+  return (
+    <ThemeProvider>
+      <LangProvider>
+        <AppInner />
+      </LangProvider>
     </ThemeProvider>
   )
 }

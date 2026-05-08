@@ -1,10 +1,10 @@
 import { createContext, useContext, useState, useEffect } from 'react'
 
 export const themes = [
-  { id: 'cyber',     label: '未來科技',  icon: '🤖', desc: 'Cyberpunk' },
-  { id: 'pokemon',   label: '像素寶可夢', icon: '🎮', desc: 'Pixel RPG' },
-  { id: 'corporate', label: '企業正經版', icon: '💼', desc: 'Corporate' },
-  { id: 'blog',      label: '個人部落格', icon: '📝', desc: 'Blog'      },
+  { id: 'cyber',     icon: '🤖' },
+  { id: 'pokemon',   icon: '🎮' },
+  { id: 'corporate', icon: '💼' },
+  { id: 'blog',      icon: '📝' },
 ]
 
 const ThemeContext = createContext(null)
