@@ -1,3 +1,4 @@
+import { useLang } from '../context/LangContext'
 import '../styles/Resume.css'
 
 // ── 請替換為你的真實資料 ──────────────────────────────
@@ -107,15 +108,14 @@ const colorMap = {
 }
 
 export default function Resume() {
+  const { t } = useLang()
   return (
     <div className="page resume">
 
       <header className="resume-header">
         <p className="resume-prompt">~/resume $ cat resume.json | jq '.'</p>
         <h1>Resume</h1>
-        <p className="resume-desc">
-          認證、參賽紀錄與自學課程 — 持續學習的完整足跡。
-        </p>
+        <p className="resume-desc">{t('resume.desc')}</p>
       </header>
 
       {/* ── Certifications ─────────────────────────── */}

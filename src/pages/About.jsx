@@ -1,3 +1,4 @@
+import { useLang } from '../context/LangContext'
 import '../styles/About.css'
 
 const sysInfo = [
@@ -56,42 +57,52 @@ const skills = [
 
 const palette = ['#00e5ff','#a855f7','#00ff9f','#ff2d95','#fbbf24','#60a5fa','#34d399','#f472b6']
 
+const bio = {
+  zh: [
+    <>我不是從教科書開始學程式的。最初只是想做一個「自己用起來會爽」的工具，結果一路從一個 script 寫到全端系統，從串 API 玩到訓練模型。</>,
+    <>現在我最享受的狀態是：一個人從頭把一個想法做到能跑、能用、能給別人看。不管是 CLI 工具、Bot、還是有介面的 Web App — 我喜歡把整條鏈串起來的感覺。</>,
+    <>對 <strong>LLM</strong> 和 <strong>AI Agent</strong> 特別著迷。不是因為它潮，而是因為它讓「一個人能做到的事」的上限變高了。我在探索怎麼把這個能力嵌進真實的工作流程裡。</>,
+  ],
+  en: [
+    <>I didn&apos;t start coding from textbooks. I began just wanting to build tools that felt good to use, and ended up going from a single script to full-stack systems, from calling APIs to training models.</>,
+    <>What I enjoy most: taking an idea solo from zero to something that runs, works, and can be shown to others. Whether it&apos;s a CLI tool, a bot, or a full web app — I love owning the entire chain.</>,
+    <>I&apos;m particularly drawn to <strong>LLMs</strong> and <strong>AI Agents</strong>. Not because they&apos;re trendy, but because they raise the ceiling of what one person can build. I&apos;m exploring how to embed that capability into real workflows.</>,
+  ],
+}
+
 const timeline = [
   {
     year: '2025/9',
-    title: '臺中科技大學',
-    sub: '研究所',
-    desc: '',
+    title: { zh: '臺中科技大學', en: 'NCUT' },
+    sub:   { zh: '研究所',       en: 'Graduate School' },
     color: 'cyan',
     type: 'education',
   },
   {
     year: '2023/9',
-    title: '臺中科技大學',
-    sub: '二技部',
-    desc: '',
+    title: { zh: '臺中科技大學', en: 'NCUT' },
+    sub:   { zh: '二技部',       en: "Bachelor's (Transfer)" },
     color: 'purple',
     type: 'education',
   },
   {
     year: '2023/7',
-    title: '加入 Imac 社群',
-    sub: 'Imac',
-    desc: '',
+    title: { zh: '加入 Imac 社群', en: 'Joined Imac Community' },
+    sub:   { zh: 'Imac',          en: 'Imac' },
     color: 'green',
     type: 'project',
   },
   {
     year: '2018/9',
-    title: '臺中科技大學',
-    sub: '五專部',
-    desc: '',
+    title: { zh: '臺中科技大學', en: 'NCUT' },
+    sub:   { zh: '五專部',       en: '5-Year Associate Program' },
     color: 'amber',
     type: 'education',
   },
 ]
 
 export default function About() {
+  const { lang } = useLang()
   return (
     <div className="page about">
       <p className="about-term-header">~/about $ neofetch</p>
@@ -132,19 +143,7 @@ export default function About() {
             <h2 className="section-title">
               <span className="tc-purple">// </span>whoami
             </h2>
-            <p>
-              我不是從教科書開始學程式的。最初只是想做一個「自己用起來會爽」的工具，
-              結果一路從一個 script 寫到全端系統，從串 API 玩到訓練模型。
-            </p>
-            <p>
-              現在我最享受的狀態是：一個人從頭把一個想法做到能跑、能用、能給別人看。
-              不管是 CLI 工具、Bot、還是有介面的 Web App — 我喜歡把整條鏈串起來的感覺。
-            </p>
-            <p>
-              對 <strong>LLM</strong> 和 <strong>AI Agent</strong> 特別著迷。
-              不是因為它潮，而是因為它讓「一個人能做到的事」的上限變高了。
-              我在探索怎麼把這個能力嵌進真實的工作流程裡。
-            </p>
+            {bio[lang].map((para, i) => <p key={i}>{para}</p>)}
           </section>
 
           <section className="timeline-section">
@@ -163,9 +162,8 @@ export default function About() {
                     {i < timeline.length - 1 && <div className="tl-connector" />}
                   </div>
                   <div className="tl-content">
-                    <h3 className="tl-title">{item.title}</h3>
-                    <p className="tl-sub">{item.sub}</p>
-                    {item.desc && <p className="tl-desc">{item.desc}</p>}
+                    <h3 className="tl-title">{item.title[lang]}</h3>
+                    <p className="tl-sub">{item.sub[lang]}</p>
                   </div>
                 </div>
               ))}

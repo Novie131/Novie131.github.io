@@ -45,10 +45,10 @@
   line-height: 1;
 }
 
-.stat-cyan   .stat-value { color: var(--neon-cyan);   text-shadow: 0 0 12px rgba(0,229,255,0.4);   }
-.stat-purple .stat-value { color: var(--neon-purple);  text-shadow: 0 0 12px rgba(168,85,247,0.4);  }
-.stat-green  .stat-value { color: var(--neon-green);   text-shadow: 0 0 12px rgba(0,255,159,0.4);   }
-.stat-amber  .stat-value { color: #fbbf24;             text-shadow: 0 0 12px rgba(251,191,36,0.4);  }
+.stat-cyan   .stat-value { color: var(--neon-cyan);   }
+.stat-purple .stat-value { color: var(--neon-purple);  }
+.stat-green  .stat-value { color: var(--neon-green);   }
+.stat-amber  .stat-value { color: #fbbf24;             }
 
 .stat-label {
   font-family: var(--font-mono);
@@ -342,7 +342,6 @@
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.1em;
-  text-shadow: 0 0 8px var(--primary-glow);
 }
 
 .badge-dot {

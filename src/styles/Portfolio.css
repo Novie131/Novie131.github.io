@@ -73,7 +73,6 @@
   background: var(--primary-dim);
   border-color: var(--neon-cyan);
   color: var(--neon-cyan);
-  text-shadow: 0 0 8px rgba(0,229,255,0.4);
 }
 
 .filter-count {
@@ -336,7 +335,7 @@
 }
 
 .project-link.primary:hover {
-  text-shadow: 0 0 8px var(--primary-glow);
+  opacity: 0.85;
 }
 
 .project-link.secondary {

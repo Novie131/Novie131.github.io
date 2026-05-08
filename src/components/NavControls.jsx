@@ -1,9 +1,11 @@
 import { useState, useRef, useEffect } from 'react'
 import { useTheme } from '../context/ThemeContext'
+import { useLang } from '../context/LangContext'
 import '../styles/NavControls.css'
 
 export default function NavControls({ isMobile, onToggleView }) {
   const { theme, setTheme, themes } = useTheme()
+  const { lang, setLang, t } = useLang()
   const [open, setOpen] = useState(false)
   const [themeOpen, setThemeOpen] = useState(false)
   const ref = useRef(null)
@@ -64,21 +66,37 @@ export default function NavControls({ isMobile, onToggleView }) {
       {/* 主題下拉選單 */}
       {themeOpen && (
         <div className="nc-theme-panel" role="menu">
-          <div className="nc-panel-header">STYLE</div>
-          {themes.map(t => (
+          <div className="nc-panel-header">{t('panel.style')}</div>
+          {themes.map(themeOpt => (
             <button
-              key={t.id}
-              className={`nc-theme-option${theme === t.id ? ' is-active' : ''}`}
-              onClick={() => { setTheme(t.id); setThemeOpen(false); setOpen(false) }}
+              key={themeOpt.id}
+              className={`nc-theme-option${theme === themeOpt.id ? ' is-active' : ''}`}
+              onClick={() => { setTheme(themeOpt.id); setThemeOpen(false); setOpen(false) }}
               role="menuitem"
-              aria-label={`切換到${t.label}風格`}
             >
-              <span className={`nc-swatch nc-swatch-${t.id}`} />
+              <span className={`nc-swatch nc-swatch-${themeOpt.id}`} />
               <span className="nc-option-info">
-                <span className="nc-option-label">{t.icon} {t.label}</span>
-                <span className="nc-option-desc">{t.desc}</span>
+                <span className="nc-option-label">{themeOpt.icon} {t(`theme.${themeOpt.id}.label`)}</span>
+                <span className="nc-option-desc">{t(`theme.${themeOpt.id}.desc`)}</span>
               </span>
-              {theme === t.id && <span className="nc-check" aria-hidden>✓</span>}
+              {theme === themeOpt.id && <span className="nc-check" aria-hidden>✓</span>}
+            </button>
+          ))}
+
+          <div className="nc-panel-divider" />
+          <div className="nc-panel-header">{t('panel.lang')}</div>
+          {['zh', 'en'].map(langOpt => (
+            <button
+              key={langOpt}
+              className={`nc-theme-option${lang === langOpt ? ' is-active' : ''}`}
+              onClick={() => { setLang(langOpt); setThemeOpen(false); setOpen(false) }}
+              role="menuitem"
+            >
+              <span className={`nc-swatch nc-swatch-lang-${langOpt}`} />
+              <span className="nc-option-info">
+                <span className="nc-option-label">{t(`lang.${langOpt}`)}</span>
+              </span>
+              {lang === langOpt && <span className="nc-check" aria-hidden>✓</span>}
             </button>
           ))}
         </div>

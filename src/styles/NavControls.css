@@ -150,6 +150,14 @@
 .nc-swatch-pokemon   { background: linear-gradient(135deg, #cc0000, #ffd700); }
 .nc-swatch-corporate { background: linear-gradient(135deg, #2563eb, #7c3aed); }
 .nc-swatch-blog      { background: linear-gradient(135deg, #e25c2c, #f57f17); }
+.nc-swatch-lang-zh   { background: linear-gradient(135deg, #cc0000, #1a1a1a); }
+.nc-swatch-lang-en   { background: linear-gradient(135deg, #0033a0, #bf0a30); }
+
+.nc-panel-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 0.3rem 0.1rem;
+}
 
 .nc-option-info {
   flex: 1;

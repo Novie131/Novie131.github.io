@@ -1,3 +1,4 @@
+import { useLang } from '../context/LangContext'
 import '../styles/Contact.css'
 
 const links = [
@@ -43,14 +44,13 @@ const openTo = [
 ]
 
 export default function Contact() {
+  const { t } = useLang()
   return (
     <div className="page contact">
       <header className="contact-header">
         <p className="ct-prompt">~/contact $ cat links.json</p>
         <h1>Contact</h1>
-        <p className="ct-desc">
-          有任何合作機會、技術交流或專案想法，歡迎隨時聯繫。
-        </p>
+        <p className="ct-desc">{t('contact.desc')}</p>
       </header>
 
       <div className="contact-body">
