@@ -64,24 +64,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  padding: 0;
+  padding: 0.3rem;
   background: transparent;
-  border: 1px solid var(--border-hi);
-  border-radius: 6px;
+  border: none;
   color: var(--muted);
   cursor: pointer;
-  transition: color 0.15s, border-color 0.15s, background 0.15s;
+  transition: color 0.15s;
 }
 
-.nc-toggle-icon { font-size: 1rem; line-height: 1; }
+.nc-toggle-icon { font-size: 0.9rem; line-height: 1; }
 
 .nc-toggle:hover,
 .nc-toggle.is-open {
   color: var(--primary);
-  border-color: var(--primary);
-  background: var(--primary-dim);
+  background: transparent;
 }
 
 /* 下拉面板 */
@@ -173,15 +169,22 @@
 .nc-check { font-size: 0.75rem; flex-shrink: 0; }
 
 /* ── Pokemon 主題覆寫 ─────────────────────────────── */
-[data-theme="pokemon"] .nc-toggle,
+[data-theme="pokemon"] .nc-toggle {
+  border: none;
+  color: rgba(255, 255, 255, 0.85);
+  background: transparent;
+}
+[data-theme="pokemon"] .nc-toggle:hover,
+[data-theme="pokemon"] .nc-toggle.is-open {
+  color: #ffd700;
+  background: transparent;
+}
 [data-theme="pokemon"] .nc-btn {
   border: 2px solid rgba(255, 255, 255, 0.6);
   border-radius: 0;
   color: rgba(255, 255, 255, 0.85);
   background: rgba(255, 255, 255, 0.1);
 }
-[data-theme="pokemon"] .nc-toggle:hover,
-[data-theme="pokemon"] .nc-toggle.is-open,
 [data-theme="pokemon"] .nc-btn:hover,
 [data-theme="pokemon"] .nc-btn.is-active {
   border-color: #ffd700;
