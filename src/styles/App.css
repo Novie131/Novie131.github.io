@@ -39,6 +39,7 @@
 }
 
 /* ── Reset ─────────────────────────────────────────── */
+html { font-size: 17px; }
 *, *::before, *::after { box-sizing: border-box; }
 
 body {
@@ -121,10 +122,10 @@ body {
   display: block;
   text-decoration: none;
   font-family: var(--font-mono);
-  font-size: 0.93rem;
+  font-size: 0.9rem;
   font-weight: 500;
   color: var(--muted);
-  padding: 0.45rem 0.85rem;
+  padding: 0.45rem 0.9rem;
   border-radius: 6px;
   border: 1px solid transparent;
   transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
@@ -423,7 +424,7 @@ body {
 
   .nav-links a {
     padding: 0.75rem 1rem;
-    font-size: 0.93rem;
+    font-size: 0.9rem;
     border-radius: 6px;
     width: 100%;
   }
