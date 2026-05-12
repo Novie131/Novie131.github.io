@@ -145,8 +145,12 @@ body {
 /* ── Layout ────────────────────────────────────────── */
 .content {
   padding: 2.5rem 2rem;
-  max-width: 1200px;
+  max-width: 1440px;
   margin: 0 auto;
+}
+
+@media (min-width: 1280px) {
+  .content { padding: 3rem clamp(2rem, 4vw, 5rem); }
 }
 
 .page {
@@ -155,6 +159,10 @@ body {
   border-radius: var(--radius);
   padding: 2.5rem;
   position: relative;
+}
+
+@media (min-width: 1280px) {
+  .page { padding: 3rem 3.5rem; }
 }
 
 /* Decorative corner brackets */
@@ -430,8 +438,8 @@ body {
   }
 
   /* Step 2: reduce padding */
-  .content { padding: 1.5rem 1rem; }
-  .page    { padding: 1.5rem 1.25rem; }
+  .content { padding: 1.25rem 0.875rem; }
+  .page    { padding: 1.25rem 1rem; }
 }
 
 @keyframes mobileNavIn {
