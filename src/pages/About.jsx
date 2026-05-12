@@ -2,19 +2,20 @@ import { useLang } from '../context/LangContext'
 import '../styles/About.css'
 
 const sysInfo = [
-  { key: 'Name',     value: 'Novie131',           cls: 'tc-cyan'   },
-  { key: 'Role',     value: 'Full-Stack · AI Eng', cls: 'tc-purple' },
-  { key: 'OS',       value: 'Windows / macOS',     cls: null        },
-  { key: 'Shell',    value: 'bash / zsh',           cls: null        },
-  { key: 'Editor',   value: 'VS Code · Neovim',    cls: null        },
-  { key: 'Uptime',   value: '3+ years',            cls: 'tc-amber'  },
-  { key: 'Location', value: 'Taiwan',              cls: null        },
-  { key: 'Focus',    value: 'LLM · RAG · DevOps',  cls: 'tc-green'  },
+  { labelKey: 'si.name',     value: 'Kai-Tse Cheng',      cls: 'tc-cyan'   },
+  { labelKey: 'si.role',     valueKey: 'si.role.val',      cls: 'tc-purple' },
+  { labelKey: 'si.os',       value: 'Windows / macOS',     cls: null        },
+  { labelKey: 'si.shell',    value: 'bash / zsh',          cls: null        },
+  { labelKey: 'si.editor',   value: 'VS Code · Neovim',   cls: null        },
+  { labelKey: 'si.uptime',   valueKey: 'si.uptime.val',    cls: 'tc-amber'  },
+  { labelKey: 'si.location', value: 'Taiwan',              cls: null        },
+  { labelKey: 'si.focus',    value: 'LLM · RAG · DevOps', cls: 'tc-green'  },
 ]
 
 const skills = [
   {
     category: 'Frontend',
+    categoryKey: 'skill.frontend',
     tag: '<UI/>',
     items: [
       { name: 'React / Next.js', level: 90 },
@@ -25,6 +26,7 @@ const skills = [
   },
   {
     category: 'Backend',
+    categoryKey: 'skill.backend',
     tag: '{API}',
     items: [
       { name: 'Node.js',          level: 80 },
@@ -120,10 +122,10 @@ export default function About() {
           <div className="si-divider" />
 
           <dl className="si-table">
-            {sysInfo.map(({ key, value, cls }) => (
-              <div key={key} className="si-row">
-                <dt className="si-key tc-cyan">{key}</dt>
-                <dd className={`si-val ${cls ?? ''}`}>{value}</dd>
+            {sysInfo.map(({ labelKey, value, valueKey, cls }) => (
+              <div key={labelKey} className="si-row">
+                <dt className="si-key tc-cyan">{t(labelKey)}</dt>
+                <dd className={`si-val ${cls ?? ''}`}>{valueKey ? t(valueKey) : value}</dd>
               </div>
             ))}
           </dl>
@@ -179,7 +181,7 @@ export default function About() {
                 <div key={group.category} className="skill-group">
                   <div className="skill-group-header">
                     <span className="skill-tag">{group.tag}</span>
-                    <h3>{group.category}</h3>
+                    <h3>{group.categoryKey ? t(group.categoryKey) : group.category}</h3>
                   </div>
                   <ul className="skill-list">
                     {group.items.map((skill, i) => (

@@ -57,6 +57,24 @@ const translations = {
     'comp.desc':           '參賽足跡 — 競賽、黑客松與挑戰賽紀錄。',
     'comp.view':           '查看 →',
 
+    // About — sysInfo labels
+    'si.name':       '名稱',
+    'si.role':       '職稱',
+    'si.os':         '作業系統',
+    'si.shell':      'Shell',
+    'si.editor':     '編輯器',
+    'si.uptime':     '資歷',
+    'si.location':   '位置',
+    'si.focus':      '專注領域',
+
+    // About — sysInfo values
+    'si.role.val':   '全端 · AI 工程師',
+    'si.uptime.val': '3+ 年',
+
+    // About — skill categories
+    'skill.frontend': '前端',
+    'skill.backend':  '後端',
+
     'poke.grass': '！ 野草區域',
     '404.msg':    '❯ Page not found — 頁面不存在',
     'menu.open':  '開啟選單',
@@ -119,6 +137,24 @@ const translations = {
     'comp.title':          'Competitions',
     'comp.desc':           'Competition history — contests, hackathons, and challenge records.',
     'comp.view':           'view →',
+
+    // About — sysInfo labels
+    'si.name':       'Name',
+    'si.role':       'Role',
+    'si.os':         'OS',
+    'si.shell':      'Shell',
+    'si.editor':     'Editor',
+    'si.uptime':     'Uptime',
+    'si.location':   'Location',
+    'si.focus':      'Focus',
+
+    // About — sysInfo values
+    'si.role.val':   'Full-Stack · AI Eng',
+    'si.uptime.val': '3+ years',
+
+    // About — skill categories
+    'skill.frontend': 'Frontend',
+    'skill.backend':  'Backend',
 
     'poke.grass': '! Tall Grass',
     '404.msg':    '❯ Page not found',
