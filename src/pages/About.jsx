@@ -104,7 +104,7 @@ const timeline = [
 ]
 
 export default function About() {
-  const { lang } = useLang()
+  const { lang, t } = useLang()
   return (
     <div className="page about">
       <p className="about-term-header">~/about $ neofetch</p>
