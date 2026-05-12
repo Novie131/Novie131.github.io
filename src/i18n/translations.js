@@ -21,10 +21,41 @@ const translations = {
     'lang.zh':     '繁體中文',
     'lang.en':     'English',
 
-    'port.desc':    '從 Go CLI 工具、AI Bot 到 Chrome Extension，以下專案涵蓋全端開發、LLM 整合與雲端部署的完整實作能力。',
-    'contact.desc': '有任何合作機會、技術交流或專案想法，歡迎隨時聯繫。',
-    'resume.desc':  '認證、參賽紀錄與自學課程 — 持續學習的完整足跡。',
-    'comp.desc':    '參賽足跡 — 競賽、黑客松與挑戰賽紀錄。',
+    // Home
+    'home.badge':          'FULL-STACK · AI 工程師',
+    'home.sub':            '打造系統 · 訓練模型 · 交付產品',
+    'home.btn.projects':   './查看作品集',
+    'home.btn.about':      'cat about.md',
+    'stat.years':          '年資歷',
+    'stat.projects':       '上線作品',
+    'stat.stack':          '技術棧',
+    'stat.commits':        '程式提交',
+
+    // Portfolio
+    'port.title':          '精選作品',
+    'port.filter.all':     '全部',
+    'port.count':          '個作品',
+    'port.github':         '[GitHub] →',
+    'port.demo':           'Live Demo →',
+    'port.desc':           '從 Go CLI 工具、AI Bot 到 Chrome Extension，以下專案涵蓋全端開發、LLM 整合與雲端部署的完整實作能力。',
+
+    // Contact
+    'contact.title':       '聯絡',
+    'contact.desc':        '有任何合作機會、技術交流或專案想法，歡迎隨時聯繫。',
+    'open.fulltime':       '全職工作機會',
+    'open.freelance':      '接案合作',
+    'open.aiml':           'AI / ML 技術合作',
+    'open.oss':            '開源貢獻',
+
+    // Resume
+    'resume.title':        '履歷',
+    'resume.desc':         '認證、參賽紀錄與自學課程 — 持續學習的完整足跡。',
+    'resume.verify':       '驗證 →',
+
+    // Competitions
+    'comp.title':          '競賽',
+    'comp.desc':           '參賽足跡 — 競賽、黑客松與挑戰賽紀錄。',
+    'comp.view':           '查看 →',
 
     'poke.grass': '！ 野草區域',
     '404.msg':    '❯ Page not found — 頁面不存在',
@@ -53,10 +84,41 @@ const translations = {
     'lang.zh':     '繁體中文',
     'lang.en':     'English',
 
-    'port.desc':    'From Go CLI tools and AI bots to Chrome extensions — covering full-stack development, LLM integration, and cloud deployment.',
-    'contact.desc': 'Open to collaborations, technical exchanges, or any project ideas — feel free to reach out.',
-    'resume.desc':  'Certifications, competition records, and self-study courses — a complete record of continuous learning.',
-    'comp.desc':    'Competition history — contests, hackathons, and challenge records.',
+    // Home
+    'home.badge':          'FULL-STACK · AI ENGINEER',
+    'home.sub':            'Building systems · Training models · Shipping products',
+    'home.btn.projects':   './view_projects',
+    'home.btn.about':      'cat about.md',
+    'stat.years':          'Years coding',
+    'stat.projects':       'Projects shipped',
+    'stat.stack':          'Tech stack',
+    'stat.commits':        'Commits pushed',
+
+    // Portfolio
+    'port.title':          'Selected Projects',
+    'port.filter.all':     'All',
+    'port.count':          'projects',
+    'port.github':         '[GitHub] →',
+    'port.demo':           'Live Demo →',
+    'port.desc':           'From Go CLI tools and AI bots to Chrome extensions — covering full-stack development, LLM integration, and cloud deployment.',
+
+    // Contact
+    'contact.title':       'Contact',
+    'contact.desc':        'Open to collaborations, technical exchanges, or any project ideas — feel free to reach out.',
+    'open.fulltime':       'Full-time opportunities',
+    'open.freelance':      'Freelance projects',
+    'open.aiml':           'AI / ML collaboration',
+    'open.oss':            'Open source contributions',
+
+    // Resume
+    'resume.title':        'Resume',
+    'resume.desc':         'Certifications, competition records, and self-study courses — a complete record of continuous learning.',
+    'resume.verify':       'verify →',
+
+    // Competitions
+    'comp.title':          'Competitions',
+    'comp.desc':           'Competition history — contests, hackathons, and challenge records.',
+    'comp.view':           'view →',
 
     'poke.grass': '! Tall Grass',
     '404.msg':    '❯ Page not found',

@@ -113,7 +113,12 @@ const projects = [
   },
 ]
 
-const filters = ['All', 'AI', 'Bot', 'Extension']
+const filters = [
+  { key: 'All', labelKey: 'port.filter.all' },
+  { key: 'AI',        label: 'AI'        },
+  { key: 'Bot',       label: 'Bot'       },
+  { key: 'Extension', label: 'Extension' },
+]
 
 export default function Portfolio() {
   const { lang, t } = useLang()
@@ -127,21 +132,21 @@ export default function Portfolio() {
     <div className="page portfolio">
       <header className="portfolio-header">
         <p className="port-term-prompt">~/projects $ ls -la --sort=stars</p>
-        <h1>Selected Projects</h1>
+        <h1>{t('port.title')}</h1>
         <p className="port-desc">{t('port.desc')}</p>
       </header>
 
       <div className="filter-bar">
         {filters.map(f => (
           <button
-            key={f}
-            className={`filter-btn${active === f ? ' active' : ''}`}
-            onClick={() => setActive(f)}
+            key={f.key}
+            className={`filter-btn${active === f.key ? ' active' : ''}`}
+            onClick={() => setActive(f.key)}
           >
-            {f}
+            {f.labelKey ? t(f.labelKey) : f.label}
           </button>
         ))}
-        <span className="filter-count tc-dim">{visible.length} projects</span>
+        <span className="filter-count tc-dim">{visible.length} {t('port.count')}</span>
       </div>
 
       <div className="project-grid">
@@ -183,7 +188,7 @@ export default function Portfolio() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  [GitHub] →
+                  {t('port.github')}
                 </a>
                 {project.demoLink !== '#' && (
                   <a
@@ -192,7 +197,7 @@ export default function Portfolio() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    Live Demo →
+                    {t('port.demo')}
                   </a>
                 )}
               </div>

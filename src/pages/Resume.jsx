@@ -114,7 +114,7 @@ export default function Resume() {
 
       <header className="resume-header">
         <p className="resume-prompt">~/resume $ cat resume.json | jq '.'</p>
-        <h1>Resume</h1>
+        <h1>{t('resume.title')}</h1>
         <p className="resume-desc">{t('resume.desc')}</p>
       </header>
 
@@ -146,7 +146,7 @@ export default function Resume() {
                 </div>
                 {cert.link !== '#' && (
                   <a href={cert.link} className="cert-link" target="_blank" rel="noreferrer">
-                    verify →
+                    {t('resume.verify')}
                   </a>
                 )}
               </div>
@@ -184,7 +184,7 @@ export default function Resume() {
                 </div>
                 {comp.link !== '#' && (
                   <a href={comp.link} className="comp-link" target="_blank" rel="noreferrer">
-                    view →
+                    {t('comp.view')}
                   </a>
                 )}
               </div>

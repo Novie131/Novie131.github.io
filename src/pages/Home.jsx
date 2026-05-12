@@ -24,10 +24,10 @@ const tickerItems = [
 ]
 
 const stats = [
-  { value: '3+',  label: 'Years coding',    color: 'cyan'   },
-  { value: '4',   label: 'Projects shipped', color: 'purple' },
-  { value: '18+', label: 'Tech stack',       color: 'green'  },
-  { value: '∞',   label: 'Commits pushed',   color: 'amber'  },
+  { value: '3+',  labelKey: 'stat.years',    color: 'cyan'   },
+  { value: '4',   labelKey: 'stat.projects', color: 'purple' },
+  { value: '18+', labelKey: 'stat.stack',    color: 'green'  },
+  { value: '∞',   labelKey: 'stat.commits',  color: 'amber'  },
 ]
 
 const tickerLoop = [...tickerItems, ...tickerItems]
@@ -58,7 +58,7 @@ export default function Home() {
             </div>
             <span className="hero-badge">
               <span className="badge-dot" />
-              FULL-STACK · AI ENGINEER
+              {t('home.badge')}
             </span>
           </div>
 
@@ -68,14 +68,14 @@ export default function Home() {
           </h1>
 
           <p className="hero-sub">
-            <span className="tc-green">❯</span> Building systems · Training models · Shipping products
+            <span className="tc-green">❯</span> {t('home.sub')}
           </p>
 
           <div className="hero-actions">
             <Link to="/portfolio" className="btn btn-primary">
-              ./view_projects <span className="btn-arrow">→</span>
+              {t('home.btn.projects')} <span className="btn-arrow">→</span>
             </Link>
-            <Link to="/about" className="btn btn-outline">cat about.md</Link>
+            <Link to="/about" className="btn btn-outline">{t('home.btn.about')}</Link>
           </div>
         </section>
 
@@ -150,7 +150,7 @@ export default function Home() {
         {stats.map((s, i) => (
           <div key={i} className={`stat-item stat-${s.color}`}>
             <span className="stat-value">{s.value}</span>
-            <span className="stat-label">{s.label}</span>
+            <span className="stat-label">{t(s.labelKey)}</span>
           </div>
         ))}
       </div>

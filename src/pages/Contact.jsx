@@ -44,12 +44,7 @@ const links = [
   },
 ]
 
-const openTo = [
-  'Full-time opportunities',
-  'Freelance projects',
-  'AI / ML collaboration',
-  'Open source contributions',
-]
+const openToKeys = ['open.fulltime', 'open.freelance', 'open.aiml', 'open.oss']
 
 export default function Contact() {
   const { t } = useLang()
@@ -57,7 +52,7 @@ export default function Contact() {
     <div className="page contact">
       <header className="contact-header">
         <p className="ct-prompt">~/contact $ cat links.json</p>
-        <h1>Contact</h1>
+        <h1>{t('contact.title')}</h1>
         <p className="ct-desc">{t('contact.desc')}</p>
       </header>
 
@@ -95,9 +90,9 @@ export default function Contact() {
             <span className="tc-purple">// </span>open_to
           </h2>
           <ul className="open-list">
-            {openTo.map(item => (
-              <li key={item}>
-                <span className="tc-green">▸</span> {item}
+            {openToKeys.map(key => (
+              <li key={key}>
+                <span className="tc-green">▸</span> {t(key)}
               </li>
             ))}
           </ul>

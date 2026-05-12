@@ -32,7 +32,7 @@ export default function Competitions() {
 
       <header className="comp-header">
         <p className="comp-prompt">~/comps $ cat history.json | jq '.competitions'</p>
-        <h1>Competitions</h1>
+        <h1>{t('comp.title')}</h1>
         <p className="comp-desc">{t('comp.desc')}</p>
       </header>
 
@@ -65,7 +65,7 @@ export default function Competitions() {
                 </div>
                 {comp.link !== '#' && (
                   <a href={comp.link} className="comp-link" target="_blank" rel="noreferrer">
-                    view →
+                    {t('comp.view')}
                   </a>
                 )}
               </div>
