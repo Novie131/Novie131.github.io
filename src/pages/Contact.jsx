@@ -6,7 +6,15 @@ const links = [
     key: 'email',
     label: 'Email',
     value: 'Zkzcfg8520@gmail.com',
-    href: 'mailto:Zkzcfg8520@gmail.com',
+    href: null,
+    icon: '✉',
+    color: 'cyan',
+  },
+  {
+    key: 'email2',
+    label: 'Email (alt)',
+    value: 'Ckt30014@gmail.com',
+    href: null,
     icon: '✉',
     color: 'cyan',
   },
@@ -21,8 +29,8 @@ const links = [
   {
     key: 'linkedin',
     label: 'LinkedIn',
-    value: 'linkedin.com/in/novie131',
-    href: '#',
+    value: 'linkedin.com/in/kai-tse-cheng',
+    href: 'https://www.linkedin.com/in/kai-tse-cheng-ab266835b/',
     icon: '⊕',
     color: 'amber',
   },
@@ -30,7 +38,7 @@ const links = [
     key: 'location',
     label: 'Location',
     value: 'Taiwan 🇹🇼',
-    href: null,
+    href: 'https://www.google.com/maps/place/Taiwan/',
     icon: '◉',
     color: 'green',
   },
@@ -57,29 +65,28 @@ export default function Contact() {
 
         {/* ── Link cards ─────────────────────────── */}
         <section className="links-grid">
-          {links.map(link => (
-            <div key={link.key} className={`link-card color-${link.color}`}>
-              <div className="lc-icon">{link.icon}</div>
-              <div className="lc-content">
-                <span className="lc-label">{link.label}</span>
-                {link.href && link.href !== '#' ? (
-                  <a
-                    className="lc-value"
-                    href={link.href}
-                    target={link.href.startsWith('http') ? '_blank' : undefined}
-                    rel="noreferrer"
-                  >
-                    {link.value}
-                  </a>
-                ) : (
+          {links.map(link => {
+            const isLink = link.href && link.href !== '#'
+            const Tag = isLink ? 'a' : 'div'
+            return (
+              <Tag
+                key={link.key}
+                className={`link-card color-${link.color}`}
+                {...(isLink && {
+                  href: link.href,
+                  target: link.href.startsWith('http') ? '_blank' : undefined,
+                  rel: 'noreferrer',
+                })}
+              >
+                <div className="lc-icon">{link.icon}</div>
+                <div className="lc-content">
+                  <span className="lc-label">{link.label}</span>
                   <span className="lc-value">{link.value}</span>
-                )}
-              </div>
-              {link.href && link.href !== '#' && (
-                <span className="lc-arrow">→</span>
-              )}
-            </div>
-          ))}
+                </div>
+                {isLink && <span className="lc-arrow">→</span>}
+              </Tag>
+            )
+          })}
         </section>
 
         {/* ── Open to ────────────────────────────── */}

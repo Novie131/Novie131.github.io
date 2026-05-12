@@ -56,7 +56,7 @@ export default function NavControls({ isMobile, onToggleView }) {
             <span className="nc-label">{isMobile ? 'Desktop' : 'Mobile'}</span>
           </button>
 
-          {/* 網站外觀 */}
+          {/* Theme button disabled
           <button
             className={`nc-btn${themeOpen ? ' is-active' : ''}`}
             onClick={handleThemeToggle}
@@ -65,6 +65,7 @@ export default function NavControls({ isMobile, onToggleView }) {
             <span className="nc-icon" aria-hidden>🎨</span>
             <span className="nc-label">Theme</span>
           </button>
+          */}
 
           {/* 語言切換 */}
           <button
@@ -89,7 +90,7 @@ export default function NavControls({ isMobile, onToggleView }) {
         <span className="nc-toggle-icon" aria-hidden>{open ? '✕' : '⚙'}</span>
       </button>
 
-      {/* 外觀下拉 */}
+      {/* Theme panel disabled
       {themeOpen && (
         <div className="nc-theme-panel" role="menu">
           <div className="nc-panel-header">{t('panel.style')}</div>
@@ -110,6 +111,7 @@ export default function NavControls({ isMobile, onToggleView }) {
           ))}
         </div>
       )}
+      */}
 
       {/* 語言下拉 */}
       {langOpen && (

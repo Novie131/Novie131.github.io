@@ -10,14 +10,12 @@ export const themes = [
 const ThemeContext = createContext(null)
 
 export function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState(
-    () => localStorage.getItem('site-theme') || 'cyber'
-  )
+  // Theme switching disabled — locked to 'cyber'
+  const [theme, setTheme] = useState('cyber')
 
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme)
-    localStorage.setItem('site-theme', theme)
-  }, [theme])
+    document.documentElement.setAttribute('data-theme', 'cyber')
+  }, [])
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme, themes }}>
