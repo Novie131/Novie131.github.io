@@ -88,11 +88,11 @@ export default function Home() {
                 <span className="tb-dot" style={{ background: '#febc2e' }} />
                 <span className="tb-dot" style={{ background: '#28c840' }} />
               </div>
-              <span className="tb-title">novie131 — zsh — 80×24</span>
+              <span className="tb-title">Cheng KT — zsh — 80×24</span>
             </div>
             <div className="terminal-body">
               <p className="tl d1"><span className="tc-green">❯</span> <span className="tc-amber">neofetch</span></p>
-              <p className="tl d2 tl-user">novie131<span className="tc-dim">@</span>portfolio</p>
+              <p className="tl d2 tl-user">Cheng KT<span className="tc-dim">@</span>portfolio</p>
               <p className="tl d3 tl-sep">─────────────────────</p>
               <p className="tl d4"><span className="tc-cyan">OS     </span> : Web v2025.04</p>
               <p className="tl d5"><span className="tc-cyan">Shell  </span> : react@19.2</p>
