@@ -114,7 +114,7 @@ export default function About() {
         {/* ── Left: System Info ─────────────────── */}
         <aside className="sysinfo-panel">
           <div className="si-username">
-            <span className="tc-cyan si-user">novie131</span>
+            <span className="tc-cyan si-user">Cheng KT</span>
             <span className="tc-dim">@</span>
             <span className="tc-text si-host">portfolio</span>
           </div>
