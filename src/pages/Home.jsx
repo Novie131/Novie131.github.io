@@ -54,7 +54,7 @@ export default function Home() {
         <section className="hero-col">
           <div className="hero-profile">
             <div className="avatar-ring">
-              <img src="/img/dogwork.png" alt="Novie131" />
+              <img src="/img/dogwork.png" alt="Cheng KT" />
             </div>
             <span className="hero-badge">
               <span className="badge-dot" />
@@ -64,7 +64,7 @@ export default function Home() {
 
           <h1 className="hero-title">
             <span className="hero-prompt">$ whoami</span>
-            <span className="hero-name">Novie131</span>
+            <span className="hero-name">Cheng KT</span>
           </h1>
 
           <p className="hero-sub">

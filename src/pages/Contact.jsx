@@ -21,7 +21,7 @@ const links = [
   {
     key: 'github',
     label: 'GitHub',
-    value: 'github.com/Novie131',
+    value: 'github.com/novie131',
     href: 'https://github.com/Novie131',
     icon: '⌥',
     color: 'purple',
