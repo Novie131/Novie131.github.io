@@ -79,6 +79,20 @@ const translations = {
     '404.msg':    '❯ Page not found — 頁面不存在',
     'menu.open':  '開啟選單',
     'menu.close': '關閉選單',
+
+    // Page meta（<title> 與 meta description，每頁一組）
+    'meta.home.title':      'Cheng KT | Full-Stack · AI Engineer',
+    'meta.home.desc':       '打造系統 · 訓練模型 · 交付產品 — 全端開發、LLM 應用整合與雲端部署。',
+    'meta.about.title':     '關於 | Cheng KT',
+    'meta.about.desc':      '我的技術背景、學經歷時間軸與技能組成 — 前端、後端、AI / ML 與 DevOps。',
+    'meta.portfolio.title': '作品集 | Cheng KT',
+    'meta.portfolio.desc':  '從 Go CLI 工具、AI Bot 到 Chrome Extension — 全端開發、LLM 整合與雲端部署的實作專案。',
+    'meta.resume.title':    '履歷 | Cheng KT',
+    'meta.resume.desc':     '專業認證、參賽紀錄與自學課程 — 持續學習的完整足跡。',
+    'meta.contact.title':   '聯絡 | Cheng KT',
+    'meta.contact.desc':    '合作機會、技術交流或專案想法，歡迎透過 Email、GitHub 或 LinkedIn 聯繫。',
+    'meta.404.title':       '404 | Cheng KT',
+    'meta.404.desc':        '頁面不存在。',
   },
   en: {
     // Nav links
@@ -160,6 +174,20 @@ const translations = {
     '404.msg':    '❯ Page not found',
     'menu.open':  'Open menu',
     'menu.close': 'Close menu',
+
+    // Page meta
+    'meta.home.title':      'Cheng KT | Full-Stack · AI Engineer',
+    'meta.home.desc':       'Building systems, training models, shipping products — full-stack development, LLM integration and cloud deployment.',
+    'meta.about.title':     'About | Cheng KT',
+    'meta.about.desc':      'Background, timeline and skill breakdown — frontend, backend, AI / ML and DevOps.',
+    'meta.portfolio.title': 'Projects | Cheng KT',
+    'meta.portfolio.desc':  'From Go CLI tooling and AI bots to Chrome extensions — full-stack, LLM integration and cloud deployment work.',
+    'meta.resume.title':    'Resume | Cheng KT',
+    'meta.resume.desc':     'Certifications, competition records and self-study courses.',
+    'meta.contact.title':   'Contact | Cheng KT',
+    'meta.contact.desc':    'Open to opportunities and collaboration — reach me via Email, GitHub or LinkedIn.',
+    'meta.404.title':       '404 | Cheng KT',
+    'meta.404.desc':        'Page not found.',
   },
 }
 

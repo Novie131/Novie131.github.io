@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://novie131.github.io/sitemap.xml
