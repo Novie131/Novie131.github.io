@@ -22,3 +22,14 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# 本機設定與密鑰 —— 這是公開 repo，任何憑證都不該進版控
+.env
+.env.*
+!.env.example
+*.local.json
+.claude/settings.local.json
+
+# Cloudflare Wrangler（若日後做雲端後端）
+.dev.vars
+.wrangler/

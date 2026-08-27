@@ -26,4 +26,11 @@ export default defineConfig([
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
     },
   },
+  {
+    /* 建置期 / dev server 端的程式碼跑在 Node，不是瀏覽器 */
+    files: ['plugins/**/*.js', 'scripts/**/*.mjs', 'vite.config.js', 'eslint.config.js'],
+    languageOptions: {
+      globals: globals.node,
+    },
+  },
 ])

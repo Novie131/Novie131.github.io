@@ -1,10 +1,8 @@
 import { useState, useRef, useEffect } from 'react'
-import { useTheme } from '../context/ThemeContext'
 import { useLang } from '../context/LangContext'
 import '../styles/NavControls.css'
 
 export default function NavControls({ isMobile, onToggleView }) {
-  const { theme, setTheme, themes } = useTheme()
   const { lang, setLang, t } = useLang()
   const [open, setOpen] = useState(false)
   const [themeOpen, setThemeOpen] = useState(false)
@@ -30,11 +28,6 @@ export default function NavControls({ isMobile, onToggleView }) {
       setLangOpen(false)
     }
     setOpen(v => !v)
-  }
-
-  function handleThemeToggle() {
-    setLangOpen(false)
-    setThemeOpen(v => !v)
   }
 
   function handleLangToggle() {
