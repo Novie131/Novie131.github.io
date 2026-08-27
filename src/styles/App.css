@@ -31,7 +31,6 @@
   /* Fonts */
   --font-display: 'Space Grotesk', system-ui, sans-serif;
   --font-mono:    'JetBrains Mono', 'SF Mono', 'Cascadia Code', monospace;
-  --font-pixel:   'Press Start 2P', monospace;
 
   --radius: 8px;
   --nav-h: 64px;
@@ -445,4 +444,12 @@ body {
 @keyframes mobileNavIn {
   from { opacity: 0; transform: translateY(-6px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+
+/* lazy route 載入中的過場 */
+.route-loading {
+  padding: 4rem 0;
+  font-family: var(--font-mono);
+  color: var(--muted);
+  font-size: 0.95rem;
 }
