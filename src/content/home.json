@@ -1,0 +1,48 @@
+{
+  "avatar": "/img/avatar.webp",
+  "stats": [
+    { "value": "3+",  "labelKey": "stat.years",    "color": "cyan"   },
+    { "value": "4",   "labelKey": "stat.projects", "color": "purple" },
+    { "value": "18+", "labelKey": "stat.stack",    "color": "green"  },
+    { "value": "∞",   "labelKey": "stat.commits",  "color": "amber"  }
+  ],
+  "ticker": [
+    { "label": "React",          "color": "cyan"   },
+    { "label": "Go",             "color": "cyan"   },
+    { "label": "Python",         "color": "purple" },
+    { "label": "TypeScript",     "color": "cyan"   },
+    { "label": "FastAPI",        "color": "green"  },
+    { "label": "Node.js",        "color": "green"  },
+    { "label": "PostgreSQL",     "color": "amber"  },
+    { "label": "Docker",         "color": "cyan"   },
+    { "label": "LangChain",      "color": "purple" },
+    { "label": "PyTorch",        "color": "purple" },
+    { "label": "Gemini API",     "color": "amber"  },
+    { "label": "Claude API",     "color": "purple" },
+    { "label": "GitHub Actions", "color": "green"  },
+    { "label": "Linux",          "color": "amber"  },
+    { "label": "Next.js",        "color": "cyan"   },
+    { "label": "Redis",          "color": "pink"   },
+    { "label": "RAG",            "color": "purple" },
+    { "label": "GCP",            "color": "amber"  }
+  ],
+  "terminal": [
+    { "key": "OS",     "value": "Web v2025.04" },
+    { "key": "Shell",  "value": "react@19.2" },
+    { "key": "Editor", "value": "VS Code · Neovim" },
+    { "key": "Uptime", "value": "3+ years" },
+    { "key": "Focus",  "value": "LLM · RAG · Full-Stack" }
+  ],
+  "pokemon": {
+    "playground": [
+      { "id": 650, "alt": "Chespin",  "name": "哈力栗", "bounce": "a" },
+      { "id": 501, "alt": "Oshawott", "name": "水水獺", "bounce": "b" }
+    ],
+    "grass": [
+      { "id": 25,  "name": "皮卡丘"   },
+      { "id": 133, "name": "伊布"     },
+      { "id": 94,  "name": "耿鬼"     },
+      { "id": 448, "name": "路卡利歐" }
+    ]
+  }
+}

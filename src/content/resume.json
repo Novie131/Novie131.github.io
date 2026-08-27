@@ -1,0 +1,94 @@
+{
+  "certifications": [
+    {
+      "id": "gcp-ace",
+      "title": "Google Cloud Associate Cloud Engineer",
+      "issuer": "Google Cloud",
+      "date": "2024",
+      "credentialId": null,
+      "link": null,
+      "tag": "GCP",
+      "color": "amber"
+    },
+    {
+      "id": "aws-saa",
+      "title": "AWS Certified Solutions Architect",
+      "issuer": "Amazon Web Services",
+      "date": "2024",
+      "credentialId": null,
+      "link": null,
+      "tag": "AWS",
+      "color": "amber"
+    },
+    {
+      "id": "tf-developer",
+      "title": "TensorFlow Developer Certificate",
+      "issuer": "Google",
+      "date": "2023",
+      "credentialId": null,
+      "link": null,
+      "tag": "ML",
+      "color": "cyan"
+    },
+    {
+      "id": "meta-backend",
+      "title": "Meta Back-End Developer Certificate",
+      "issuer": "Meta / Coursera",
+      "date": "2023",
+      "credentialId": null,
+      "link": null,
+      "tag": "Backend",
+      "color": "purple"
+    }
+  ],
+  "_competitionSchema": {
+    "id": "填一個英文短代號，例如 hackathon-2025",
+    "title": "競賽名稱",
+    "event": "賽事場次，例如 2025 第 3 屆",
+    "organizer": "主辦單位",
+    "date": "2025",
+    "award": "獲獎名次，例如 第二名",
+    "description": "一句話說明作品或成果（可留空）",
+    "link": "相關連結，沒有就填 null",
+    "color": "pink | cyan | purple | amber | green"
+  },
+  "competitions": [],
+  "courses": [
+    {
+      "id": "dl-specialization",
+      "title": "Deep Learning Specialization",
+      "issuer": "Coursera · DeepLearning.AI",
+      "date": "2024",
+      "modules": "5 courses",
+      "link": null,
+      "color": "purple"
+    },
+    {
+      "id": "langchain-llm",
+      "title": "LangChain for LLM Application Development",
+      "issuer": "DeepLearning.AI",
+      "date": "2024",
+      "modules": "Short course",
+      "link": null,
+      "color": "purple"
+    },
+    {
+      "id": "full-stack-open",
+      "title": "Full Stack Open",
+      "issuer": "University of Helsinki",
+      "date": "2023",
+      "modules": "Parts 0–9",
+      "link": null,
+      "color": "cyan"
+    },
+    {
+      "id": "cs50",
+      "title": "CS50: Introduction to Computer Science",
+      "issuer": "Harvard / edX",
+      "date": "2022",
+      "modules": "11 weeks",
+      "link": null,
+      "color": "green"
+    }
+  ]
+}

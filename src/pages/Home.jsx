@@ -1,49 +1,22 @@
 import { Link } from 'react-router-dom'
 import { useLang } from '../context/LangContext'
+import { useTheme } from '../context/ThemeContext'
+import home from '../content/home.json'
 import '../styles/Home.css'
 
-const tickerItems = [
-  { label: 'React',          color: 'cyan'   },
-  { label: 'Go',             color: 'cyan'   },
-  { label: 'Python',         color: 'purple' },
-  { label: 'TypeScript',     color: 'cyan'   },
-  { label: 'FastAPI',        color: 'green'  },
-  { label: 'Node.js',        color: 'green'  },
-  { label: 'PostgreSQL',     color: 'amber'  },
-  { label: 'Docker',         color: 'cyan'   },
-  { label: 'LangChain',      color: 'purple' },
-  { label: 'PyTorch',        color: 'purple' },
-  { label: 'Gemini API',     color: 'amber'  },
-  { label: 'Claude API',     color: 'purple' },
-  { label: 'GitHub Actions', color: 'green'  },
-  { label: 'Linux',          color: 'amber'  },
-  { label: 'Next.js',        color: 'cyan'   },
-  { label: 'Redis',          color: 'pink'   },
-  { label: 'RAG',            color: 'purple' },
-  { label: 'GCP',            color: 'amber'  },
-]
-
-const stats = [
-  { value: '3+',  labelKey: 'stat.years',    color: 'cyan'   },
-  { value: '4',   labelKey: 'stat.projects', color: 'purple' },
-  { value: '18+', labelKey: 'stat.stack',    color: 'green'  },
-  { value: '∞',   labelKey: 'stat.commits',  color: 'amber'  },
-]
-
-const tickerLoop = [...tickerItems, ...tickerItems]
-
-const GRASS_POKEMON = [
-  { id: 25,  name: '皮卡丘' },
-  { id: 133, name: '伊布'   },
-  { id: 94,  name: '耿鬼'   },
-  { id: 448, name: '路卡利歐' },
-]
+const { avatar, stats, ticker, terminal, pokemon } = home
+const tickerLoop = [...ticker, ...ticker]
 
 const BW_SPRITE = id =>
   `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${id}.gif`
 
 export default function Home() {
   const { t } = useLang()
+  const { theme } = useTheme()
+  /* 寶可夢區塊只在 pokemon 主題渲染 —— 過去它永遠在 DOM 裡但被 CSS 藏起來，
+     瀏覽器仍會去 raw.githubusercontent.com 抓 6 張看不見的 GIF。 */
+  const showPokemon = theme === 'pokemon'
+
   return (
     <div className="page home">
 
@@ -54,7 +27,14 @@ export default function Home() {
         <section className="hero-col">
           <div className="hero-profile">
             <div className="avatar-ring">
-              <img src="/img/dogwork.png" alt="Cheng KT" />
+              <img
+                src={avatar}
+                alt="Cheng KT"
+                width="64"
+                height="64"
+                fetchPriority="high"
+                decoding="async"
+              />
             </div>
             <span className="hero-badge">
               <span className="badge-dot" />
@@ -79,76 +59,75 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Right: Terminal（其他主題） */}
-        <section className="terminal-col">
-          <div className="terminal-window">
-            <div className="terminal-titlebar">
-              <div className="tb-dots">
-                <span className="tb-dot" style={{ background: '#ff5f57' }} />
-                <span className="tb-dot" style={{ background: '#febc2e' }} />
-                <span className="tb-dot" style={{ background: '#28c840' }} />
+        {/* Right: Terminal（非 pokemon 主題） */}
+        {!showPokemon && (
+          <section className="terminal-col">
+            <div className="terminal-window">
+              <div className="terminal-titlebar">
+                <div className="tb-dots">
+                  <span className="tb-dot" style={{ background: '#ff5f57' }} />
+                  <span className="tb-dot" style={{ background: '#febc2e' }} />
+                  <span className="tb-dot" style={{ background: '#28c840' }} />
+                </div>
+                <span className="tb-title">Cheng KT — zsh — 80×24</span>
               </div>
-              <span className="tb-title">Cheng KT — zsh — 80×24</span>
-            </div>
-            <div className="terminal-body">
-              <p className="tl d1"><span className="tc-green">❯</span> <span className="tc-amber">neofetch</span></p>
-              <p className="tl d2 tl-user">Cheng KT<span className="tc-dim">@</span>portfolio</p>
-              <p className="tl d3 tl-sep">─────────────────────</p>
-              <p className="tl d4"><span className="tc-cyan">OS     </span> : Web v2025.04</p>
-              <p className="tl d5"><span className="tc-cyan">Shell  </span> : react@19.2</p>
-              <p className="tl d6"><span className="tc-cyan">Editor </span> : VS Code · Neovim</p>
-              <p className="tl d7"><span className="tc-cyan">Uptime </span> : 3+ years</p>
-              <p className="tl d8"><span className="tc-cyan">Focus  </span> : LLM · RAG · Full-Stack</p>
-              <p className="tl d9">&nbsp;</p>
-              <p className="tl d10"><span className="tc-green">❯</span> <span className="tc-amber">./run_model.py</span></p>
-              <p className="tl d11">&nbsp;</p>
-              <div className="tl d12 tl-progress">
-                <span className="tc-dim">training  </span>
-                <div className="pg-track"><div className="pg-fill" /></div>
-                <span className="tc-green"> 87%</span>
+              <div className="terminal-body">
+                <p className="tl d1"><span className="tc-green">❯</span> <span className="tc-amber">neofetch</span></p>
+                <p className="tl d2 tl-user">Cheng KT<span className="tc-dim">@</span>portfolio</p>
+                <p className="tl d3 tl-sep">─────────────────────</p>
+                {terminal.map((row, i) => (
+                  <p key={row.key} className={`tl d${i + 4}`}>
+                    <span className="tc-cyan">{row.key.padEnd(7)}</span> : {row.value}
+                  </p>
+                ))}
+                <p className="tl d9">&nbsp;</p>
+                <p className="tl d10"><span className="tc-green">❯</span> <span className="tc-amber">./run_model.py</span></p>
+                <p className="tl d11">&nbsp;</p>
+                <div className="tl d12 tl-progress">
+                  <span className="tc-dim">training  </span>
+                  <div className="pg-track"><div className="pg-fill" /></div>
+                  <span className="tc-green"> 87%</span>
+                </div>
+                <p className="tl d13"><span className="tc-dim">&gt;</span> loss: <span className="tc-amber">0.0421</span></p>
+                <p className="tl d14"><span className="tc-dim">&gt;</span> acc:  <span className="tc-cyan">98.7%</span></p>
+                <p className="tl d15">&nbsp;</p>
+                <p className="tl d16"><span className="tc-green">❯</span> <span className="cursor-blink">█</span></p>
               </div>
-              <p className="tl d13"><span className="tc-dim">&gt;</span> loss: <span className="tc-amber">0.0421</span></p>
-              <p className="tl d14"><span className="tc-dim">&gt;</span> acc:  <span className="tc-cyan">98.7%</span></p>
-              <p className="tl d15">&nbsp;</p>
-              <p className="tl d16"><span className="tc-green">❯</span> <span className="cursor-blink">█</span></p>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         {/* Right: 寶可夢玩樂場景（pokemon 主題專用） */}
-        <section className="pokemon-playground">
-          <div className="playground-field">
-            <span className="pg-cloud" style={{ left: '10%' }}>☁</span>
-            <span className="pg-cloud" style={{ left: '38%' }}>☁</span>
-            <span className="pg-cloud" style={{ right: '8%'  }}>☁</span>
+        {showPokemon && (
+          <section className="pokemon-playground">
+            <div className="playground-field">
+              <span className="pg-cloud" style={{ left: '10%' }}>☁</span>
+              <span className="pg-cloud" style={{ left: '38%' }}>☁</span>
+              <span className="pg-cloud" style={{ right: '8%'  }}>☁</span>
 
-            <div className="playground-poke">
-              <img
-                src={BW_SPRITE(650)}
-                alt="Chespin"
-                className="playground-sprite bounce-a"
-              />
-              <span className="playground-name">哈力栗</span>
+              {pokemon.playground.map(p => (
+                <div key={p.id} className="playground-poke">
+                  <img
+                    src={BW_SPRITE(p.id)}
+                    alt={p.alt}
+                    className={`playground-sprite bounce-${p.bounce}`}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span className="playground-name">{p.name}</span>
+                </div>
+              ))}
             </div>
-
-            <div className="playground-poke">
-              <img
-                src={BW_SPRITE(501)}
-                alt="Oshawott"
-                className="playground-sprite bounce-b"
-              />
-              <span className="playground-name">水水獺</span>
-            </div>
-          </div>
-          <div className="playground-ground" />
-        </section>
+            <div className="playground-ground" />
+          </section>
+        )}
 
       </div>
 
       {/* ── Stats Bar ───────────────────────────────── */}
       <div className="stats-bar">
-        {stats.map((s, i) => (
-          <div key={i} className={`stat-item stat-${s.color}`}>
+        {stats.map(s => (
+          <div key={s.labelKey} className={`stat-item stat-${s.color}`}>
             <span className="stat-value">{s.value}</span>
             <span className="stat-label">{t(s.labelKey)}</span>
           </div>
@@ -156,19 +135,23 @@ export default function Home() {
       </div>
 
       {/* ── 寶可夢草叢（pokemon 主題專用） ─────────── */}
-      <div className="pokemon-grass-strip">
-        <div className="pgs-label">{t('poke.grass')}</div>
-        {GRASS_POKEMON.map(p => (
-          <div key={p.id} className="grass-poke">
-            <img
-              src={BW_SPRITE(p.id)}
-              alt={p.name}
-              className="grass-sprite"
-            />
-            <span className="grass-name">{p.name}</span>
-          </div>
-        ))}
-      </div>
+      {showPokemon && (
+        <div className="pokemon-grass-strip">
+          <div className="pgs-label">{t('poke.grass')}</div>
+          {pokemon.grass.map(p => (
+            <div key={p.id} className="grass-poke">
+              <img
+                src={BW_SPRITE(p.id)}
+                alt={p.name}
+                className="grass-sprite"
+                loading="lazy"
+                decoding="async"
+              />
+              <span className="grass-name">{p.name}</span>
+            </div>
+          ))}
+        </div>
+      )}
 
       {/* ── Tech Ticker ─────────────────────────────── */}
       <div className="ticker-wrap">

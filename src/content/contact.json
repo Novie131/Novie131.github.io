@@ -1,0 +1,45 @@
+{
+  "links": [
+    {
+      "id": "email",
+      "label": "Email",
+      "value": "Zkzcfg8520@gmail.com",
+      "href": "mailto:Zkzcfg8520@gmail.com",
+      "icon": "✉",
+      "color": "cyan"
+    },
+    {
+      "id": "email2",
+      "label": "Email (alt)",
+      "value": "Ckt30014@gmail.com",
+      "href": "mailto:Ckt30014@gmail.com",
+      "icon": "✉",
+      "color": "cyan"
+    },
+    {
+      "id": "github",
+      "label": "GitHub",
+      "value": "github.com/novie131",
+      "href": "https://github.com/Novie131",
+      "icon": "⌥",
+      "color": "purple"
+    },
+    {
+      "id": "linkedin",
+      "label": "LinkedIn",
+      "value": "linkedin.com/in/kai-tse-cheng",
+      "href": "https://www.linkedin.com/in/kai-tse-cheng-ab266835b/",
+      "icon": "⊕",
+      "color": "amber"
+    },
+    {
+      "id": "location",
+      "label": "Location",
+      "value": "Taiwan 🇹🇼",
+      "href": "https://www.google.com/maps/place/Taiwan/",
+      "icon": "◉",
+      "color": "green"
+    }
+  ],
+  "openToKeys": ["open.fulltime", "open.freelance", "open.aiml", "open.oss"]
+}

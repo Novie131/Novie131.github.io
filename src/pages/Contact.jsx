@@ -1,50 +1,8 @@
 import { useLang } from '../context/LangContext'
+import contact from '../content/contact.json'
 import '../styles/Contact.css'
 
-const links = [
-  {
-    key: 'email',
-    label: 'Email',
-    value: 'Zkzcfg8520@gmail.com',
-    href: null,
-    icon: '✉',
-    color: 'cyan',
-  },
-  {
-    key: 'email2',
-    label: 'Email (alt)',
-    value: 'Ckt30014@gmail.com',
-    href: null,
-    icon: '✉',
-    color: 'cyan',
-  },
-  {
-    key: 'github',
-    label: 'GitHub',
-    value: 'github.com/novie131',
-    href: 'https://github.com/Novie131',
-    icon: '⌥',
-    color: 'purple',
-  },
-  {
-    key: 'linkedin',
-    label: 'LinkedIn',
-    value: 'linkedin.com/in/kai-tse-cheng',
-    href: 'https://www.linkedin.com/in/kai-tse-cheng-ab266835b/',
-    icon: '⊕',
-    color: 'amber',
-  },
-  {
-    key: 'location',
-    label: 'Location',
-    value: 'Taiwan 🇹🇼',
-    href: 'https://www.google.com/maps/place/Taiwan/',
-    icon: '◉',
-    color: 'green',
-  },
-]
-
-const openToKeys = ['open.fulltime', 'open.freelance', 'open.aiml', 'open.oss']
+const { links, openToKeys } = contact
 
 export default function Contact() {
   const { t } = useLang()
@@ -61,16 +19,15 @@ export default function Contact() {
         {/* ── Link cards ─────────────────────────── */}
         <section className="links-grid">
           {links.map(link => {
-            const isLink = link.href && link.href !== '#'
-            const Tag = isLink ? 'a' : 'div'
+            const isExternal = link.href?.startsWith('http')
+            const Tag = link.href ? 'a' : 'div'
             return (
               <Tag
-                key={link.key}
+                key={link.id}
                 className={`link-card color-${link.color}`}
-                {...(isLink && {
+                {...(link.href && {
                   href: link.href,
-                  target: link.href.startsWith('http') ? '_blank' : undefined,
-                  rel: 'noreferrer',
+                  ...(isExternal && { target: '_blank', rel: 'noreferrer' }),
                 })}
               >
                 <div className="lc-icon">{link.icon}</div>
@@ -78,7 +35,7 @@ export default function Contact() {
                   <span className="lc-label">{link.label}</span>
                   <span className="lc-value">{link.value}</span>
                 </div>
-                {isLink && <span className="lc-arrow">→</span>}
+                {link.href && <span className="lc-arrow">→</span>}
               </Tag>
             )
           })}
