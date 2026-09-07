@@ -376,3 +376,108 @@
 }
 
 .ad-media-item .ad-row-actions { margin-left: auto; }
+
+/* ── 表單 / JSON 模式切換 ─────────────────────── */
+.ad-modes {
+  display: flex;
+  gap: 0.3rem;
+  margin-bottom: 1.25rem;
+}
+
+.ad-mode {
+  padding: 0.3rem 0.8rem !important;
+  color: var(--ad-muted) !important;
+  font-size: 0.85rem;
+}
+
+.ad-mode.is-active {
+  border-color: var(--ad-accent) !important;
+  color: var(--ad-accent) !important;
+}
+
+/* ── 精簡清單項 ───────────────────────────────── */
+.ad-crow {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.5rem 0.6rem;
+  margin-bottom: 0.4rem;
+  border: 1px solid var(--ad-line);
+  border-radius: 6px;
+  background: var(--ad-panel);
+}
+
+.ad-crow-num {
+  flex-shrink: 0;
+  padding-top: 0.45rem;
+  color: var(--ad-muted);
+  font-family: ui-monospace, monospace;
+  font-size: 0.78rem;
+}
+
+.ad-crow-body { flex: 1; min-width: 0; }
+
+.ad-crow .ad-row-actions { padding-top: 0.2rem; }
+
+.ad-crow-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.6rem;
+}
+
+/* ── 巢狀清單（技能項目、自介段落） ───────────── */
+.ad-nested {
+  padding: 0.75rem;
+  border: 1px dashed var(--ad-line);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.ad-nested .ad-section-head { margin-bottom: 0.6rem; }
+
+.ad-nested h4 {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--ad-muted);
+}
+
+.ad-nested .ad-crow { background: var(--ad-bg); }
+
+/* ── 色票 ─────────────────────────────────────── */
+.ad-color {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ad-color input[type='color'] {
+  flex-shrink: 0;
+  width: 38px;
+  height: 32px;
+  padding: 2px;
+  border: 1px solid var(--ad-line);
+  border-radius: 6px;
+  background: #0b0e12;
+  cursor: pointer;
+}
+
+/* ── 熟練度 ───────────────────────────────────── */
+.ad-num {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.ad-num input[type='range'] {
+  flex: 1;
+  min-width: 0;
+  accent-color: var(--ad-accent);
+}
+
+.ad-num-box {
+  flex-shrink: 0;
+  width: 4.5rem;
+}
+
+/* 選到 translations.js 裡不存在的 key 時的警示 */
+.ad-invalid { border-color: var(--ad-danger) !important; }
