@@ -1,5 +1,11 @@
 {
-  "filters": ["All", "AI", "Bot", "Extension"],
+  "filters": [
+    "All",
+    "AI",
+    "Bot",
+    "Extension",
+    "Web"
+  ],
   "items": [
     {
       "id": "nelo",
@@ -27,7 +33,12 @@
           "CLI command `nelo push` for one-click Hub sync"
         ]
       },
-      "tech": ["Go", "JavaScript", "HTML", "Shell"],
+      "tech": [
+        "Go",
+        "JavaScript",
+        "HTML",
+        "Shell"
+      ],
       "repoLink": "https://github.com/Novie131/Nelo",
       "demoLink": null,
       "image": null
@@ -54,7 +65,13 @@
           "Async FastAPI architecture"
         ]
       },
-      "tech": ["Python", "FastAPI", "Google ADK", "LINE API", "Docker"],
+      "tech": [
+        "Python",
+        "FastAPI",
+        "Google ADK",
+        "LINE API",
+        "Docker"
+      ],
       "repoLink": "https://github.com/Novie131/Google_linebot_adk",
       "demoLink": null,
       "image": null
@@ -81,7 +98,12 @@
           "Lightweight CSS, zero external dependencies"
         ]
       },
-      "tech": ["JavaScript", "CSS", "Gemini API", "Chrome API"],
+      "tech": [
+        "JavaScript",
+        "CSS",
+        "Gemini API",
+        "Chrome API"
+      ],
       "repoLink": "https://github.com/Novie131/G-Nest",
       "demoLink": null,
       "image": null
@@ -108,9 +130,52 @@
           "Telegram Bot API messaging"
         ]
       },
-      "tech": ["Python", "Flask", "OpenAI API", "Vercel"],
+      "tech": [
+        "Python",
+        "Flask",
+        "OpenAI API",
+        "Vercel"
+      ],
       "repoLink": "https://github.com/Novie131/Flask-ChatGPT-TelegramBot-Vercel",
       "demoLink": null,
+      "image": null
+    },
+    {
+      "id": "portfolio-site",
+      "slug": "novie131.github.io",
+      "title": "Personal Site",
+      "category": "Web / SEO",
+      "featured": false,
+      "description": {
+        "zh": "React + Vite 打造的個人網站。build 階段為每條路由產生實體 HTML，解決 SPA 子頁面被搜尋引擎當成 404 的問題；另外內建一套只跑在本機的內容編輯器 —— 線上是純靜態，沒有任何需要維護的端點。",
+        "en": "A personal site built with React and Vite. The build step emits real HTML for every route, fixing the SPA problem where sub-pages return 404 to crawlers. It also ships a local-only content editor — the deployed site stays fully static, with no endpoint to maintain."
+      },
+      "features": {
+        "zh": [
+          "build 時為每條路由產生靜態 HTML，子頁面回應 200 而非 404",
+          "dev-only 內容編輯器（Vite middleware + Node API），production build 完全不含",
+          "圖片上傳自動依 EXIF 轉正、限制寬度並轉為 WebP",
+          "全站文案抽離成 JSON，支援中英雙語切換",
+          "GitHub Actions 自動建置並部署至 GitHub Pages"
+        ],
+        "en": [
+          "Build-time static HTML per route — sub-pages return 200, not 404",
+          "Dev-only content editor (Vite middleware + Node API), absent from production builds",
+          "Uploaded images auto-rotated by EXIF, width-capped and converted to WebP",
+          "All copy extracted to JSON with zh / en switching",
+          "Automated build and deploy to GitHub Pages via GitHub Actions"
+        ]
+      },
+      "tech": [
+        "React",
+        "Vite",
+        "JavaScript",
+        "CSS",
+        "Node.js",
+        "GitHub Actions"
+      ],
+      "repoLink": "https://github.com/Novie131/Novie131.github.io",
+      "demoLink": "https://novie131.github.io/",
       "image": null
     }
   ]

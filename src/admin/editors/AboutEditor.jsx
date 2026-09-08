@@ -1,11 +1,16 @@
 import {
-  Field, TextReq, Area, Num, Color, Select, KeySelect,
+  Field, TextReq, Area, Lines, Color, Select, KeySelect,
   Bilingual, CompactRow, ListSection,
 } from '../fields'
 import useList from '../useList'
 import { COLORS, TEXT_CLASSES, TIMELINE_TYPES } from '../constants'
 import { uid } from '../util'
 import translations from '../../i18n/translations'
+import projects from '../../content/projects.json'
+
+/* 技術棧的每一項都該有專案佐證 —— 沒有的話這裡直接標出來，
+   免得又回到「宣稱一堆站上找不到證據的技術」那個狀態。 */
+const EVIDENCED = new Set(projects.items.flatMap(p => p.tech))
 
 /* 切到「翻譯 key」模式時要有個預設值，不然存下去會是空的 */
 const FIRST_VALUE_KEY = Object.keys(translations.zh).find(k => /^si\..*\.val$/.test(k))
@@ -13,10 +18,11 @@ const FIRST_VALUE_KEY = Object.keys(translations.zh).find(k => /^si\..*\.val$/.t
 export default function AboutEditor({ data, setData }) {
   return (
     <>
+      <Identity value={data.identity} onChange={v => setData({ ...data, identity: v })} />
       <SysInfo list={data.sysInfo} setList={v => setData({ ...data, sysInfo: v })} />
       <Bio value={data.bio} onChange={v => setData({ ...data, bio: v })} />
       <Timeline list={data.timeline} setList={v => setData({ ...data, timeline: v })} />
-      <Skills list={data.skills} setList={v => setData({ ...data, skills: v })} />
+      <Stack list={data.stack} setList={v => setData({ ...data, stack: v })} />
       <Palette list={data.palette} setList={v => setData({ ...data, palette: v })} />
     </>
   )
@@ -34,7 +40,7 @@ function SysInfo({ list, setList }) {
       hint="關於頁左側那張 neofetch 表。左欄一律是翻譯 key；右欄可選固定文字或翻譯 key。"
       list={list}
       setList={setList}
-      blank={() => ({ labelKey: 'si.name', value: '', cls: null })}
+      blank={() => ({ labelKey: 'si.os', value: '', cls: null })}
       rowTitle={item => translations.zh[item.labelKey] ?? item.labelKey}
     >
       {(item, i, ops) => {
@@ -194,78 +200,61 @@ function Timeline({ list, setList }) {
   )
 }
 
-/* ── 技能 ─────────────────────────────────────── */
-function Skills({ list, setList }) {
+/* ── 技術棧 ───────────────────────────────────── */
+/* 只列技術名稱，「用在哪個專案」由 About.jsx 從 projects.json 推導，
+   所以這裡不需要（也不應該）手動維護對應關係。 */
+function Stack({ list, setList }) {
   return (
     <ListSection
-      title="技能分類"
+      title="技術棧"
       addLabel="+ 新增分類"
-      hint="每個分類底下是一組技能與熟練度，熟練度決定進度條長度。"
+      hint="每項技術會自動標出用過它的專案。列了但沒有任何專案用到的，下方會標紅提醒。"
       list={list}
       setList={setList}
-      blank={() => ({
-        id: uid('skill'),
-        category: '',
-        categoryKey: null,
-        tag: '',
-        items: [],
-      })}
-      rowTitle={g => g.category || '（未命名）'}
+      blank={() => ({ id: uid('stack'), label: { zh: '', en: '' }, tech: [] })}
+      rowTitle={g => g.label?.zh || '（未命名）'}
     >
-      {(g, i, ops) => (
-        <>
-          <div className="ad-grid-2">
-            <Field label="分類名稱">
-              <TextReq value={g.category} onChange={v => ops.update(i, { category: v })} />
+      {(g, i, ops) => {
+        const orphans = (g.tech ?? []).filter(t => !EVIDENCED.has(t))
+        return (
+          <>
+            <Bilingual
+              label="分類名稱"
+              value={g.label}
+              onChange={v => ops.update(i, { label: v })}
+              render={(val, set) => <TextReq value={val} onChange={set} />}
+            />
+            <Field label="技術（一行一項）" hint="名稱要和作品集的技術標籤完全一致才對得起來">
+              <Lines value={g.tech} onChange={v => ops.update(i, { tech: v })} rows={5} />
             </Field>
-            <Field label="標籤" hint="標題左邊的小字，例如 <UI/>">
-              <TextReq value={g.tag} onChange={v => ops.update(i, { tag: v })} />
-            </Field>
-            <Field label="翻譯 key" hint="設了就用翻譯，留空則用上面的分類名稱">
-              <KeySelect
-                value={g.categoryKey}
-                onChange={v => ops.update(i, { categoryKey: v })}
-                match={/^skill\./}
-                allowEmpty
-              />
-            </Field>
-          </div>
-
-          <SkillItems items={g.items} setItems={v => ops.update(i, { items: v })} />
-        </>
-      )}
+            {orphans.length > 0 && (
+              <p className="ad-error">
+                沒有任何作品用到：{orphans.join('、')} —— 網站上會顯示「尚無對應專案」。
+              </p>
+            )}
+          </>
+        )
+      }}
     </ListSection>
   )
 }
 
-function SkillItems({ items, setItems }) {
-  const ops = useList(items, setItems)
+/* ── 身分 ─────────────────────────────────────── */
+function Identity({ value, onChange }) {
   return (
-    <div className="ad-nested">
-      <div className="ad-section-head">
-        <h4>技能項目 <span className="ad-count">{items.length}</span></h4>
-        <button type="button" onClick={() => ops.add({ name: '', level: 70 })}>+ 新增技能</button>
-      </div>
-      {items.length === 0 && <p className="ad-empty">這個分類還沒有技能項目。</p>}
-      {items.map((it, i) => (
-        <CompactRow
-          key={i}
-          index={i}
-          total={items.length}
-          onMove={ops.move}
-          onRemove={ops.remove}
-        >
-          <div className="ad-crow-grid">
-            <Field label="名稱" hint="同一分類內不可重複">
-              <TextReq value={it.name} onChange={v => ops.update(i, { name: v })} />
-            </Field>
-            <Field label="熟練度">
-              <Num value={it.level} onChange={v => ops.update(i, { level: v })} />
-            </Field>
-          </div>
-        </CompactRow>
-      ))}
-    </div>
+    <section className="ad-section">
+      <div className="ad-section-head"><h3>身分</h3></div>
+      <p className="ad-note">關於頁左側面板最上方的姓名與職稱。</p>
+      <Field label="姓名">
+        <TextReq value={value.name} onChange={v => onChange({ ...value, name: v })} />
+      </Field>
+      <Bilingual
+        label="職稱"
+        value={value.role}
+        onChange={v => onChange({ ...value, role: v })}
+        render={(val, set) => <TextReq value={val} onChange={set} />}
+      />
+    </section>
   )
 }
 

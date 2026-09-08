@@ -1,9 +1,22 @@
 import { useLang } from '../context/LangContext'
 import RichText from '../components/RichText'
 import about from '../content/about.json'
+import projects from '../content/projects.json'
 import '../styles/About.css'
 
-const { sysInfo, palette, bio, timeline, skills } = about
+const { identity, sysInfo, palette, bio, timeline, stack } = about
+
+/**
+ * 技術 → 用過它的專案，直接從 projects.json 推導。
+ *
+ * 技術棧以前是一組自評百分比，跟作品集互相獨立 —— 於是宣稱了站上找不到證據的
+ * 技術，又漏掉了真正用過的（例如 Nelo 的 Go）。改成從作品集推導之後，
+ * 兩邊不可能對不起來，而且新增專案時這一區會自己更新。
+ */
+const USED_IN = projects.items.reduce((map, p) => {
+  for (const tech of p.tech) (map[tech] ??= []).push(p.title)
+  return map
+}, {})
 
 export default function About() {
   const { lang, t } = useLang()
@@ -15,10 +28,9 @@ export default function About() {
 
         {/* ── Left: System Info ─────────────────── */}
         <aside className="sysinfo-panel">
-          <div className="si-username">
-            <span className="tc-cyan si-user">Cheng KT</span>
-            <span className="tc-dim">@</span>
-            <span className="tc-text si-host">portfolio</span>
+          <div className="si-identity">
+            <span className="si-name">{identity.name}</span>
+            <span className="si-role">{identity.role[lang]}</span>
           </div>
 
           <div className="si-divider" />
@@ -41,7 +53,7 @@ export default function About() {
           </div>
         </aside>
 
-        {/* ── Right: Bio + Skills ───────────────── */}
+        {/* ── Right: Bio + Stack ────────────────── */}
         <div className="about-main">
           <section className="about-bio">
             <h2 className="section-title">
@@ -74,33 +86,25 @@ export default function About() {
             </div>
           </section>
 
-          <section className="skills-section">
+          <section className="stack-section">
             <h2 className="section-title">
-              <span className="tc-purple">// </span>tech_stack.json
+              <span className="tc-purple">// </span>stack
             </h2>
-            <div className="skills-grid">
-              {skills.map(group => (
-                <div key={group.id} className="skill-group">
-                  <div className="skill-group-header">
-                    <span className="skill-tag">{group.tag}</span>
-                    <h3>{group.categoryKey ? t(group.categoryKey) : group.category}</h3>
-                  </div>
-                  <ul className="skill-list">
-                    {group.items.map((skill, i) => (
-                      <li key={skill.name}>
-                        <div className="skill-row">
-                          <span className="skill-name">{skill.name}</span>
-                          <span className="skill-pct">{skill.level}%</span>
-                        </div>
-                        <div className="skill-bar">
-                          <div
-                            className="skill-fill"
-                            style={{
-                              '--level': `${skill.level}%`,
-                              '--delay': `${i * 0.08 + 0.2}s`,
-                            }}
-                          />
-                        </div>
+            <p className="stack-note">{t('stack.note')}</p>
+
+            <div className="stack-groups">
+              {stack.map(group => (
+                <div key={group.id} className="stack-group">
+                  <h3 className="stack-group-title">{group.label[lang]}</h3>
+                  <ul className="stack-list">
+                    {group.tech.map(tech => (
+                      <li key={tech} className="stack-item">
+                        <span className="stack-tech">{tech}</span>
+                        <span className="stack-where">
+                          {USED_IN[tech]
+                            ? USED_IN[tech].join(' · ')
+                            : <em className="stack-none">{t('stack.none')}</em>}
+                        </span>
                       </li>
                     ))}
                   </ul>

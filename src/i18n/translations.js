@@ -57,9 +57,7 @@ const translations = {
     'comp.desc':           '參賽足跡 — 競賽、黑客松與挑戰賽紀錄。',
     'comp.view':           '查看 →',
 
-    // About — sysInfo labels
-    'si.name':       '名稱',
-    'si.role':       '職稱',
+    // About — sysInfo labels（名稱與職稱在 about.json 的 identity，不走 i18n）
     'si.os':         '作業系統',
     'si.shell':      'Shell',
     'si.editor':     '編輯器',
@@ -68,12 +66,11 @@ const translations = {
     'si.focus':      '專注領域',
 
     // About — sysInfo values
-    'si.role.val':   '全端 · AI 工程師',
     'si.uptime.val': '3+ 年',
 
-    // About — skill categories
-    'skill.frontend': '前端',
-    'skill.backend':  '後端',
+    // About — 技術棧
+    'stack.note': '每項技術都標出實際用過它的專案 —— 這份清單由作品集自動產生。',
+    'stack.none': '尚無對應專案',
 
     'poke.grass': '！ 野草區域',
     '404.msg':    '❯ Page not found — 頁面不存在',
@@ -152,9 +149,7 @@ const translations = {
     'comp.desc':           'Competition history — contests, hackathons, and challenge records.',
     'comp.view':           'view →',
 
-    // About — sysInfo labels
-    'si.name':       'Name',
-    'si.role':       'Role',
+    // About — sysInfo labels（name / role live in about.json identity）
     'si.os':         'OS',
     'si.shell':      'Shell',
     'si.editor':     'Editor',
@@ -163,12 +158,11 @@ const translations = {
     'si.focus':      'Focus',
 
     // About — sysInfo values
-    'si.role.val':   'Full-Stack · AI Eng',
     'si.uptime.val': '3+ years',
 
-    // About — skill categories
-    'skill.frontend': 'Frontend',
-    'skill.backend':  'Backend',
+    // About — tech stack
+    'stack.note': 'Each technology lists the projects it was actually used in — generated from the portfolio.',
+    'stack.none': 'no project yet',
 
     'poke.grass': '! Tall Grass',
     '404.msg':    '❯ Page not found',

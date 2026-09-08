@@ -60,16 +60,31 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Username */
-.si-username {
+/* Identity —— 以前是 neofetch 風格的 "Cheng KT@portfolio"。
+   對招募方來說 @portfolio 不傳達任何訊息，而底下的表格又重複了一次姓名與職稱，
+   所以改成真正的身分列：姓名 + 職稱，表格那兩列一併移除。 */
+.si-identity {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
   text-align: center;
-  font-size: 0.85rem;
-  font-weight: 700;
   margin-bottom: 0.75rem;
+}
+
+.si-name {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
   letter-spacing: 0.01em;
 }
 
-.si-user { font-size: 0.92rem; }
+.si-role {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--primary);
+  letter-spacing: 0.03em;
+}
 
 /* Divider */
 .si-divider {
@@ -134,7 +149,7 @@
 /* Section cards */
 .about-bio,
 .timeline-section,
-.skills-section {
+.stack-section {
   background: var(--surface-2);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -145,14 +160,14 @@
 
 .about-bio:hover,
 .timeline-section:hover,
-.skills-section:hover {
+.stack-section:hover {
   border-color: var(--border-hi);
 }
 
 /* Coloured top accent bar per section */
 .about-bio       { border-top: 2px solid var(--neon-cyan);   }
 .timeline-section { border-top: 2px solid var(--neon-purple); }
-.skills-section  { border-top: 2px solid var(--neon-green);  }
+.stack-section  { border-top: 2px solid var(--neon-green);  }
 
 /* Section titles */
 .section-title {
@@ -169,12 +184,21 @@
   gap: 0.35rem;
 }
 
-/* Bio */
+/* Bio —— 三段等重會讀起來像三則不相干的敘述，掃過去抓不到主線。
+   第一段拉高視覺層級當作開場，其餘是補充；行距收緊、段距放寬，
+   段落之間才有明確節奏（原本段距 0.875rem 比行距還小，反而糊成一片）。 */
 .about-bio p {
   color: var(--text-2);
-  line-height: 1.9;
-  margin: 0 0 0.875rem;
-  font-size: 1.05rem;
+  line-height: 1.8;
+  margin: 0 0 1.15rem;
+  font-size: 1rem;
+}
+
+.about-bio p:first-of-type {
+  color: var(--text);
+  font-size: 1.14rem;
+  line-height: 1.7;
+  margin-bottom: 1.35rem;
 }
 
 .about-bio p:last-child { margin: 0; }
@@ -253,13 +277,24 @@
 .tl-amber  .tl-dot { border-color: #fbbf24;             box-shadow: 0 0 6px rgba(251,191,36,0.4);  }
 .tl-pink   .tl-dot { border-color: var(--neon-pink);    box-shadow: 0 0 6px rgba(255,45,149,0.4);  }
 
+/* 連接線以前是 1px、用 --border(#1e2a4a) 畫在 --surface-2(#141e3a) 上、
+   而且漸層淡出到全透明 —— 三件事疊起來等於看不見，只剩一排發光的點。
+   改成 2px 並吃該項目的 accent 色，兩端都保持可見。 */
 .tl-connector {
-  width: 1px;
+  width: 2px;
   flex: 1;
   min-height: 2rem;
-  background: linear-gradient(to bottom, var(--border), transparent);
+  border-radius: 1px;
   margin: 4px 0 0;
+  background: linear-gradient(to bottom, var(--tl-line-a), var(--tl-line-b));
 }
+
+.tl-item   { --tl-line-a: var(--border-hi);        --tl-line-b: var(--border);            }
+.tl-cyan   { --tl-line-a: rgba(0, 229, 255, 0.55); --tl-line-b: rgba(0, 229, 255, 0.12);  }
+.tl-purple { --tl-line-a: rgba(168, 85, 247, 0.55); --tl-line-b: rgba(168, 85, 247, 0.12); }
+.tl-green  { --tl-line-a: rgba(0, 255, 159, 0.55); --tl-line-b: rgba(0, 255, 159, 0.12);  }
+.tl-amber  { --tl-line-a: rgba(251, 191, 36, 0.55); --tl-line-b: rgba(251, 191, 36, 0.12); }
+.tl-pink   { --tl-line-a: rgba(255, 45, 149, 0.55); --tl-line-b: rgba(255, 45, 149, 0.12); }
 
 .tl-content {
   padding: 0 0 2rem;
@@ -288,118 +323,90 @@
   line-height: 1.7;
 }
 
-/* Skills */
-.skills-grid {
+/* ── Stack ───────────────────────────────────────── */
+/* 每一列是「技術 → 實際用過它的專案」。以前這裡是四組自評百分比進度條 ——
+   數字無法驗證、會主動暴露弱項，而且跟作品集各說各話（宣稱 React 90% 卻沒有
+   React 專案，主力的 Go 反而沒列到）。改成引用作品集之後兩邊不可能對不起來。 */
+.stack-note {
+  margin: -0.35rem 0 1.25rem;
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.stack-groups {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   gap: 1rem;
 }
 
-@media (min-width: 640px) {
-  .skills-grid { grid-template-columns: repeat(2, 1fr); }
+@media (min-width: 720px) {
+  .stack-groups { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (min-width: 900px) {
-  .skills-grid { grid-template-columns: repeat(4, 1fr); }
-}
-
-.skill-group {
-  background: var(--surface-2);
+.stack-group {
+  background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 1rem 1.1rem;
-  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+  transition: border-color 0.25s;
 }
 
-.skill-group:hover {
-  border-color: var(--primary);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(0, 229, 255, 0.1);
-}
+.stack-group:hover { border-color: var(--border-hi); }
 
-.skill-group-header {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.875rem;
-  padding-bottom: 0.625rem;
+.stack-group-title {
+  margin: 0 0 0.8rem;
+  padding-bottom: 0.55rem;
   border-bottom: 1px dashed var(--border);
-}
-
-.skill-tag {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   font-weight: 700;
   color: var(--neon-purple);
-  background: rgba(168, 85, 247, 0.12);
-  padding: 0.12rem 0.4rem;
-  border-radius: 3px;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
-.skill-group-header h3 {
-  margin: 0;
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: var(--text);
-  letter-spacing: 0.04em;
-}
-
-.skill-list {
+.stack-list {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.7rem;
+  gap: 0.6rem;
 }
 
-.skill-list li {
-  display: flex;
-  flex-direction: column;
-  gap: 0.28rem;
+.stack-item {
+  display: grid;
+  grid-template-columns: minmax(92px, max-content) 1fr;
+  gap: 0.9rem;
+  align-items: baseline;
 }
 
-.skill-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.skill-name {
+.stack-tech {
   font-family: var(--font-mono);
-  font-size: 0.88rem;
+  font-size: 0.9rem;
+  font-weight: 600;
   color: var(--text);
-  line-height: 1;
 }
 
-.skill-pct {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
+.stack-where {
+  font-size: 0.82rem;
   color: var(--muted);
-  letter-spacing: 0.02em;
+  line-height: 1.5;
 }
 
-.skill-bar {
-  height: 3px;
-  background: var(--border);
-  border-radius: 2px;
-  overflow: hidden;
+.stack-none {
+  font-style: normal;
+  color: var(--dim);
 }
 
-.skill-fill {
-  height: 100%;
-  width: 0;
-  border-radius: 2px;
-  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
-  box-shadow: 0 0 6px var(--primary-glow);
-  animation: skill-grow 0.9s ease-out var(--delay, 0.2s) forwards;
+@media (max-width: 480px) {
+  .stack-item {
+    grid-template-columns: 1fr;
+    gap: 0.15rem;
+  }
 }
 
-@keyframes skill-grow {
-  to { width: var(--level); }
-}
 
 /* ── Step 3: Timeline mobile fix ─────────────── */
 @media (max-width: 480px) {
