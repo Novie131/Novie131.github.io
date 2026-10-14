@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
 #
-# 一鍵發布 —— commit 目前的改動並推上 main，觸發 GitHub Actions 部署。
+# 一鍵發布 —— 自動 commit 目前的改動並推上 main，觸發 GitHub Actions 部署。
 #
+#   ./deploy.sh                        # 自動產生 commit 訊息
 #   ./deploy.sh -m "更新作品集"
 #   ./deploy.sh -m "只改幾個字" -n     # 跳過檢查
+#
+# 工作區沒有改動、但有已 commit 還沒 push 的東西時，會直接 push。
 #
 # 預設會先跑 lint 和 build。這不是形式 —— workflow 拿到你推的 commit 之後會
 # 重跑一次 npm run build，本機建不起來的東西線上一樣建不起來，差別只在於
@@ -18,13 +21,13 @@ SKIP_CHECKS=0
 
 usage() {
   cat <<'EOF'
-用法：./deploy.sh -m "commit 訊息" [-n]
+用法：./deploy.sh [-m "commit 訊息"] [-n]
 
-  -m <訊息>   commit 訊息（必填）
+  -m <訊息>   commit 訊息（省略則自動產生「chore: 更新網站（日期時間）」）
   -n          跳過 lint 與 build 檢查
   -h          顯示這段說明
 
-流程：確認在 main → 確認有改動 → lint → build → commit → push
+流程：確認在 main → 確認有改動或未推送的 commit → lint → build → commit → push
 push 之後 GitHub Actions 約一分鐘完成部署。
 EOF
 }
@@ -39,13 +42,6 @@ while getopts ":m:nh" opt; do
   esac
 done
 
-if [[ -z "$MSG" ]]; then
-  echo "❌ 請用 -m 提供 commit 訊息" >&2
-  echo >&2
-  usage >&2
-  exit 1
-fi
-
 # 只有 main 會觸發 .github/workflows/deploy.yml
 BRANCH="$(git rev-parse --abbrev-ref HEAD)"
 if [[ "$BRANCH" != "main" ]]; then
@@ -54,14 +50,25 @@ if [[ "$BRANCH" != "main" ]]; then
   exit 1
 fi
 
-if [[ -z "$(git status --porcelain)" ]]; then
-  echo "✅ 沒有任何變更 —— 不需要發布。"
+DIRTY="$(git status --porcelain)"
+# 已經 commit 但還沒推上去的數量；沒有 upstream 時當作 0
+AHEAD="$(git rev-list --count '@{u}..HEAD' 2>/dev/null || echo 0)"
+
+if [[ -z "$DIRTY" && "$AHEAD" -eq 0 ]]; then
+  echo "✅ 沒有任何變更，也沒有未推送的 commit —— 不需要發布。"
   exit 0
 fi
 
-echo "本次要發布的變更："
-git status --short
-echo
+if [[ -n "$DIRTY" ]]; then
+  echo "本次要 commit 的變更："
+  git status --short
+  echo
+fi
+if [[ "$AHEAD" -gt 0 ]]; then
+  echo "尚未推送的 commit（$AHEAD 個）："
+  git log --oneline '@{u}..HEAD'
+  echo
+fi
 
 if [[ "$SKIP_CHECKS" -eq 0 ]]; then
   if [[ ! -d node_modules ]]; then
@@ -80,8 +87,19 @@ if [[ "$SKIP_CHECKS" -eq 0 ]]; then
   echo
 fi
 
-git add -A
-git commit -m "$MSG"
+if [[ -n "$DIRTY" ]]; then
+  if [[ -z "$MSG" ]]; then
+    # 沒給 -m 就自動產生：標題放時間，內文列出改到的檔案，事後翻 log 還看得出改了什麼
+    MSG="chore: 更新網站（$(date '+%Y-%m-%d %H:%M')）"
+    git add -A
+    git commit -q -m "$MSG" -m "$(git diff --cached --name-status)"
+  else
+    git add -A
+    git commit -q -m "$MSG"
+  fi
+  echo "📝 已 commit：$(git log --oneline -1)"
+fi
+
 git push
 
 SHA="$(git rev-parse --short HEAD)"
