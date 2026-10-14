@@ -5,7 +5,6 @@ import home from '../content/home.json'
 import '../styles/Home.css'
 
 const { avatar, stats, ticker, terminal, pokemon } = home
-const tickerLoop = [...ticker, ...ticker]
 
 const BW_SPRITE = id =>
   `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${id}.gif`
@@ -30,16 +29,13 @@ export default function Home() {
               <img
                 src={avatar}
                 alt="Cheng KT"
-                width="64"
-                height="64"
+                width="120"
+                height="120"
                 fetchPriority="high"
                 decoding="async"
               />
             </div>
-            <span className="hero-badge">
-              <span className="badge-dot" />
-              {t('home.badge')}
-            </span>
+            <span className="hero-badge">{t('home.badge')}</span>
           </div>
 
           <h1 className="hero-title">
@@ -47,9 +43,7 @@ export default function Home() {
             <span className="hero-name">Cheng KT</span>
           </h1>
 
-          <p className="hero-sub">
-            <span className="tc-green">❯</span> {t('home.sub')}
-          </p>
+          <p className="hero-sub">{t('home.sub')}</p>
 
           <div className="hero-actions">
             <Link to="/portfolio" className="btn btn-primary">
@@ -65,33 +59,26 @@ export default function Home() {
             <div className="terminal-window">
               <div className="terminal-titlebar">
                 <div className="tb-dots">
-                  <span className="tb-dot" style={{ background: '#ff5f57' }} />
-                  <span className="tb-dot" style={{ background: '#febc2e' }} />
-                  <span className="tb-dot" style={{ background: '#28c840' }} />
+                  <span className="tb-dot" />
+                  <span className="tb-dot" />
+                  <span className="tb-dot" />
                 </div>
-                <span className="tb-title">Cheng KT — zsh — 80×24</span>
+                <span className="tb-title">zsh</span>
               </div>
+              {/* 以前後面還有一段 ./run_model.py 的假訓練進度（loss / acc），
+                  對不到任何真實專案，被問到反而尷尬 —— 只留 neofetch 的真實資料。 */}
               <div className="terminal-body">
-                <p className="tl d1"><span className="tc-green">❯</span> <span className="tc-amber">neofetch</span></p>
-                <p className="tl d2 tl-user">Cheng KT<span className="tc-dim">@</span>portfolio</p>
-                <p className="tl d3 tl-sep">─────────────────────</p>
+                <p className="tl d1"><span className="tl-prompt">❯</span> neofetch</p>
+                <p className="tl d2 tl-user">Cheng KT</p>
+                <p className="tl d3 tl-sep">────────────────</p>
                 {terminal.map((row, i) => (
                   <p key={row.key} className={`tl d${i + 4}`}>
-                    <span className="tc-cyan">{row.key.padEnd(7)}</span> : {row.value}
+                    <span className="tl-key">{row.key.padEnd(7)}</span> {row.value}
                   </p>
                 ))}
-                <p className="tl d9">&nbsp;</p>
-                <p className="tl d10"><span className="tc-green">❯</span> <span className="tc-amber">./run_model.py</span></p>
-                <p className="tl d11">&nbsp;</p>
-                <div className="tl d12 tl-progress">
-                  <span className="tc-dim">training  </span>
-                  <div className="pg-track"><div className="pg-fill" /></div>
-                  <span className="tc-green"> 87%</span>
-                </div>
-                <p className="tl d13"><span className="tc-dim">&gt;</span> loss: <span className="tc-amber">0.0421</span></p>
-                <p className="tl d14"><span className="tc-dim">&gt;</span> acc:  <span className="tc-cyan">98.7%</span></p>
-                <p className="tl d15">&nbsp;</p>
-                <p className="tl d16"><span className="tc-green">❯</span> <span className="cursor-blink">█</span></p>
+                <p className={`tl d${terminal.length + 4}`}>
+                  <span className="tl-prompt">❯</span> <span className="cursor-blink">█</span>
+                </p>
               </div>
             </div>
           </section>
@@ -127,7 +114,7 @@ export default function Home() {
       {/* ── Stats Bar ───────────────────────────────── */}
       <div className="stats-bar">
         {stats.map(s => (
-          <div key={s.labelKey} className={`stat-item stat-${s.color}`}>
+          <div key={s.labelKey} className="stat-item">
             <span className="stat-value">{s.value}</span>
             <span className="stat-label">{t(s.labelKey)}</span>
           </div>
@@ -153,17 +140,13 @@ export default function Home() {
         </div>
       )}
 
-      {/* ── Tech Ticker ─────────────────────────────── */}
-      <div className="ticker-wrap">
-        <div className="ticker-fade-left"  />
-        <div className="ticker-fade-right" />
-        <div className="ticker-track">
-          {tickerLoop.map((item, i) => (
-            <span key={i} className="ticker-item">
-              <span className={`ticker-dot tc-${item.color}`}>◆</span>
-              {item.label}
-            </span>
-          ))}
+      {/* ── Tech stack ──────────────────────────────── */}
+      {/* 以前是無限捲動的跑馬燈，每項配一個彩色菱形 —— 畫面永遠在動，
+          反而沒人會停下來看。改成靜態的一列標籤，掃一眼就讀完。 */}
+      <div className="home-stack">
+        <span className="home-stack-label">{t('home.stack')}</span>
+        <div className="tags">
+          {ticker.map(item => <span key={item.label} className="tag">{item.label}</span>)}
         </div>
       </div>
 

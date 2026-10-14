@@ -8,10 +8,10 @@ export default function Contact() {
   const { t } = useLang()
   return (
     <div className="page contact">
-      <header className="contact-header">
-        <p className="ct-prompt">~/contact $ cat links.json</p>
+      <header className="page-header">
+        <p className="page-eyebrow">~/contact</p>
         <h1>{t('contact.title')}</h1>
-        <p className="ct-desc">{t('contact.desc')}</p>
+        <p className="page-desc">{t('contact.desc')}</p>
       </header>
 
       <div className="contact-body">
@@ -24,7 +24,7 @@ export default function Contact() {
             return (
               <Tag
                 key={link.id}
-                className={`link-card color-${link.color}`}
+                className="link-card"
                 {...(link.href && {
                   href: link.href,
                   ...(isExternal && { target: '_blank', rel: 'noreferrer' }),
@@ -44,13 +44,11 @@ export default function Contact() {
         {/* ── Open to ────────────────────────────── */}
         <section className="open-to">
           <h2 className="section-title">
-            <span className="tc-purple">// </span>open_to
+            {t('contact.open')}
           </h2>
           <ul className="open-list">
             {openToKeys.map(key => (
-              <li key={key}>
-                <span className="tc-green">▸</span> {t(key)}
-              </li>
+              <li key={key}>{t(key)}</li>
             ))}
           </ul>
         </section>

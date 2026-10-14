@@ -1,25 +1,4 @@
-/* ── Terminal header ─────────────────────────────── */
-.about-term-header {
-  font-family: var(--font-mono);
-  font-size: 0.82rem;
-  color: var(--neon-green);
-  margin: 0 0 1.75rem;
-  letter-spacing: 0.02em;
-}
-
-.about-term-header::after {
-  content: '_';
-  animation: cursor-blink 1.1s step-end infinite;
-  color: var(--neon-green);
-  margin-left: 2px;
-}
-
-@keyframes cursor-blink {
-  0%, 100% { opacity: 1; }
-  50%      { opacity: 0; }
-}
-
-/* ── Neofetch Layout ─────────────────────────────── */
+/* ── Layout ──────────────────────────────────────── */
 .neofetch-layout {
   display: grid;
   grid-template-columns: 1fr;
@@ -31,7 +10,7 @@
 @media (min-width: 1024px) {
   .neofetch-layout {
     grid-template-columns: 250px minmax(0, 1fr);
-    gap: 2.5rem;
+    gap: 3.5rem;
     align-items: start;
   }
   .sysinfo-panel {
@@ -41,29 +20,17 @@
 }
 
 @media (min-width: 1280px) {
-  .neofetch-layout {
-    grid-template-columns: 280px minmax(0, 1fr);
-    gap: 4rem;
-  }
+  .neofetch-layout { grid-template-columns: 270px minmax(0, 1fr); gap: 4.5rem; }
 }
 
 /* ── System Info Panel ───────────────────────────── */
 .sysinfo-panel {
   display: flex;
   flex-direction: column;
-  gap: 0;
-  font-family: var(--font-mono);
-  font-size: 0.82rem;
-  background: var(--surface-2);
+  background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 1.25rem;
-  animation: fadeIn 0.6s ease-out both;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(12px); }
-  to   { opacity: 1; transform: translateY(0); }
+  padding: 1.35rem 1.25rem;
 }
 
 /* Identity —— 以前是 neofetch 風格的 "Cheng KT@portfolio"。
@@ -72,53 +39,46 @@
 .si-identity {
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
-  text-align: center;
-  margin-bottom: 0.75rem;
+  gap: 0.25rem;
 }
 
 .si-name {
   font-family: var(--font-display);
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: var(--text);
-  letter-spacing: 0.01em;
 }
 
 .si-role {
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--primary);
-  letter-spacing: 0.03em;
+  font-size: 0.85rem;
+  color: var(--text-2);
 }
 
-/* Divider */
 .si-divider {
-  border: none;
-  border-top: 1px dashed var(--border);
-  margin: 0.6rem 0;
+  border-top: 1px solid var(--border);
+  margin: 1rem 0;
 }
 
-/* Table */
 .si-table {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
+  gap: 0.7rem;
 }
 
 .si-row {
   display: flex;
-  gap: 0.5rem;
-  align-items: baseline;
+  flex-direction: column;
+  gap: 0.1rem;
 }
 
 .si-key {
-  min-width: 65px;
-  font-weight: 700;
-  font-size: 0.85rem;
-  letter-spacing: 0.02em;
-  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--dim);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .si-val {
@@ -129,69 +89,17 @@
   margin: 0;
 }
 
-/* Palette swatches */
-.si-palette {
-  display: flex;
-  gap: 0.3rem;
-  flex-wrap: wrap;
-  margin-top: 0.25rem;
-}
-
-.si-swatch {
-  width: 16px;
-  height: 16px;
-  border-radius: 3px;
-  border: 1px solid rgba(255,255,255,0.08);
-}
-
-/* ── Right Panel ─────────────────────────────────── */
+/* ── Main column ─────────────────────────────────── */
+/* 三個區塊以前各是一張卡、各有一條不同顏色的上邊框；
+   改成不加框，只靠共用的 .section-title 與留白分段。 */
 .about-main {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 3rem;
+  min-width: 0;
 }
 
-/* Section cards */
-.about-bio,
-.timeline-section,
-.stack-section {
-  background: var(--surface-2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 1.75rem 2rem;
-  position: relative;
-  transition: border-color 0.25s;
-}
-
-.about-bio:hover,
-.timeline-section:hover,
-.stack-section:hover {
-  border-color: var(--border-hi);
-}
-
-/* Coloured top accent bar per section */
-.about-bio       { border-top: 2px solid var(--neon-cyan);   }
-.timeline-section { border-top: 2px solid var(--neon-purple); }
-.stack-section  { border-top: 2px solid var(--neon-green);  }
-
-/* Section titles */
-.section-title {
-  font-family: var(--font-mono);
-  font-size: 0.92rem;
-  font-weight: 700;
-  color: var(--text);
-  margin: 0 0 1.25rem;
-  padding-bottom: 0.875rem;
-  border-bottom: 1px dashed var(--border);
-  letter-spacing: 0.06em;
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-}
-
-/* Bio —— 三段等重會讀起來像三則不相干的敘述，掃過去抓不到主線。
-   第一段拉高視覺層級當作開場，其餘是補充；行距收緊、段距放寬，
-   段落之間才有明確節奏（原本段距 0.875rem 比行距還小，反而糊成一片）。 */
+/* Bio —— 第一段拉高視覺層級當作開場，其餘是補充。 */
 .about-bio p {
   color: var(--text-2);
   line-height: 1.8;
@@ -201,7 +109,7 @@
 
 .about-bio p:first-of-type {
   color: var(--text);
-  font-size: 1.14rem;
+  font-size: 1.12rem;
   line-height: 1.7;
   margin-bottom: 1.35rem;
 }
@@ -209,7 +117,7 @@
 .about-bio p:last-child { margin: 0; }
 
 .about-bio strong {
-  color: var(--primary);
+  color: var(--text);
   font-weight: 600;
 }
 
@@ -217,12 +125,11 @@
 .timeline {
   display: flex;
   flex-direction: column;
-  gap: 0;
 }
 
 .tl-item {
   display: grid;
-  grid-template-columns: 90px 24px 1fr;
+  grid-template-columns: 84px 16px 1fr;
   gap: 0 1rem;
   align-items: start;
 }
@@ -231,110 +138,74 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 0.3rem;
-  padding-top: 0.15rem;
+  gap: 0.2rem;
+  padding-top: 0.1rem;
 }
 
 .tl-year {
   font-family: var(--font-mono);
-  font-size: 0.88rem;
-  font-weight: 700;
-  color: var(--text);
-  letter-spacing: 0.04em;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-2);
 }
 
 .tl-type {
   font-family: var(--font-mono);
-  font-size: 0.6rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  padding: 0.1rem 0.4rem;
-  border-radius: 3px;
+  font-size: 0.62rem;
+  color: var(--dim);
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
-
-.tl-type-work       { color: var(--neon-cyan);   background: rgba(0,229,255,0.1);   }
-.tl-type-project    { color: var(--neon-purple);  background: rgba(168,85,247,0.1);  }
-.tl-type-education  { color: var(--neon-green);   background: rgba(0,255,159,0.1);   }
-.tl-type-award      { color: #fbbf24;             background: rgba(251,191,36,0.1);  }
-.tl-type-community  { color: var(--neon-pink);    background: rgba(255,45,149,0.1);  }
 
 .tl-line {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0;
+  align-self: stretch;
 }
 
 .tl-dot {
-  width: 10px;
-  height: 10px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
-  border: 2px solid var(--border);
-  background: var(--bg-deep);
+  border: 2px solid var(--muted);
+  background: var(--bg);
   flex-shrink: 0;
-  margin-top: 0.2rem;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  margin-top: 0.35rem;
 }
 
-.tl-cyan   .tl-dot { border-color: var(--neon-cyan);   box-shadow: 0 0 6px rgba(0,229,255,0.4);   }
-.tl-purple .tl-dot { border-color: var(--neon-purple);  box-shadow: 0 0 6px rgba(168,85,247,0.4);  }
-.tl-green  .tl-dot { border-color: var(--neon-green);   box-shadow: 0 0 6px rgba(0,255,159,0.4);   }
-.tl-amber  .tl-dot { border-color: #fbbf24;             box-shadow: 0 0 6px rgba(251,191,36,0.4);  }
-.tl-pink   .tl-dot { border-color: var(--neon-pink);    box-shadow: 0 0 6px rgba(255,45,149,0.4);  }
+.tl-item:first-child .tl-dot { border-color: var(--primary); }
 
-/* 連接線以前是 1px、用 --border(#1e2a4a) 畫在 --surface-2(#141e3a) 上、
-   而且漸層淡出到全透明 —— 三件事疊起來等於看不見，只剩一排發光的點。
-   改成 2px 並吃該項目的 accent 色，兩端都保持可見。 */
 .tl-connector {
-  width: 2px;
+  width: 1px;
   flex: 1;
   min-height: 2rem;
-  border-radius: 1px;
-  margin: 4px 0 0;
-  background: linear-gradient(to bottom, var(--tl-line-a), var(--tl-line-b));
+  margin-top: 4px;
+  background: var(--border-hi);
 }
 
-.tl-item   { --tl-line-a: var(--border-hi);        --tl-line-b: var(--border);            }
-.tl-cyan   { --tl-line-a: rgba(0, 229, 255, 0.55); --tl-line-b: rgba(0, 229, 255, 0.12);  }
-.tl-purple { --tl-line-a: rgba(168, 85, 247, 0.55); --tl-line-b: rgba(168, 85, 247, 0.12); }
-.tl-green  { --tl-line-a: rgba(0, 255, 159, 0.55); --tl-line-b: rgba(0, 255, 159, 0.12);  }
-.tl-amber  { --tl-line-a: rgba(251, 191, 36, 0.55); --tl-line-b: rgba(251, 191, 36, 0.12); }
-.tl-pink   { --tl-line-a: rgba(255, 45, 149, 0.55); --tl-line-b: rgba(255, 45, 149, 0.12); }
-
-.tl-content {
-  padding: 0 0 2rem;
-}
+.tl-content { padding: 0 0 1.75rem; }
 
 .tl-title {
   font-family: var(--font-display);
-  font-size: 1.05rem;
-  font-weight: 700;
+  font-size: 1rem;
+  font-weight: 600;
   color: var(--text);
   margin: 0 0 0.2rem;
-  line-height: 1.3;
+  line-height: 1.4;
 }
 
 .tl-sub {
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   color: var(--muted);
-  margin: 0 0 0.4rem;
-}
-
-.tl-desc {
-  font-size: 0.95rem;
-  color: var(--text-2);
   margin: 0;
-  line-height: 1.7;
+  line-height: 1.6;
 }
 
 /* ── Stack ───────────────────────────────────────── */
-/* 每一列是「技術 → 實際用過它的專案」。以前這裡是四組自評百分比進度條 ——
-   數字無法驗證、會主動暴露弱項，而且跟作品集各說各話（宣稱 React 90% 卻沒有
-   React 專案，主力的 Go 反而沒列到）。改成引用作品集之後兩邊不可能對不起來。 */
+/* 每一列是「技術 → 實際用過它的專案」，從作品集推導，兩邊不會對不起來。 */
 .stack-note {
-  margin: -0.35rem 0 1.25rem;
+  margin: -0.25rem 0 1.5rem;
   font-size: 0.88rem;
   color: var(--muted);
   line-height: 1.65;
@@ -343,33 +214,18 @@
 .stack-groups {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1rem;
+  gap: 2rem 2.5rem;
 }
 
 @media (min-width: 720px) {
-  .stack-groups { grid-template-columns: repeat(2, 1fr); }
+  .stack-groups { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
-
-.stack-group {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 1rem 1.1rem;
-  transition: border-color 0.25s;
-}
-
-.stack-group:hover { border-color: var(--border-hi); }
 
 .stack-group-title {
-  margin: 0 0 0.8rem;
-  padding-bottom: 0.55rem;
-  border-bottom: 1px dashed var(--border);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--neon-purple);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  margin: 0 0 0.75rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text);
 }
 
 .stack-list {
@@ -378,19 +234,22 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
 }
 
 .stack-item {
   display: grid;
-  grid-template-columns: minmax(92px, max-content) 1fr;
-  gap: 0.9rem;
+  grid-template-columns: minmax(96px, max-content) minmax(0, 1fr);
+  gap: 1rem;
   align-items: baseline;
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--border);
 }
+
+.stack-item:last-child { border-bottom: 1px solid var(--border); }
 
 .stack-tech {
   font-family: var(--font-mono);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 600;
   color: var(--text);
 }
@@ -401,25 +260,23 @@
   line-height: 1.5;
 }
 
+.stack-more { color: var(--dim); }
+
 .stack-none {
   font-style: normal;
   color: var(--dim);
 }
 
+/* ── Mobile ──────────────────────────────────────── */
 @media (max-width: 480px) {
   .stack-item {
     grid-template-columns: 1fr;
     gap: 0.15rem;
   }
-}
-
-
-/* ── Step 3: Timeline mobile fix ─────────────── */
-@media (max-width: 480px) {
   .tl-item {
-    grid-template-columns: 62px 18px 1fr;
-    gap: 0 0.4rem;
+    grid-template-columns: 58px 14px 1fr;
+    gap: 0 0.6rem;
   }
-  .tl-year { font-size: 0.76rem; letter-spacing: 0; }
-  .tl-type { font-size: 0.5rem; padding: 0.06rem 0.25rem; }
+  .tl-year { font-size: 0.76rem; }
+  .tl-type { font-size: 0.55rem; }
 }

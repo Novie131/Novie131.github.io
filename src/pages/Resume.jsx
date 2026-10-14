@@ -7,19 +7,6 @@ const {
   competitions = [], community = [], writing = [], courses = [], events = [],
 } = resume
 
-const colorMap = {
-  cyan:   { accent: '#00e5ff', bg: 'rgba(0,229,255,0.1)',    border: 'rgba(0,229,255,0.25)'   },
-  purple: { accent: '#a855f7', bg: 'rgba(168,85,247,0.1)',   border: 'rgba(168,85,247,0.25)'  },
-  amber:  { accent: '#fbbf24', bg: 'rgba(251,191,36,0.1)',   border: 'rgba(251,191,36,0.25)'  },
-  green:  { accent: '#00ff9f', bg: 'rgba(0,255,159,0.1)',    border: 'rgba(0,255,159,0.25)'   },
-  pink:   { accent: '#ff2d95', bg: 'rgba(255,45,149,0.1)',   border: 'rgba(255,45,149,0.25)'  },
-}
-
-const cardVars = color => {
-  const c = colorMap[color] ?? colorMap.cyan
-  return { '--card-accent': c.accent, '--card-bg': c.bg, '--card-border': c.border }
-}
-
 /* 欄位可以是純字串（專有名詞不翻譯）或 { zh, en } —— 兩種都吃 */
 const pick = (v, lang) => (v && typeof v === 'object' ? v[lang] : v)
 
@@ -41,8 +28,8 @@ function Section({ id, title, count, children }) {
   if (!count) return null
   return (
     <section className="resume-section" id={id}>
-      <h2 className="resume-section-title">
-        <span className="tc-purple">// </span>{title}
+      <h2 className="section-title">
+        {title}
         <span className="resume-count">{count}</span>
       </h2>
       {children}
@@ -53,8 +40,8 @@ function Section({ id, title, count, children }) {
 function Tags({ list }) {
   if (!list?.length) return null
   return (
-    <div className="rs-tags">
-      {list.map(tag => <span key={tag} className="rs-tag">{tag}</span>)}
+    <div className="tags rs-tags">
+      {list.map(tag => <span key={tag} className="tag">{tag}</span>)}
     </div>
   )
 }
@@ -65,10 +52,10 @@ export default function Resume() {
   return (
     <div className="page resume">
 
-      <header className="resume-header">
-        <p className="resume-prompt">~/resume $ cat resume.json | jq '.'</p>
+      <header className="page-header">
+        <p className="page-eyebrow">~/resume</p>
         <h1>{t('resume.title')}</h1>
-        <p className="resume-desc">{t('resume.desc')}</p>
+        <p className="page-desc">{t('resume.desc')}</p>
         <nav className="resume-toc" aria-label={t('resume.title')}>
           {SECTIONS.map(([key]) => (
             <a key={key} href={`#${key}`} className="toc-chip">{title(key)}</a>
@@ -79,7 +66,7 @@ export default function Resume() {
       <Section id="education" title={title('education')} count={education.length}>
         <div className="edu-list">
           {education.map(edu => (
-            <div key={edu.id} className="edu-row" style={cardVars(edu.color)}>
+            <div key={edu.id} className="edu-row">
               <span className="edu-period">{edu.period}</span>
               <div className="edu-body">
                 <h3 className="edu-degree">{pick(edu.degree, lang)}</h3>
@@ -94,7 +81,7 @@ export default function Resume() {
       <Section id="experience" title={title('experience')} count={experience.length}>
         <div className="exp-list">
           {experience.map(exp => (
-            <article key={exp.id} className="exp-card" style={cardVars(exp.color)}>
+            <article key={exp.id} className="exp-card">
               <p className="exp-org">{pick(exp.org, lang)}</p>
               <h3 className="exp-title">{pick(exp.title, lang)}</h3>
               {exp.roles && <p className="exp-roles">{pick(exp.roles, lang)}</p>}
@@ -113,7 +100,7 @@ export default function Resume() {
       <Section id="publications" title={title('publications')} count={publications.length}>
         <div className="pub-list">
           {publications.map(pub => (
-            <article key={pub.id} className="pub-card" style={cardVars(pub.color)}>
+            <article key={pub.id} className="pub-card">
               <span className="pub-scope">{pick(pub.scope, lang)}</span>
               <h3 className="pub-title">{pick(pub.title, lang)}</h3>
               <p className="pub-venue">{pick(pub.venue, lang)}</p>
@@ -127,7 +114,7 @@ export default function Resume() {
       <Section id="certifications" title={title('certifications')} count={certifications.length}>
         <div className="cert-grid">
           {certifications.map(cert => (
-            <div key={cert.id} className="cert-card" style={cardVars(cert.color)}>
+            <div key={cert.id} className="cert-card">
               <div className="cert-tag">{cert.tag}</div>
               <div className="cert-body">
                 <h3 className="cert-title">{pick(cert.title, lang)}</h3>
@@ -152,7 +139,7 @@ export default function Resume() {
       <Section id="competitions" title={title('competitions')} count={competitions.length}>
         <div className="comp-grid">
           {competitions.map(comp => (
-            <div key={comp.id} className="comp-card" style={cardVars(comp.color)}>
+            <div key={comp.id} className="comp-card">
               <div className="comp-card-top">
                 <div className="comp-award">{comp.award}</div>
                 <span className="comp-date">{comp.date}</span>
@@ -176,7 +163,7 @@ export default function Resume() {
       <Section id="community" title={title('community')} count={community.length}>
         <div className="comm-list">
           {community.map(item => (
-            <div key={item.id} className="comm-row" style={cardVars(item.color)}>
+            <div key={item.id} className="comm-row">
               <span className="comm-period">{item.period}</span>
               <div className="comm-body">
                 <h3 className="comm-title">{pick(item.title, lang)}</h3>
@@ -214,12 +201,8 @@ export default function Resume() {
       <Section id="courses" title={title('courses')} count={courses.length}>
         <div className="course-list">
           {courses.map((course, i) => (
-            <div
-              key={course.id}
-              className="course-row"
-              style={{ '--card-accent': (colorMap[course.color] ?? colorMap.cyan).accent }}
-            >
-              <span className="course-num tc-dim">{String(i + 1).padStart(2, '0')}</span>
+            <div key={course.id} className="course-row">
+              <span className="course-num">{String(i + 1).padStart(2, '0')}</span>
               <div className="course-body">
                 <span className="course-title">{pick(course.title, lang)}</span>
                 <span className="course-issuer">{course.issuer}</span>

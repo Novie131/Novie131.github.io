@@ -15,10 +15,10 @@ export default function Portfolio() {
 
   return (
     <div className="page portfolio">
-      <header className="portfolio-header">
-        <p className="port-term-prompt">~/projects $ ls -la --sort=stars</p>
+      <header className="page-header">
+        <p className="page-eyebrow">~/projects</p>
         <h1>{t('port.title')}</h1>
-        <p className="port-desc">{t('port.desc')}</p>
+        <p className="page-desc">{t('port.desc')}</p>
       </header>
 
       <div className="filter-bar">
@@ -40,16 +40,6 @@ export default function Portfolio() {
             key={project.id}
             className={`project-card${project.featured ? ' featured' : ''}`}
           >
-            <div className="card-titlebar">
-              <div className="tb-dots">
-                <span className="tb-dot" style={{ background: '#ff5f57' }} />
-                <span className="tb-dot" style={{ background: '#febc2e' }} />
-                <span className="tb-dot" style={{ background: '#28c840' }} />
-              </div>
-              <span className="tb-path">~/projects/{project.slug}</span>
-              <span className="card-category">{project.category}</span>
-            </div>
-
             {project.image && (
               <img
                 className="card-image"
@@ -63,6 +53,7 @@ export default function Portfolio() {
             )}
 
             <div className="card-content">
+              <p className="card-category">{project.category}</p>
               <h3 className="card-title">{project.title}</h3>
               <p className="card-desc">{project.description[lang]}</p>
 
@@ -72,9 +63,9 @@ export default function Portfolio() {
                 ))}
               </ul>
 
-              <div className="project-tech">
+              <div className="tags project-tech">
                 {project.tech.map(tech => (
-                  <span key={tech} className="tech-tag">{tech}</span>
+                  <span key={tech} className="tag">{tech}</span>
                 ))}
               </div>
 

@@ -24,8 +24,9 @@ const translations = {
     // Home
     'home.badge':          'AI AGENT · 後端工程師',
     'home.sub':            '打造 AI Agent · 守住資安邊界 · 交付上線系統',
-    'home.btn.projects':   './查看作品集',
-    'home.btn.about':      'cat about.md',
+    'home.btn.projects':   '查看作品集',
+    'home.btn.about':      '關於我',
+    'home.stack':          '主要技術',
     'stat.industry':       '產學合作專案',
     'stat.certs':          '國際證照',
     'stat.articles':       '篇技術文章',
@@ -35,13 +36,14 @@ const translations = {
     'port.title':          '精選作品',
     'port.filter.all':     '全部',
     'port.count':          '個作品',
-    'port.github':         '[GitHub] →',
-    'port.demo':           'Live Demo →',
+    'port.github':         'GitHub ↗',
+    'port.demo':           'Live Demo ↗',
     'port.desc':           '課餘做的開源作品：地端 AI 影片產線、Claude Code Plugin、AR 手機 App、IoT 冷鏈系統與 Go 工具。產學合作專案請見履歷頁。',
 
     // Contact
     'contact.title':       '聯絡',
     'contact.desc':        '有任何合作機會、技術交流或專案想法，歡迎隨時聯繫。',
+    'contact.open':        '目前開放',
     'open.fulltime':       '全職工作機會',
     'open.freelance':      '接案合作',
     'open.aiml':           'AI Agent / 資安技術合作',
@@ -84,6 +86,10 @@ const translations = {
     // About — 技術棧
     'stack.note': '每項技術都標出實際用過它的專案 —— 這份清單由作品集與產學經歷自動產生。',
     'stack.none': '尚無對應專案',
+    'about.title': '關於我',
+    'about.bio': '自我介紹',
+    'about.timeline': '經歷',
+    'about.stack': '技術棧',
 
     'poke.grass': '！ 野草區域',
     '404.msg':    '❯ Page not found — 頁面不存在',
@@ -129,8 +135,9 @@ const translations = {
     // Home
     'home.badge':          'AI AGENT · BACKEND ENGINEER',
     'home.sub':            'Building AI agents · Securing the boundaries · Shipping to production',
-    'home.btn.projects':   './view_projects',
-    'home.btn.about':      'cat about.md',
+    'home.btn.projects':   'View projects',
+    'home.btn.about':      'About me',
+    'home.stack':          'Core stack',
     'stat.industry':       'Industry projects',
     'stat.certs':          'Intl. certifications',
     'stat.articles':       'Tech articles',
@@ -140,13 +147,14 @@ const translations = {
     'port.title':          'Selected Projects',
     'port.filter.all':     'All',
     'port.count':          'projects',
-    'port.github':         '[GitHub] →',
-    'port.demo':           'Live Demo →',
+    'port.github':         'GitHub ↗',
+    'port.demo':           'Live Demo ↗',
     'port.desc':           'Open-source side projects: a local AI video pipeline, a Claude Code plugin, an AR mobile app, an IoT cold-chain system and Go tooling. Industry work is on the resume page.',
 
     // Contact
     'contact.title':       'Contact',
     'contact.desc':        'Open to collaborations, technical exchanges, or any project ideas — feel free to reach out.',
+    'contact.open':        'Open to',
     'open.fulltime':       'Full-time opportunities',
     'open.freelance':      'Freelance projects',
     'open.aiml':           'AI agent / security collaboration',
@@ -189,6 +197,10 @@ const translations = {
     // About — tech stack
     'stack.note': 'Each technology lists the projects it was actually used in — generated from the portfolio and industry work.',
     'stack.none': 'no project yet',
+    'about.title': 'About me',
+    'about.bio': 'Introduction',
+    'about.timeline': 'Timeline',
+    'about.stack': 'Tech stack',
 
     'poke.grass': '! Tall Grass',
     '404.msg':    '❯ Page not found',

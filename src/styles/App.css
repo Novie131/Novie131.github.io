@@ -1,23 +1,23 @@
 /* ── Design Tokens ─────────────────────────────────── */
 :root {
-  /* Background layers */
-  --bg-deep:     #050814;
-  --bg:          #0a1020;
-  --surface:     #0f1830;
-  --surface-2:   #141e3a;
+  /* Background layers —— 中性深灰，不再偏藍紫 */
+  --bg-deep:     #0b0e14;
+  --bg:          #0f131b;
+  --surface:     #121722;
+  --surface-2:   #171d2a;
 
   /* Borders */
-  --border:      #1e2a4a;
-  --border-hi:   #2a3a5f;
+  --border:      #222a38;
+  --border-hi:   #323c4e;
 
   /* Text */
-  --text:        #e4e7ef;
-  --text-2:      #c1c8d9;
-  --muted:       #8892b5;
-  --dim:         #4a5578;
+  --text:        #e6e8ee;
+  --text-2:      #b9c0cc;
+  --muted:       #8a93a3;
+  --dim:         #5d6676;
 
-  /* Neons */
-  --neon-cyan:   #00e5ff;
+  /* Neons —— 介面只用 --primary；其餘留給主題覆寫與終端機語法色 */
+  --neon-cyan:   #22d3ee;
   --neon-purple: #a855f7;
   --neon-green:  #00ff9f;
   --neon-pink:   #ff2d95;
@@ -25,8 +25,8 @@
 
   /* Semantic */
   --primary:      var(--neon-cyan);
-  --primary-dim:  rgba(0, 229, 255, 0.12);
-  --primary-glow: rgba(0, 229, 255, 0.4);
+  --primary-dim:  rgba(34, 211, 238, 0.1);
+  --primary-glow: rgba(34, 211, 238, 0.35);
 
   /* Fonts */
   --font-display: 'Space Grotesk', system-ui, sans-serif;
@@ -34,7 +34,7 @@
 
   --radius: 8px;
   --nav-h: 64px;
-  --nav-bg: rgba(10, 16, 32, 0.75);
+  --nav-bg: rgba(11, 14, 20, 0.8);
 }
 
 /* ── Reset ─────────────────────────────────────────── */
@@ -50,13 +50,6 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  /* Dot grid background */
-  background-image:
-    radial-gradient(circle at 1px 1px, rgba(0, 229, 255, 0.08) 1px, transparent 0),
-    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(168, 85, 247, 0.12), transparent 70%);
-  background-size: 24px 24px, 100% 100%;
-  background-attachment: fixed;
 }
 
 /* Scrollbar */
@@ -101,13 +94,11 @@ body {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--neon-green);
-  box-shadow: 0 0 10px var(--neon-green);
-  animation: pulse 2s ease-in-out infinite;
+  background: var(--primary);
 }
 
 .logo-bracket { color: var(--primary); }
-.logo-slash   { color: var(--neon-purple); }
+.logo-slash   { color: var(--dim); }
 
 .nav-links {
   list-style: none;
@@ -132,64 +123,100 @@ body {
 
 .nav-links a:hover {
   color: var(--text);
-  background: rgba(30, 42, 74, 0.5);
 }
 
 .nav-links a.active {
-  color: var(--primary);
-  background: var(--primary-dim);
-  border-color: rgba(0, 229, 255, 0.3);
+  color: var(--text);
+  background: var(--surface-2);
+  border-color: var(--border);
 }
 
 /* ── Layout ────────────────────────────────────────── */
+/* 以前整頁包在一個帶邊框的大卡片裡（四角還有裝飾括號），裡面的區塊又是卡片，
+   卡片裡再有卡片 —— 三層邊框疊在一起就是雜亂的主因。
+   現在頁面本身不畫框，內容直接放在背景上，只有真正的「一筆資料」才是卡片。
+   寬度收到 1120px：超過這個寬度，段落行長太長、兩欄卡片也會拉得鬆散。 */
+/* 內容短的頁面（聯絡）頁尾會浮在畫面中間、底下留一截空白；
+   讓外層成為直向 flex，main 吃掉剩餘高度，頁尾永遠貼底。 */
+.app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .content {
-  padding: 2.5rem 2rem;
-  max-width: 1440px;
+  flex: 1;
+  width: 100%;
+  padding: 3rem 2rem 4rem;
+  max-width: 1120px;
   margin: 0 auto;
 }
 
-@media (min-width: 1280px) {
-  .content { padding: 3rem clamp(2rem, 4vw, 5rem); }
+.page { position: relative; }
+
+/* ── Shared: 頁首 ──────────────────────────────────── */
+.page-header {
+  margin-bottom: 3rem;
 }
 
-.page {
-  /* 內距抽成變數：首頁跑馬燈要用負邊距貼齊卡片邊緣，得跟著斷點一起變 */
-  --page-pad-y: 2.5rem;
-  --page-pad-x: 2.5rem;
-  background: var(--surface);
+.page-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--dim);
+  margin: 0 0 0.6rem;
+  letter-spacing: 0.02em;
+}
+
+.page-header h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 2.6rem);
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0 0 0.75rem;
+}
+
+.page-desc {
+  color: var(--text-2);
+  font-size: 1rem;
+  max-width: 640px;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* ── Shared: 區塊標題 ──────────────────────────────── */
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ── Shared: 技術標籤 ──────────────────────────────── */
+.tag {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--muted);
+  background: var(--surface-2);
   border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: var(--page-pad-y) var(--page-pad-x);
-  position: relative;
+  padding: 0.12rem 0.5rem;
+  border-radius: 4px;
+  white-space: nowrap;
 }
 
-@media (min-width: 1280px) {
-  .page { --page-pad-y: 3rem; --page-pad-x: 3.5rem; }
-}
-
-/* Decorative corner brackets */
-.page::before,
-.page::after {
-  content: '';
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  border-color: var(--primary);
-  border-style: solid;
-  opacity: 0.45;
-  pointer-events: none;
-}
-
-.page::before {
-  top: 10px;
-  left: 10px;
-  border-width: 2px 0 0 2px;
-}
-
-.page::after {
-  bottom: 10px;
-  right: 10px;
-  border-width: 0 2px 2px 0;
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
 }
 
 /* ── Page Transition ───────────────────────────────── */
@@ -222,7 +249,7 @@ body {
 .nf-prompt {
   font-family: var(--font-mono);
   font-size: 0.82rem;
-  color: var(--neon-green);
+  color: var(--dim);
   margin: 0;
 }
 
@@ -232,13 +259,8 @@ body {
   font-weight: 700;
   margin: 0;
   letter-spacing: -0.04em;
-  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
+  color: var(--text);
   line-height: 1;
-  text-shadow: none;
 }
 
 .nf-msg {
@@ -317,7 +339,6 @@ body {
   .view-toggle:hover {
     border-color: var(--primary);
     color: var(--primary);
-    box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
     transform: translateY(-2px);
   }
 
@@ -325,7 +346,6 @@ body {
     background: var(--primary-dim);
     border-color: var(--primary);
     color: var(--primary);
-    box-shadow: 0 0 16px rgba(0, 229, 255, 0.25);
   }
 
   .vt-icon { font-size: 0.85rem; line-height: 1; }
@@ -410,8 +430,7 @@ body {
   .navbar { padding: 0 1.25rem; }
   .nav-links { gap: 0.15rem; }
   .nav-links a { padding: 0.4rem 0.6rem; font-size: 0.85rem; }
-  .content { padding: 2rem 1.25rem; }
-  .page { --page-pad-y: 2rem; --page-pad-x: 1.75rem; }
+  .content { padding: 2.5rem 1.5rem 3rem; }
 }
 
 /* ── Mobile (<640px) ────────────────────────────── */
@@ -449,8 +468,8 @@ body {
   }
 
   /* Step 2: reduce padding */
-  .content { padding: 1.25rem 0.875rem; }
-  .page    { --page-pad-y: 1.25rem; --page-pad-x: 1rem; }
+  .content { padding: 2rem 1rem 3rem; }
+  .page-header { margin-bottom: 2.25rem; }
 }
 
 @keyframes mobileNavIn {
