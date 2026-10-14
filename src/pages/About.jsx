@@ -2,19 +2,27 @@ import { useLang } from '../context/LangContext'
 import RichText from '../components/RichText'
 import about from '../content/about.json'
 import projects from '../content/projects.json'
+import resume from '../content/resume.json'
 import '../styles/About.css'
 
 const { identity, sysInfo, palette, bio, timeline, stack } = about
 
 /**
- * 技術 → 用過它的專案，直接從 projects.json 推導。
+ * 技術 → 用過它的專案，直接從 projects.json 與 resume.json 的產學經歷推導。
  *
  * 技術棧以前是一組自評百分比，跟作品集互相獨立 —— 於是宣稱了站上找不到證據的
- * 技術，又漏掉了真正用過的（例如 Nelo 的 Go）。改成從作品集推導之後，
+ * 技術，又漏掉了真正用過的（例如 Nelo 的 Go）。改成從作品推導之後，
  * 兩邊不可能對不起來，而且新增專案時這一區會自己更新。
+ * 同一個平台拆成多個子專案時（SYSBrain）共用 short 名稱，這裡去重。
  */
-const USED_IN = projects.items.reduce((map, p) => {
-  for (const tech of p.tech) (map[tech] ??= []).push(p.title)
+const USED_IN = [
+  ...projects.items.map(p => ({ name: p.title, tech: p.tech })),
+  ...(resume.experience ?? []).map(e => ({ name: e.short, tech: e.tech })),
+].reduce((map, { name, tech }) => {
+  for (const t of tech) {
+    const list = (map[t] ??= [])
+    if (!list.includes(name)) list.push(name)
+  }
   return map
 }, {})
 

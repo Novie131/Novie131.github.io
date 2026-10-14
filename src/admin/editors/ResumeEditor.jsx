@@ -58,20 +58,34 @@ const SECTIONS = [
       { key: 'color', label: '配色', type: 'color' },
     ],
   },
+  {
+    key: 'events',
+    title: '參與的技術活動',
+    addLabel: '+ 新增活動',
+    blank: () => ({ id: uid('event'), name: '', date: '' }),
+    titleKey: 'name',
+    fields: [
+      { key: 'name', label: '活動名稱' },
+      { key: 'date', label: '日期', hint: '可留空' },
+    ],
+  },
 ]
 
 export default function ResumeEditor({ data, setData }) {
   return (
     <>
+      <p className="ad-note">
+        學歷、產學合作、論文、社群與技術寫作含中英雙語與條列欄位，請切到上方「JSON」模式編輯。
+      </p>
       {SECTIONS.map(section => (
         <ListSection
           key={section.key}
           title={section.title}
           addLabel={section.addLabel}
-          list={data[section.key]}
+          list={data[section.key] ?? []}
           setList={v => setData({ ...data, [section.key]: v })}
           blank={section.blank}
-          rowTitle={item => item.title || '（未命名）'}
+          rowTitle={item => item[section.titleKey ?? 'title'] || '（未命名）'}
         >
           {(item, i, ops) => (
             <div className="ad-grid-2">

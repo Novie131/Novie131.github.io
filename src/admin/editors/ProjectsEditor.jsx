@@ -54,7 +54,7 @@ export default function ProjectsEditor({ data, setData }) {
               <Field label="精選">
                 <Check value={p.featured} onChange={v => ops.update(i, { featured: v })} />
               </Field>
-              <Field label="GitHub 連結">
+              <Field label="GitHub 連結" hint="留空則不顯示按鈕">
                 <Text value={p.repoLink} onChange={v => ops.update(i, { repoLink: v })} />
               </Field>
               <Field label="Demo 連結" hint="留空則不顯示按鈕">

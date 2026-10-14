@@ -40,10 +40,39 @@
   line-height: 1.7;
 }
 
+/* ── Section nav ─────────────────────────────────── */
+.resume-toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 1.25rem;
+}
+
+.toc-chip {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 0.3rem 0.75rem;
+  border: 1px solid var(--border-hi);
+  border-radius: 9999px;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+
+.toc-chip:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+  background: var(--primary-dim);
+}
+
 /* ── Section ─────────────────────────────────────── */
 .resume-section {
   margin-bottom: 3rem;
+  /* 頁首導覽跳過來時，標題不要被 sticky navbar 蓋住 */
+  scroll-margin-top: calc(var(--nav-h) + 1rem);
 }
+
+.resume-section:last-child { margin-bottom: 0; }
 
 .resume-section-title {
   font-family: var(--font-mono);
@@ -324,9 +353,7 @@
   font-size: 0.9rem;
   font-weight: 600;
   color: var(--text);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  line-height: 1.4;
 }
 
 .course-issuer {
@@ -369,4 +396,338 @@
 .course-link:hover {
   color: var(--card-accent, var(--neon-cyan));
   transform: translateX(3px);
+}
+
+/* ── Shared tags ─────────────────────────────────── */
+.rs-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.85rem;
+}
+
+.rs-tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-2);
+  background: var(--surface);
+  border: 1px solid var(--border-hi);
+  padding: 0.12rem 0.5rem;
+  border-radius: 4px;
+}
+
+/* ── Education ───────────────────────────────────── */
+.edu-list,
+.comm-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.edu-row,
+.comm-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.35rem;
+  padding: 1rem 1.25rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--card-accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+@media (min-width: 720px) {
+  .edu-row,
+  .comm-row {
+    grid-template-columns: 10.5rem minmax(0, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+.edu-period,
+.comm-period {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--card-accent);
+  padding-top: 0.2rem;
+}
+
+.edu-degree,
+.comm-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 0.2rem;
+  line-height: 1.4;
+}
+
+.edu-school {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+.edu-note,
+.comm-desc {
+  font-size: 0.88rem;
+  color: var(--text-2);
+  line-height: 1.7;
+  margin: 0.5rem 0 0;
+}
+
+.comm-desc { margin-top: 0.25rem; }
+
+/* ── Experience ──────────────────────────────────── */
+.exp-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 1100px) {
+  .exp-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.exp-card {
+  padding: 1.25rem 1.4rem 1.35rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--card-accent);
+  border-radius: var(--radius);
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.exp-card:hover {
+  border-color: var(--card-border);
+  border-top-color: var(--card-accent);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+}
+
+.exp-org {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--card-accent);
+  letter-spacing: 0.04em;
+  margin: 0 0 0.4rem;
+}
+
+.exp-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.4;
+  margin: 0 0 0.3rem;
+}
+
+.exp-roles {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--muted);
+  margin: 0 0 0.75rem;
+}
+
+.exp-summary {
+  font-size: 0.9rem;
+  color: var(--text-2);
+  line-height: 1.75;
+  margin: 0 0 0.6rem;
+}
+
+.exp-highlights {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.exp-highlights li {
+  position: relative;
+  padding-left: 1.1rem;
+  font-size: 0.86rem;
+  color: var(--text-2);
+  line-height: 1.65;
+}
+
+.exp-highlights li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--card-accent);
+}
+
+/* ── Publications ────────────────────────────────── */
+.pub-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 900px) {
+  .pub-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.pub-card {
+  padding: 1.25rem 1.4rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--card-accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.pub-scope {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--card-accent);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  margin-bottom: 0.7rem;
+}
+
+.pub-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.45;
+  margin: 0 0 0.45rem;
+}
+
+.pub-venue {
+  font-size: 0.84rem;
+  color: var(--text-2);
+  margin: 0 0 0.25rem;
+  line-height: 1.55;
+}
+
+.pub-meta {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+.pub-summary {
+  font-size: 0.86rem;
+  color: var(--text-2);
+  line-height: 1.7;
+  margin: 0.75rem 0 0;
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--border);
+}
+
+/* ── Writing ─────────────────────────────────────── */
+.write-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .write-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.write-card {
+  display: block;
+  padding: 1.15rem 1.25rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.2s;
+}
+
+a.write-card:hover { border-color: var(--primary); }
+
+.write-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.write-event {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--neon-green);
+}
+
+.write-count {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--neon-amber);
+}
+
+.write-title {
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.45;
+  margin: 0 0 0.35rem;
+}
+
+.write-desc {
+  font-size: 0.86rem;
+  color: var(--text-2);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ── Events ──────────────────────────────────────── */
+.event-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  border-top: 1px solid var(--border);
+}
+
+@media (min-width: 900px) {
+  .event-list { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 2rem; }
+}
+
+.event-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.65rem 0.25rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.event-name {
+  font-size: 0.88rem;
+  color: var(--text-2);
+  line-height: 1.5;
+}
+
+.event-date {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--dim);
+}
+
+/* ── Mobile ──────────────────────────────────────── */
+@media (max-width: 639px) {
+  .course-row { align-items: flex-start; padding: 0.875rem 1rem; }
+  .exp-card,
+  .pub-card { padding: 1.1rem 1rem; }
+  .cert-card:hover,
+  .course-row:hover { transform: none; }
 }

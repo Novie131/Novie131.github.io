@@ -104,7 +104,7 @@ function AppInner() {
 
       <footer className="footer">
         <p>
-          © 2025 Cheng KT · crafted with{' '}
+          © {new Date().getFullYear()} Cheng KT · crafted with{' '}
           <a href="https://react.dev"  target="_blank" rel="noreferrer">React</a> ×{' '}
           <a href="https://vitejs.dev" target="_blank" rel="noreferrer">Vite</a>
           {' '}· [system.online]

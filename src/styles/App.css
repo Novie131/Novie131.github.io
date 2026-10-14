@@ -153,15 +153,18 @@ body {
 }
 
 .page {
+  /* 內距抽成變數：首頁跑馬燈要用負邊距貼齊卡片邊緣，得跟著斷點一起變 */
+  --page-pad-y: 2.5rem;
+  --page-pad-x: 2.5rem;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 2.5rem;
+  padding: var(--page-pad-y) var(--page-pad-x);
   position: relative;
 }
 
 @media (min-width: 1280px) {
-  .page { padding: 3rem 3.5rem; }
+  .page { --page-pad-y: 3rem; --page-pad-x: 3.5rem; }
 }
 
 /* Decorative corner brackets */
@@ -402,6 +405,15 @@ body {
   background: rgba(0, 0, 0, 0.45);
 }
 
+/* ── Tablet：導覽列收緊 ──────────────────────── */
+@media (min-width: 640px) and (max-width: 899px) {
+  .navbar { padding: 0 1.25rem; }
+  .nav-links { gap: 0.15rem; }
+  .nav-links a { padding: 0.4rem 0.6rem; font-size: 0.85rem; }
+  .content { padding: 2rem 1.25rem; }
+  .page { --page-pad-y: 2rem; --page-pad-x: 1.75rem; }
+}
+
 /* ── Mobile (<640px) ────────────────────────────── */
 @media (max-width: 639px) {
   /* Step 1: show hamburger, dropdown nav */
@@ -438,7 +450,7 @@ body {
 
   /* Step 2: reduce padding */
   .content { padding: 1.25rem 0.875rem; }
-  .page    { padding: 1.25rem 1rem; }
+  .page    { --page-pad-y: 1.25rem; --page-pad-x: 1rem; }
 }
 
 @keyframes mobileNavIn {

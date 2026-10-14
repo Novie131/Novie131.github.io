@@ -2,24 +2,24 @@
   "identity": {
     "name": "Kai-Tse Cheng",
     "role": {
-      "zh": "全端 · AI 工程師",
-      "en": "Full-Stack · AI Engineer"
+      "zh": "AI Agent · 後端 · 資安",
+      "en": "AI Agent · Backend · Security"
     }
   },
   "sysInfo": [
     {
-      "labelKey": "si.os",
-      "value": "Windows / macOS",
+      "labelKey": "si.edu",
+      "valueKey": "si.edu.val",
       "cls": null
     },
     {
-      "labelKey": "si.shell",
-      "value": "bash / zsh",
+      "labelKey": "si.os",
+      "value": "macOS / Linux",
       "cls": null
     },
     {
       "labelKey": "si.editor",
-      "value": "VS Code · Neovim",
+      "value": "VS Code · Claude Code",
       "cls": null
     },
     {
@@ -29,12 +29,12 @@
     },
     {
       "labelKey": "si.location",
-      "value": "Taiwan",
+      "value": "Taichung, Taiwan",
       "cls": null
     },
     {
       "labelKey": "si.focus",
-      "value": "LLM · RAG · DevOps",
+      "value": "AI Agent · MCP · Zero Trust",
       "cls": "tc-green"
     }
   ],
@@ -50,65 +50,137 @@
   ],
   "bio": {
     "zh": [
-      "自學出身的全端工程師。我習慣一個人把一個想法從零做到能跑、能用、能交給別人。",
-      "做過 Go 寫的跨平台 CLI 工具、串接 LINE 與 Telegram 的 AI Bot、以及 Chrome Extension —— 從 API 整合、容器化到雲端部署都自己來。",
-      "現在專注在 **LLM** 與 **AI Agent** 的實際落地：怎麼把它嵌進真實的工作流程，而不只是接一個 API。"
+      "我是鄭凱擇，臺中科技大學資訊工程系碩士班二年級。遇到新技術時，我習慣花時間把背後的原理弄懂，**親手做過**才算真正掌握。",
+      "大學期間參與工研院 TAMI 受眾分析平台，用 PySpark、Elasticsearch 與 Celery 處理大量資料，平台已上線供台灣大哥大員工使用 —— 這是我第一次體會到後端系統在真實環境中的要求。",
+      "研究所後的重心是 **AI Agent 在企業裡的安全落地**：在精誠 SYSBrain 平台以 Microsoft Entra ID、OAuth 2.0 與 OpenResty 為 MCP 工具呼叫加上身分驗證，並用 NeMo Guardrails 建立四層內容防護；也參與仁寶在 COMPUTEX 2025 展出的多代理協作平台。",
+      "課餘我把想法做成開源作品，也擔任 IET On Campus Taichung Tech 社群主席，一年辦了 42 場活動。我在意的不只是會用生成式 AI，而是讓 Agent **安全、可控地**運作。"
     ],
     "en": [
-      "A self-taught full-stack engineer. I like taking an idea from zero to something that runs, works, and can be handed to someone else.",
-      "I've built a cross-platform CLI tool in Go, AI bots on LINE and Telegram, and a Chrome extension — owning API integration, containerization and cloud deployment end to end.",
-      "I focus on making **LLMs** and **AI Agents** actually land in real workflows, rather than just wiring up an API."
+      "I'm Kai-Tse Cheng, a second-year M.S. student in Computer Science at National Taichung University of Science and Technology. With new technology I take the time to understand how it works underneath — I only consider something learned once I've **built it myself**.",
+      "As an undergraduate I worked on ITRI's TAMI audience-analytics platform, processing large datasets with PySpark, Elasticsearch and Celery. It's in production at Taiwan Mobile, and it taught me what backend systems demand in the real world.",
+      "In grad school my focus is **making AI agents safe in the enterprise**: on SYSTEX's SYSBrain platform I added authentication to MCP tool calls with Microsoft Entra ID, OAuth 2.0 and OpenResty, and built four layers of NeMo Guardrails. I also worked on Compal's multi-agent platform shown at COMPUTEX 2025.",
+      "Outside of that I ship open-source side projects and chair the IET On Campus Taichung Tech community, which ran 42 events in a year. What I care about isn't just using generative AI — it's making agents run **safely and under control**."
     ]
   },
   "timeline": [
     {
-      "id": "ncut-graduate",
-      "year": "2025/9",
+      "id": "icoict-2026",
+      "year": "2026/07",
       "title": {
-        "zh": "臺中科技大學",
-        "en": "NCUT"
+        "zh": "ICoICT 2026 論文發表",
+        "en": "Paper presented at ICoICT 2026"
       },
       "sub": {
-        "zh": "研究所",
-        "en": "Graduate School"
+        "zh": "印尼萬隆 · 國際研討會發表人",
+        "en": "Bandung, Indonesia · Presenter"
+      },
+      "color": "pink",
+      "type": "award"
+    },
+    {
+      "id": "iet-chair",
+      "year": "2026",
+      "title": {
+        "zh": "IET On Campus 社群主席",
+        "en": "Chair, IET On Campus Taichung Tech"
+      },
+      "sub": {
+        "zh": "42 場活動 · 830 人次",
+        "en": "42 events · 830 attendances"
+      },
+      "color": "cyan",
+      "type": "community"
+    },
+    {
+      "id": "systex",
+      "year": "2025–",
+      "title": {
+        "zh": "精誠 SYSBrain 產學合作",
+        "en": "SYSTEX SYSBrain (industry project)"
+      },
+      "sub": {
+        "zh": "MCP 身分驗證 · Guardrails",
+        "en": "MCP auth · Guardrails"
+      },
+      "color": "cyan",
+      "type": "work"
+    },
+    {
+      "id": "ncut-graduate",
+      "year": "2025/09",
+      "title": {
+        "zh": "臺中科技大學",
+        "en": "NUTC"
+      },
+      "sub": {
+        "zh": "資訊工程系 碩士班",
+        "en": "M.S., Computer Science"
       },
       "color": "cyan",
       "type": "education"
     },
     {
-      "id": "ncut-bachelor",
-      "year": "2023/9",
+      "id": "computex-2025",
+      "year": "2025/05",
       "title": {
-        "zh": "臺中科技大學",
-        "en": "NCUT"
+        "zh": "COMPUTEX 2025 展出",
+        "en": "Shown at COMPUTEX 2025"
       },
       "sub": {
-        "zh": "二技部",
-        "en": "Bachelor's (Transfer)"
+        "zh": "仁寶 AI Agent 多元代理協作平台",
+        "en": "Compal multi-agent platform"
+      },
+      "color": "purple",
+      "type": "project"
+    },
+    {
+      "id": "itri",
+      "year": "2023–2025",
+      "title": {
+        "zh": "工研院 TAMI / KBRO",
+        "en": "ITRI TAMI / KBRO"
+      },
+      "sub": {
+        "zh": "後端與資料處理 · 已上線",
+        "en": "Backend & data · in production"
+      },
+      "color": "amber",
+      "type": "work"
+    },
+    {
+      "id": "ncut-bachelor",
+      "year": "2023/09",
+      "title": {
+        "zh": "臺中科技大學",
+        "en": "NUTC"
+      },
+      "sub": {
+        "zh": "資訊工程系 二技",
+        "en": "B.S., Computer Science"
       },
       "color": "purple",
       "type": "education"
     },
     {
       "id": "imac",
-      "year": "2023/7",
+      "year": "2023/07",
       "title": {
-        "zh": "加入 Imac 社群",
-        "en": "Joined Imac Community"
+        "zh": "加入 imac 社群",
+        "en": "Joined imac community"
       },
       "sub": {
-        "zh": "Imac",
-        "en": "Imac"
+        "zh": "IoT Team",
+        "en": "IoT Team"
       },
       "color": "green",
-      "type": "project"
+      "type": "community"
     },
     {
       "id": "ncut-associate",
-      "year": "2018/9",
+      "year": "2018/09",
       "title": {
         "zh": "臺中科技大學",
-        "en": "NCUT"
+        "en": "NUTC"
       },
       "sub": {
         "zh": "五專部",
@@ -126,61 +198,100 @@
         "en": "Languages"
       },
       "tech": [
-        "Go",
         "Python",
+        "Go",
+        "TypeScript",
         "JavaScript",
-        "HTML",
-        "CSS",
+        "C#",
         "Shell"
       ]
     },
     {
-      "id": "frontend",
+      "id": "agent",
       "label": {
-        "zh": "前端",
-        "en": "Frontend"
+        "zh": "AI Agent · LLM",
+        "en": "AI Agent · LLM"
       },
       "tech": [
-        "React",
-        "Vite"
+        "MCP",
+        "LangGraph",
+        "Google ADK",
+        "NeMo Guardrails",
+        "n8n",
+        "Ollama",
+        "Azure OpenAI",
+        "RAG",
+        "Claude Code"
+      ]
+    },
+    {
+      "id": "security",
+      "label": {
+        "zh": "身分驗證 · 資安",
+        "en": "Identity · Security"
+      },
+      "tech": [
+        "Microsoft Entra ID",
+        "OAuth 2.0",
+        "JWT",
+        "OpenResty",
+        "SAML"
       ]
     },
     {
       "id": "backend",
       "label": {
-        "zh": "後端 · 部署",
-        "en": "Backend · Deploy"
+        "zh": "後端 · 資料",
+        "en": "Backend · Data"
       },
       "tech": [
         "FastAPI",
         "Flask",
-        "Node.js",
+        "Celery",
+        "PostgreSQL",
+        "Elasticsearch",
+        "Redis",
+        "MongoDB",
+        "PySpark",
+        "Hadoop"
+      ]
+    },
+    {
+      "id": "infra",
+      "label": {
+        "zh": "部署 · 維運",
+        "en": "Infra · Ops"
+      },
+      "tech": [
         "Docker",
+        "Grafana",
         "GitHub Actions",
-        "Vercel"
+        "Linux"
       ]
     },
     {
-      "id": "ai",
+      "id": "frontend",
       "label": {
-        "zh": "AI · LLM",
-        "en": "AI · LLM"
+        "zh": "前端 · 行動",
+        "en": "Frontend · Mobile"
       },
       "tech": [
-        "OpenAI API",
-        "Gemini API",
-        "Google ADK"
+        "React",
+        "Vite",
+        "Capacitor",
+        "Gradio"
       ]
     },
     {
-      "id": "platform",
+      "id": "iot",
       "label": {
-        "zh": "平台整合",
-        "en": "Platform APIs"
+        "zh": "IoT",
+        "en": "IoT"
       },
       "tech": [
-        "LINE API",
-        "Chrome API"
+        "MQTT",
+        "Modbus/TCP",
+        "Raspberry Pi"
       ]
     }
   ]

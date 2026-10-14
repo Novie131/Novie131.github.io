@@ -33,13 +33,26 @@
       "color": "amber"
     },
     {
+      "id": "ithome",
+      "label": "iThome",
+      "value": "ithelp · @zkzcfg8520",
+      "href": "https://ithelp.ithome.com.tw/users/20161224/ironman",
+      "icon": "✎",
+      "color": "cyan"
+    },
+    {
       "id": "location",
       "label": "Location",
-      "value": "Taiwan 🇹🇼",
+      "value": "Taichung, Taiwan 🇹🇼",
       "href": "https://www.google.com/maps/place/Taiwan/",
       "icon": "◉",
       "color": "green"
     }
   ],
-  "openToKeys": ["open.fulltime", "open.freelance", "open.aiml", "open.oss"]
+  "openToKeys": [
+    "open.fulltime",
+    "open.aiml",
+    "open.talk",
+    "open.oss"
+  ]
 }

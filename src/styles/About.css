@@ -26,17 +26,23 @@
   gap: 2.5rem;
 }
 
-@media (min-width: 768px) {
+/* 768px 就切雙欄時，右欄的技術棧（本身又是兩欄）擠不下而撐破頁面；
+   改成 1024px 才分欄，並用 minmax(0, 1fr) 讓右欄可以縮。 */
+@media (min-width: 1024px) {
   .neofetch-layout {
-    grid-template-columns: 240px 1fr;
+    grid-template-columns: 250px minmax(0, 1fr);
     gap: 2.5rem;
     align-items: start;
+  }
+  .sysinfo-panel {
+    position: sticky;
+    top: calc(var(--nav-h) + 1.5rem);
   }
 }
 
 @media (min-width: 1280px) {
   .neofetch-layout {
-    grid-template-columns: 280px 1fr;
+    grid-template-columns: 280px minmax(0, 1fr);
     gap: 4rem;
   }
 }
@@ -118,9 +124,8 @@
 .si-val {
   color: var(--text);
   font-size: 0.9rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  min-width: 0;
+  overflow-wrap: anywhere;
   margin: 0;
 }
 
@@ -252,6 +257,7 @@
 .tl-type-project    { color: var(--neon-purple);  background: rgba(168,85,247,0.1);  }
 .tl-type-education  { color: var(--neon-green);   background: rgba(0,255,159,0.1);   }
 .tl-type-award      { color: #fbbf24;             background: rgba(251,191,36,0.1);  }
+.tl-type-community  { color: var(--neon-pink);    background: rgba(255,45,149,0.1);  }
 
 .tl-line {
   display: flex;

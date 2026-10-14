@@ -33,3 +33,6 @@ dist-ssr
 # Cloudflare Wrangler（若日後做雲端後端）
 .dev.vars
 .wrangler/
+
+# 完整履歷原檔含電話、生日、地址等個資 —— 只留本機
+docs/resume/

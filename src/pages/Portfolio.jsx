@@ -78,15 +78,18 @@ export default function Portfolio() {
                 ))}
               </div>
 
+              {(project.repoLink || project.demoLink) && (
               <div className="card-footer">
-                <a
-                  href={project.repoLink}
-                  className="project-link secondary"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {t('port.github')}
-                </a>
+                {project.repoLink && (
+                  <a
+                    href={project.repoLink}
+                    className="project-link secondary"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {t('port.github')}
+                  </a>
+                )}
                 {project.demoLink && (
                   <a
                     href={project.demoLink}
@@ -98,6 +101,7 @@ export default function Portfolio() {
                   </a>
                 )}
               </div>
+              )}
             </div>
           </div>
         ))}

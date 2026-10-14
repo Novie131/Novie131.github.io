@@ -2,20 +2,130 @@
   "filters": [
     "All",
     "AI",
-    "Bot",
-    "Extension",
-    "Web"
+    "DevTools",
+    "Mobile",
+    "IoT",
+    "Web",
+    "Bot"
   ],
   "items": [
+    {
+      "id": "aivideos",
+      "slug": "AIvideos",
+      "title": "AI Shorts Pipeline",
+      "category": "AI / Video",
+      "featured": true,
+      "description": {
+        "zh": "全程地端、不呼叫任何雲端 API 的 YouTube Shorts 產線：一句題材 → 分鏡腳本 → 分鏡圖 → 旁白 → 1080×1920 mp4，在 16GB MacBook 上執行，每支片邊際成本為零。",
+        "en": "A fully local YouTube Shorts pipeline with zero cloud API calls: one-line topic → storyboard script → frames → narration → 1080×1920 mp4, running on a 16 GB MacBook at zero marginal cost per video."
+      },
+      "features": {
+        "zh": [
+          "編劇流程：編劇 → 監製審稿 → 改稿 → 程式硬檢查 → 自動修復",
+          "12 項不依賴 LLM 自評的硬檢查把關品質",
+          "角色以設定檔定義並固定 seed，跨鏡頭、跨集維持一致",
+          "各階段可中斷續跑，提供 Web UI 與 CLI"
+        ],
+        "en": [
+          "Writer → producer review → rewrite → hard checks → auto-repair loop",
+          "12 deterministic checks that don't rely on the LLM grading itself",
+          "Characters defined in config with fixed seeds for cross-shot, cross-episode consistency",
+          "Resumable at every stage; Web UI and CLI"
+        ]
+      },
+      "tech": [
+        "Python",
+        "Ollama",
+        "Draw Things",
+        "TTS",
+        "FFmpeg"
+      ],
+      "repoLink": "https://github.com/Novie131/AIvideos",
+      "demoLink": null,
+      "image": null
+    },
+    {
+      "id": "smartrouteai",
+      "slug": "SmartRouteAI",
+      "title": "SmartRouteAI",
+      "category": "AI / DevTools",
+      "featured": false,
+      "description": {
+        "zh": "分層模型委派的 Claude Code Plugin：主對話由 Opus 理解與規劃，執行派給 Sonnet、唯讀檢索交給 Haiku，以 subagent 隔離 context 降低成本。",
+        "en": "A Claude Code plugin for tiered model delegation: Opus plans in the main thread, Sonnet executes, Haiku handles read-only lookups — subagents isolate context to cut cost."
+      },
+      "features": {
+        "zh": [
+          "依任務性質自動分派 Opus / Sonnet / Haiku",
+          "跨對話累積的 Markdown 記憶庫：索引只放觸發條件，知識放主題檔",
+          "關鍵詞檢索實作不需向量資料庫的輕量 RAG",
+          "可透過 plugin marketplace 安裝"
+        ],
+        "en": [
+          "Routes work to Opus / Sonnet / Haiku by task type",
+          "Markdown memory that persists across sessions — the index holds triggers, topic files hold knowledge",
+          "Keyword retrieval as a lightweight RAG with no vector database",
+          "Installable from the plugin marketplace"
+        ]
+      },
+      "tech": [
+        "Claude Code",
+        "Shell",
+        "RAG"
+      ],
+      "repoLink": "https://github.com/Novie131/SmartRouteAI",
+      "demoLink": null,
+      "image": null
+    },
+    {
+      "id": "yoxiargame",
+      "slug": "yoxiargame",
+      "title": "yoxi AR",
+      "category": "Mobile / AI",
+      "featured": false,
+      "description": {
+        "zh": "結合位置型任務遊戲、通勤助理與叫車的手機 App 原型。以 React + Capacitor 打包為 iOS / Android，後端以 Hono 串接 LLM。",
+        "en": "A mobile app prototype combining location-based quests, a commute assistant and ride-hailing. React + Capacitor for iOS / Android, with a Hono backend calling an LLM."
+      },
+      "features": {
+        "zh": [
+          "地圖任務點：走到附近即可解任務（MapLibre）",
+          "對話式通勤助理，串接 TDX 真實捷運資料並附天氣與帶傘建議",
+          "估算計程車車資並完成叫車流程",
+          "Docker Compose 部署 PostgreSQL"
+        ],
+        "en": [
+          "Map quests that unlock when you walk nearby (MapLibre)",
+          "Conversational commute planner on live TDX metro data, with weather and umbrella hints",
+          "Taxi fare estimates and a booking flow",
+          "PostgreSQL deployed with Docker Compose"
+        ]
+      },
+      "tech": [
+        "TypeScript",
+        "React",
+        "Vite",
+        "Tailwind",
+        "Capacitor",
+        "Hono",
+        "Vercel AI SDK",
+        "PostgreSQL",
+        "Docker",
+        "MapLibre"
+      ],
+      "repoLink": "https://github.com/Novie131/yoxiargame",
+      "demoLink": null,
+      "image": null
+    },
     {
       "id": "nelo",
       "slug": "nelo",
       "title": "Nelo",
       "category": "AI / DevTools",
-      "featured": true,
+      "featured": false,
       "description": {
-        "zh": "Go-based 跨平台 AI 上下文管理工具。自動掃描本地專案原始碼，透過中央 Hub 彙整後輸出，大幅優化 LLM prompt 的 codebase 輸入流程。",
-        "en": "A cross-platform AI context manager built in Go. Automatically scans local project source code, aggregates it through a central Hub, and outputs optimized LLM prompt inputs."
+        "zh": "以 Go 開發的跨平台 AI 上下文編排器：在邊緣裝置執行 nelo push，自動掃描專案原始碼並同步至中央 Hub，於 Dashboard 管理、合併並輸出成適合餵給 LLM 的上下文。",
+        "en": "A cross-platform AI context orchestrator in Go: run `nelo push` on an edge device to scan source code and sync it to a central Hub, then curate, merge and export LLM-ready context from the dashboard."
       },
       "features": {
         "zh": [
@@ -37,9 +147,50 @@
         "Go",
         "JavaScript",
         "HTML",
-        "Shell"
+        "CSS",
+        "Shell",
+        "Raspberry Pi",
+        "Linux"
       ],
       "repoLink": "https://github.com/Novie131/Nelo",
+      "demoLink": null,
+      "image": null
+    },
+    {
+      "id": "cold-chain",
+      "slug": "cold-chain-genai",
+      "title": "GenAI Cold-Chain Monitor",
+      "category": "IoT / AI",
+      "featured": false,
+      "description": {
+        "zh": "大學專題：針對藥品與疫苗冷鏈保存，整合環境感測、PLC 控制、即時影像與 LLM Function Calling，做環境分析、異常警報與操作建議。",
+        "en": "Capstone project for pharmaceutical and vaccine cold chains: environmental sensing, PLC control, live video and LLM function calling for analysis, alerts and recommendations."
+      },
+      "features": {
+        "zh": [
+          "DHT22、ENS160、PM10 感測器經 MQTT 回傳溫濕度、CO₂ 與顆粒物",
+          "PLC 透過 Modbus/TCP 控制灑水",
+          "IP Camera 經 RTSP → WebRTC 於網頁即時監看",
+          "LLM Function Calling（OpenAI 與地端 LLM）＋ Grafana 儀表板",
+          "成果發表於數位生活科技研討會"
+        ],
+        "en": [
+          "DHT22, ENS160 and PM10 sensors report temperature, humidity, CO₂ and particulates over MQTT",
+          "PLC sprinkler control over Modbus/TCP",
+          "IP camera streamed RTSP → WebRTC to the browser",
+          "LLM function calling (OpenAI or local LLM) with a Grafana dashboard",
+          "Presented at the Digital Life Technology Seminar"
+        ]
+      },
+      "tech": [
+        "Python",
+        "MQTT",
+        "Modbus/TCP",
+        "WebRTC",
+        "MariaDB",
+        "Grafana"
+      ],
+      "repoLink": null,
       "demoLink": null,
       "image": null
     },
@@ -80,7 +231,7 @@
       "id": "g-nest",
       "slug": "g-nest",
       "title": "G-Nest",
-      "category": "Browser Extension",
+      "category": "AI / Extension",
       "featured": false,
       "description": {
         "zh": "基於 Gemini API 的 Chrome 瀏覽器擴充功能，為日常瀏覽體驗注入 AI 輔助能力。",
@@ -105,38 +256,6 @@
         "Chrome API"
       ],
       "repoLink": "https://github.com/Novie131/G-Nest",
-      "demoLink": null,
-      "image": null
-    },
-    {
-      "id": "flask-chatgpt-telegram",
-      "slug": "flask-chatgpt-telegram",
-      "title": "ChatGPT Telegram Bot",
-      "category": "Chatbot",
-      "featured": false,
-      "description": {
-        "zh": "以 Flask 串接 ChatGPT API 的 Telegram 機器人，快速部署至 Vercel serverless 平台，作為早期 AI 整合實作練習。",
-        "en": "A Telegram bot connecting ChatGPT API via Flask, deployed to Vercel serverless — an early AI integration exercise."
-      },
-      "features": {
-        "zh": [
-          "ChatGPT API 串接與回應處理",
-          "Vercel serverless 一鍵部署",
-          "Telegram Bot API 訊息收發"
-        ],
-        "en": [
-          "ChatGPT API integration and response handling",
-          "One-click Vercel serverless deployment",
-          "Telegram Bot API messaging"
-        ]
-      },
-      "tech": [
-        "Python",
-        "Flask",
-        "OpenAI API",
-        "Vercel"
-      ],
-      "repoLink": "https://github.com/Novie131/Flask-ChatGPT-TelegramBot-Vercel",
       "demoLink": null,
       "image": null
     },
@@ -176,6 +295,38 @@
       ],
       "repoLink": "https://github.com/Novie131/Novie131.github.io",
       "demoLink": "https://novie131.github.io/",
+      "image": null
+    },
+    {
+      "id": "flask-chatgpt-telegram",
+      "slug": "flask-chatgpt-telegram",
+      "title": "ChatGPT Telegram Bot",
+      "category": "AI / Bot",
+      "featured": false,
+      "description": {
+        "zh": "以 Flask 串接 ChatGPT API 的 Telegram 機器人，快速部署至 Vercel serverless 平台，作為早期 AI 整合實作練習。",
+        "en": "A Telegram bot connecting ChatGPT API via Flask, deployed to Vercel serverless — an early AI integration exercise."
+      },
+      "features": {
+        "zh": [
+          "ChatGPT API 串接與回應處理",
+          "Vercel serverless 一鍵部署",
+          "Telegram Bot API 訊息收發"
+        ],
+        "en": [
+          "ChatGPT API integration and response handling",
+          "One-click Vercel serverless deployment",
+          "Telegram Bot API messaging"
+        ]
+      },
+      "tech": [
+        "Python",
+        "Flask",
+        "OpenAI API",
+        "Vercel"
+      ],
+      "repoLink": "https://github.com/Novie131/Flask-ChatGPT-TelegramBot-Vercel",
+      "demoLink": null,
       "image": null
     }
   ]

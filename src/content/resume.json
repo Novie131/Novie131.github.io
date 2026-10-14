@@ -1,44 +1,299 @@
 {
-  "certifications": [
+  "education": [
     {
-      "id": "gcp-ace",
-      "title": "Google Cloud Associate Cloud Engineer",
-      "issuer": "Google Cloud",
-      "date": "2024",
-      "credentialId": null,
-      "link": null,
-      "tag": "GCP",
+      "id": "nutc-ms",
+      "school": { "zh": "國立臺中科技大學", "en": "National Taichung University of Science and Technology" },
+      "degree": { "zh": "資訊工程系 碩士班", "en": "M.S., Computer Science and Information Engineering" },
+      "period": "2025/09 – 2027/06",
+      "note": {
+        "zh": "研究方向：基於可觀測性與零信任的 Kubernetes 智能自動擴展。以研究獎助生身分參與盧永豐副教授的研究計畫，建置 Kubernetes 測試環境。",
+        "en": "Research: observability- and zero-trust-driven intelligent autoscaling on Kubernetes. Research assistant on Assoc. Prof. Lu's project, building the Kubernetes testbed."
+      },
+      "color": "cyan"
+    },
+    {
+      "id": "nutc-bs",
+      "school": { "zh": "國立臺中科技大學", "en": "National Taichung University of Science and Technology" },
+      "degree": { "zh": "資訊工程系 二技", "en": "B.S., Computer Science and Information Engineering (2-year program)" },
+      "period": "2023/09 – 2025/06",
+      "note": {
+        "zh": "陳弘明教授研究室、imac 程式設計社群 IoT Team。專題：結合生成式 AI 運算之冷鏈環控系統。",
+        "en": "Member of Prof. Chen's lab and the imac programming community (IoT Team). Capstone: a generative-AI cold-chain monitoring system."
+      },
+      "color": "purple"
+    }
+  ],
+  "experience": [
+    {
+      "id": "systex-sysbrain-auth",
+      "org": { "zh": "精誠資訊（上市公司）", "en": "SYSTEX (listed company)" },
+      "short": "SYSBrain",
+      "title": { "zh": "SYSBrain Multi-agent 平台 — MCP 身分驗證", "en": "SYSBrain Multi-agent Platform — MCP Authentication" },
+      "roles": { "zh": "專案負責人 · 身分驗證架構設計與後端開發", "en": "Project lead · Auth architecture & backend" },
+      "summary": {
+        "zh": "平台的「用代理」功能會呼叫外部 MCP Server（n8n）執行工具，原本這條路徑沒有任何驗證，知道網址即可呼叫。",
+        "en": "The platform's agent feature called an external MCP server (n8n) to run tools — and that path had no authentication at all; anyone with the URL could call it."
+      },
+      "highlights": {
+        "zh": [
+          "設計並導入以 Microsoft Entra ID 為基礎的 OAuth 2.0 驗證，後端以 client credentials 換發 Access Token 並快取於 Redis",
+          "在 MCP Server 前架設 OpenResty MCP Gateway，逐請求驗證簽章、aud、azp 與 MCP.Invoke 應用程式角色",
+          "以主機白名單限制 Token 傳送範圍，讓驗證與工具執行分離"
+        ],
+        "en": [
+          "Designed OAuth 2.0 on Microsoft Entra ID: the backend obtains tokens via client credentials and caches them in Redis",
+          "Put an OpenResty MCP gateway in front of the server, verifying signature, aud, azp and the MCP.Invoke app role on every request",
+          "Restricted token delivery with a host allowlist, separating authentication from tool execution"
+        ]
+      },
+      "tech": ["Python", "MCP", "n8n", "Microsoft Entra ID", "OAuth 2.0", "JWT", "OpenResty", "Redis"],
+      "color": "cyan"
+    },
+    {
+      "id": "systex-sysbrain-guardrails",
+      "org": { "zh": "精誠資訊（上市公司）", "en": "SYSTEX (listed company)" },
+      "short": "SYSBrain",
+      "title": { "zh": "SYSBrain Multi-agent 平台 — Guardrails 內容防護", "en": "SYSBrain Multi-agent Platform — Guardrails" },
+      "roles": { "zh": "專案負責人 · 內容防護模組開發", "en": "Project lead · Content-safety module" },
+      "summary": {
+        "zh": "身分驗證把關「誰能呼叫」，這個子專案以 NeMo Guardrails 把關「內容能不能通過」，建立輸入、檢索、執行、輸出四層護欄，共用同一套防護模組與規則。",
+        "en": "Auth decides who may call; this sub-project decides what content may pass — four NeMo Guardrails layers (input, retrieval, execution, output) sharing one rule set."
+      },
+      "highlights": {
+        "zh": [
+          "攔截 Prompt Injection（要求忽略規則、洩漏內部設定）",
+          "攔截高風險與違禁物品請求",
+          "自動遮罩姓名、電話、Email、地址、身分證等個資"
+        ],
+        "en": [
+          "Blocks prompt injection (ignore-the-rules, leak-the-config attempts)",
+          "Blocks high-risk and prohibited-item requests",
+          "Auto-masks PII: names, phone numbers, email, addresses, national IDs"
+        ]
+      },
+      "tech": ["Python", "NeMo Guardrails", "RAG", "MCP"],
+      "color": "cyan"
+    },
+    {
+      "id": "compal-multi-agent",
+      "org": { "zh": "仁寶電腦（上市公司）", "en": "Compal Electronics (listed company)" },
+      "short": "Compal Multi-Agent",
+      "title": { "zh": "AI Agent 多元代理協作平台（COMPUTEX 2025 展示）", "en": "Multi-Agent Collaboration Platform (shown at COMPUTEX 2025)" },
+      "roles": { "zh": "專案負責人 · 前端與 AI Agent 後端開發", "en": "Project lead · Frontend & agent backend" },
+      "summary": {
+        "zh": "LangGraph Supervisor 以地端 Gemma 3 判斷意圖，把請求路由到腦力激盪、摘要、搜尋、RAG、Excel 報表與專家顧問等 Agent；各 Agent 以 FastAPI 微服務部署並依任務分派雲端或地端模型。系統於 COMPUTEX 2025 展示並獲仁寶頒發感謝狀。",
+        "en": "A LangGraph supervisor running local Gemma 3 routes requests to brainstorming, summarisation, search, RAG, Excel-report and expert agents, each a FastAPI microservice using cloud or local models. Demoed at COMPUTEX 2025; received a certificate of appreciation from Compal."
+      },
+      "highlights": {
+        "zh": [
+          "製作 Gradio 前端（中英雙語、管理者與使用者介面）",
+          "以 LangGraph 建構 Agent 流程、FastAPI 提供服務，串接 Ollama 地端模型",
+          "調整 Supervisor 與各 Agent 的提示詞，提升意圖路由與回答品質"
+        ],
+        "en": [
+          "Built the Gradio frontend (zh/en, admin and user views)",
+          "Built agent flows in LangGraph served via FastAPI, wired to local Ollama models",
+          "Tuned supervisor and agent prompts to improve routing and answer quality"
+        ]
+      },
+      "tech": ["Python", "LangGraph", "Ollama", "Azure OpenAI", "MCP", "FastAPI", "Gradio", "MongoDB", "Whisper", "Docker"],
+      "color": "purple"
+    },
+    {
+      "id": "compal-misop",
+      "org": { "zh": "仁寶電腦（上市公司）", "en": "Compal Electronics (listed company)" },
+      "short": "Compal MI/SOP",
+      "title": { "zh": "MI/SOP 產線作業指導書自動生成系統（Phase 2）", "en": "Automated MI/SOP Work-Instruction Generator (Phase 2)" },
+      "roles": { "zh": "桌面端與後端 API 開發", "en": "Desktop & backend API developer" },
+      "summary": {
+        "zh": "把產品 DFM 設計文件自動轉成產線作業指導書：上傳 DFM PDF 後擷取流程圖頁，以 GPT-4o 視覺模型解析成各工站並產出指導書草稿，於 12 宮格畫面調整後套用 Excel 模板批次匯出。",
+        "en": "Turns DFM design PDFs into production-line work instructions: GPT-4o vision parses flowchart pages into stations and drafts instructions, which are refined in a 12-panel editor and batch-exported through Excel templates."
+      },
+      "highlights": {
+        "zh": [
+          "參與 C# WinForms 桌面端與 Python FastAPI 後端，串接 PDF 轉圖、流程圖轉工站、組裝說明轉 MI 與中英翻譯 API",
+          "實作 SOP 圖片編輯器（裁切、圖層、色塊與文字框）與工站自動配對",
+          "Excel 模板自動產生、合併與匯出，並撰寫系統流程圖與部署說明書"
+        ],
+        "en": [
+          "Worked on the C# WinForms client and Python FastAPI backend: PDF-to-image, flowchart-to-station, MI drafting and translation APIs",
+          "Built the SOP image editor (crop, layers, shapes, text boxes) and automatic station matching",
+          "Excel template generation, merging and export; wrote the flow diagrams and deployment guide"
+        ]
+      },
+      "tech": ["C#", "Python", "FastAPI", "Azure OpenAI", "OpenCV", "SQLite"],
+      "color": "purple"
+    },
+    {
+      "id": "changmao-tpclaw",
+      "org": { "zh": "長茂科技（竹科廠商）", "en": "長茂科技 (Hsinchu Science Park vendor)" },
+      "short": "TP-Claw",
+      "title": { "zh": "TP-Claw 零信任 AI 代理沙箱平台", "en": "TP-Claw Zero-Trust AI Agent Sandbox" },
+      "roles": { "zh": "驗證整合與 Demo 系統開發", "en": "Auth integration & demo system" },
+      "summary": {
+        "zh": "以開源 AI Agent 專案 OpenClaw 為核心，整合 TekPass 與 PC.Sec 零信任技術，建立 AI Agent 專用的安全執行架構：MCP/OAuth2 驗證閘道、WSL2 Sandbox、Prompt/Memory 安全治理與 ATR 靜態掃描。",
+        "en": "A secure runtime for AI agents built on the open-source OpenClaw, integrating TekPass and PC.Sec zero-trust tech: MCP/OAuth2 gateway, WSL2 sandbox, prompt/memory governance and ATR static scanning."
+      },
+      "highlights": {
+        "zh": [
+          "參與 MCP OAuth 與 TekPass Keep 驗證流程整合",
+          "建置 TPClaw Demo 驗證系統：Agent 偵測訊息後於背景建立驗證檔並啟動監控，外部驗證完成後透過 session key 將結果注入 OpenClaw TUI"
+        ],
+        "en": [
+          "Integrated MCP OAuth with the TekPass Keep verification flow",
+          "Built the end-to-end demo: the agent spawns a verification job in the background and, once external verification completes, injects the result into the OpenClaw TUI via session key"
+        ]
+      },
+      "tech": ["OpenClaw", "MCP", "OAuth 2.0", "SAML", "WSL2", "Docker"],
+      "color": "green"
+    },
+    {
+      "id": "itri-tami",
+      "org": { "zh": "工業技術研究院", "en": "ITRI" },
+      "short": "ITRI TAMI",
+      "title": { "zh": "TAMI 受眾分析平台（已上線，供台灣大哥大員工使用）", "en": "TAMI Audience Analytics (in production at Taiwan Mobile)" },
+      "roles": { "zh": "後端與資料處理開發", "en": "Backend & data engineering" },
+      "summary": {
+        "zh": "提供使用者查詢客戶受眾比率並產出報表的平台，已上線供台灣大哥大內部員工使用。",
+        "en": "A platform for querying customer audience ratios and generating reports, in production for Taiwan Mobile staff."
+      },
+      "highlights": {
+        "zh": [
+          "門號雜湊比對：雜湊資料存入 HDFS，以 PySpark 平行運算後寫入 Elasticsearch",
+          "Flask API 依使用者權限組出 Elasticsearch 查詢，產出行動上網行為變化報表",
+          "以 Celery 非同步彙整擴大受眾報表、定時監控 SFTP 自動下載，並匯出 .xlsx"
+        ],
+        "en": [
+          "Hashed phone-number matching: data in HDFS, processed in parallel with PySpark, written to Elasticsearch",
+          "Flask API building permission-scoped Elasticsearch queries for mobile-usage trend reports",
+          "Celery jobs for audience-expansion reports and scheduled SFTP ingestion, with .xlsx export"
+        ]
+      },
+      "tech": ["Python", "PySpark", "Hadoop", "Elasticsearch", "PostgreSQL", "Flask", "Celery"],
       "color": "amber"
     },
     {
-      "id": "aws-saa",
-      "title": "AWS Certified Solutions Architect",
+      "id": "itri-kbro",
+      "org": { "zh": "工業技術研究院", "en": "ITRI" },
+      "short": "ITRI KBRO",
+      "title": { "zh": "KBRO 媒體分析平台", "en": "KBRO Media Analytics Platform" },
+      "roles": { "zh": "後端與資料處理開發", "en": "Backend & data engineering" },
+      "summary": {
+        "zh": "有線電視收視資料的分析平台。",
+        "en": "An analytics platform for cable-TV viewing data."
+      },
+      "highlights": {
+        "zh": [
+          "MyVideo 收視紀錄：以 PySpark 彙整觀看紀錄存入 PostgreSQL，計算週／月統計後寫入 Elasticsearch",
+          "以 Flask 將使用者的二進位資料轉成可下載的報表",
+          "密碼 90 天未更換即強制更換，新密碼以 SHA-512 雜湊儲存"
+        ],
+        "en": [
+          "MyVideo viewing logs aggregated with PySpark into PostgreSQL, weekly/monthly stats pushed to Elasticsearch",
+          "Flask service converting binary user data into downloadable reports",
+          "Forced rotation of passwords older than 90 days, stored as SHA-512 hashes"
+        ]
+      },
+      "tech": ["Python", "PySpark", "PostgreSQL", "Elasticsearch", "Flask"],
+      "color": "amber"
+    }
+  ],
+  "publications": [
+    {
+      "id": "icoict-2026",
+      "scope": { "zh": "國際研討會", "en": "International" },
+      "title": "Integrating Edge Intelligence and IoT for Ocular Health: A Closed-Loop System with AR Gamification",
+      "venue": "ICoICT 2026 — 14th International Conference on Information and Communication Technology",
+      "meta": { "zh": "印尼萬隆 · 2026/07/30–08/01 · 第四作者 · 擔任發表人", "en": "Bandung, Indonesia · 2026/07/30–08/01 · 4th author · Presenter" },
+      "summary": {
+        "zh": "EyeCare 眼睛健康閉環系統：以 CoreML 在 iPhone 上即時偵測眼睛疲勞，透過 BLE 連動 ESP32 智慧檯燈調整光線，並以 ARKit 引導遊戲化眼球運動；後端採 Spring Boot、PostgreSQL 與 JWT。",
+        "en": "EyeCare, a closed-loop eye-health system: CoreML detects eye fatigue on iPhone in real time, adjusts an ESP32 smart lamp over BLE, and guides gamified eye exercises with ARKit; Spring Boot, PostgreSQL and JWT on the backend."
+      },
+      "color": "pink"
+    },
+    {
+      "id": "dlt-coldchain",
+      "scope": { "zh": "國內研討會", "en": "Domestic" },
+      "title": "智慧環控感測系統",
+      "venue": { "zh": "數位生活科技研討會暨民生電子論壇（國立高雄科技大學主辦）", "en": "Digital Life Technology Seminar & Consumer Electronics Forum (NKUST)" },
+      "meta": null,
+      "summary": {
+        "zh": "結合多種環境感測器與生成式 AI 運算，建立可即時監控與異常預警的智慧環控系統。",
+        "en": "Combines environmental sensors with generative-AI analysis for real-time monitoring and anomaly alerts."
+      },
+      "color": "green"
+    }
+  ],
+  "certifications": [
+    {
+      "id": "nvidia-ncaaio",
+      "title": "NVIDIA-Certified Associate: AI Infrastructure and Operations",
+      "issuer": "NVIDIA",
+      "date": "2026",
+      "credentialId": null,
+      "link": null,
+      "tag": "AI",
+      "color": "green"
+    },
+    {
+      "id": "aws-aif",
+      "title": "AWS Certified AI Practitioner",
       "issuer": "Amazon Web Services",
-      "date": "2024",
+      "date": "2025",
       "credentialId": null,
       "link": null,
       "tag": "AWS",
       "color": "amber"
     },
     {
-      "id": "tf-developer",
-      "title": "TensorFlow Developer Certificate",
-      "issuer": "Google",
-      "date": "2023",
+      "id": "az-900",
+      "title": "Microsoft Certified: Azure Fundamentals (AZ-900)",
+      "issuer": "Microsoft",
+      "date": "",
       "credentialId": null,
       "link": null,
-      "tag": "ML",
+      "tag": "Azure",
       "color": "cyan"
     },
     {
-      "id": "meta-backend",
-      "title": "Meta Back-End Developer Certificate",
-      "issuer": "Meta / Coursera",
+      "id": "its-python",
+      "title": "Information Technology Specialist – Python",
+      "issuer": "Certiport",
       "date": "2023",
       "credentialId": null,
       "link": null,
-      "tag": "Backend",
+      "tag": "Python",
       "color": "purple"
+    },
+    {
+      "id": "cpe",
+      "title": "CPE 大學程式能力檢定",
+      "issuer": "CPE",
+      "date": "",
+      "credentialId": null,
+      "link": null,
+      "tag": "CPE",
+      "color": "purple"
+    },
+    {
+      "id": "aia",
+      "title": "Artificial Intelligence Application 認證",
+      "issuer": "國內認證 · Taiwan",
+      "date": "",
+      "credentialId": null,
+      "link": null,
+      "tag": "AI",
+      "color": "green"
+    },
+    {
+      "id": "psa",
+      "title": "Packaged Software Application 認證",
+      "issuer": "國內認證 · Taiwan",
+      "date": "",
+      "credentialId": null,
+      "link": null,
+      "tag": "Office",
+      "color": "cyan"
     }
   ],
   "_competitionSchema": {
@@ -53,42 +308,172 @@
     "color": "pink | cyan | purple | amber | green"
   },
   "competitions": [],
+  "community": [
+    {
+      "id": "iet-chair",
+      "title": { "zh": "IET On Campus Taichung Tech 社群主席", "en": "Chair, IET On Campus Taichung Tech" },
+      "period": "2026 – 2027",
+      "desc": {
+        "zh": "臺灣第一個 IET On Campus 社群。任內舉辦 42 場活動、累計 830 人次參與，主題涵蓋生成式 AI、後端、IoT、Web 與行動開發。",
+        "en": "Taiwan's first IET On Campus chapter. 42 events and 830 attendances during my term, covering generative AI, backend, IoT, web and mobile development."
+      },
+      "tech": [],
+      "color": "cyan"
+    },
+    {
+      "id": "iet-ai-coding",
+      "title": { "zh": "「2026 程式開發新時代 AI Coding 實戰系列」講座籌辦", "en": "Organiser, “AI Coding in Practice 2026” talk series" },
+      "period": "2026",
+      "desc": {
+        "zh": "以主席身分籌辦系列講座，例如「Claude Code Agent Skills 開發與 Agent SOP 實作」（42 人次）、「n8n 工作流自動化與 AI Agent 應用實戰」（38 人次）。",
+        "en": "Organised the series as chair — e.g. “Claude Code Agent Skills and Agent SOPs” (42 attendees) and “n8n Workflow Automation with AI Agents” (38 attendees)."
+      },
+      "tech": ["Claude Code", "Agent Skills", "n8n", "AI Agent"],
+      "color": "purple"
+    },
+    {
+      "id": "iet-gin-lecture",
+      "title": { "zh": "社群課程講師：使用 Go Gin 開發商用系統實戰", "en": "Instructor: Building Production Backends with Go Gin" },
+      "period": "2025/02",
+      "desc": {
+        "zh": "介紹以 Go Gin 框架開發商用後端系統的實務做法，獲頒感謝狀。",
+        "en": "Taught practical patterns for production backends with Go Gin; received a certificate of appreciation."
+      },
+      "tech": ["Go", "Gin"],
+      "color": "green"
+    },
+    {
+      "id": "imac-iot",
+      "title": { "zh": "臺中科大資工 imac 程式設計社群 IoT Team", "en": "imac Programming Community, IoT Team (NUTC CSIE)" },
+      "period": "2023 –",
+      "desc": {
+        "zh": "負責社群內 Python 與 Git 的推廣，每週撰寫研發週記做專案管理，並撰寫技術筆記與學弟妹分享。",
+        "en": "Led Python and Git adoption in the team, kept weekly dev logs for project tracking and wrote tech notes for juniors."
+      },
+      "tech": ["Python", "Git", "IoT"],
+      "color": "amber"
+    },
+    {
+      "id": "t-cross",
+      "title": { "zh": "數位發展部 T-Cross 在地數位種子人才培力方案", "en": "MODA T-Cross Local Digital Talent Program" },
+      "period": "2025/07 – 2025/10",
+      "desc": {
+        "zh": "與社團法人台灣陽光婦女協會共同提案「完食 0 塑 E 起來 – 數位學習教材」，投入在地組織的跨域數位協作。",
+        "en": "Co-proposed a zero-waste digital learning kit with a local women's association, working cross-sector with an NGO."
+      },
+      "tech": [],
+      "color": "pink"
+    },
+    {
+      "id": "aws-educate",
+      "title": { "zh": "2024 AWS Educate 第一屆雲端證照陪跑計畫", "en": "AWS Educate Cloud Certification Mentoring Program (2024, 1st cohort)" },
+      "period": "2024",
+      "desc": {
+        "zh": "透過課程、實作工作坊與互動解答準備 AWS 雲端證照。",
+        "en": "Prepared for AWS certification through courses, hands-on workshops and Q&A sessions."
+      },
+      "tech": ["AWS"],
+      "color": "amber"
+    }
+  ],
+  "writing": [
+    {
+      "id": "ithome-2026",
+      "title": { "zh": "協定、框架、架構：一條龍搞懂 AI Agent 是怎麼被造出來的", "en": "Protocols, Frameworks, Architecture: How AI Agents Are Built" },
+      "event": { "zh": "2026 iT 邦幫忙鐵人賽 · 完賽", "en": "2026 iThome Ironman Contest · completed" },
+      "count": 30,
+      "desc": {
+        "zh": "從 MCP 協定原理到 Agent 框架、多代理協作與安全實作。",
+        "en": "From MCP internals to agent frameworks, multi-agent collaboration and security."
+      },
+      "tech": ["MCP", "Google ADK", "LangGraph", "OpenClaw"],
+      "link": "https://ithelp.ithome.com.tw/users/20161224/ironman/9557"
+    },
+    {
+      "id": "ithome-2024",
+      "title": { "zh": "0 到 100 Linux 快打旋風", "en": "Linux from 0 to 100" },
+      "event": { "zh": "2024 iT 邦幫忙鐵人賽 · 完賽", "en": "2024 iThome Ironman Contest · completed" },
+      "count": 30,
+      "desc": {
+        "zh": "Linux 系統操作與 AI 小專案實作。",
+        "en": "Linux operations plus small hands-on AI projects."
+      },
+      "tech": ["Linux", "Python", "Celery"],
+      "link": "https://ithelp.ithome.com.tw/users/20161224/ironman/7366"
+    },
+    {
+      "id": "ithome-2023",
+      "title": { "zh": "關於我轉生變成 Go 初學者的這檔事", "en": "That Time I Got Reincarnated as a Go Beginner" },
+      "event": { "zh": "2023 iT 邦幫忙鐵人賽 · 完賽", "en": "2023 iThome Ironman Contest · completed" },
+      "count": 30,
+      "desc": {
+        "zh": "Go 語言基礎與實作，系列瀏覽數破 10,000。",
+        "en": "Go fundamentals and practice — the series passed 10,000 views."
+      },
+      "tech": ["Go", "Git"],
+      "link": "https://ithelp.ithome.com.tw/users/20161224/ironman/6226"
+    },
+    {
+      "id": "hackmd-celery",
+      "title": { "zh": "Task 排程好工具 — Celery", "en": "Celery for Task Scheduling" },
+      "event": { "zh": "HackMD 技術筆記", "en": "HackMD tech note" },
+      "count": null,
+      "desc": {
+        "zh": "Celery 非同步任務佇列的安裝與使用。",
+        "en": "Installing and using the Celery async task queue."
+      },
+      "tech": ["Python", "Celery"],
+      "link": null
+    }
+  ],
   "courses": [
     {
-      "id": "dl-specialization",
-      "title": "Deep Learning Specialization",
-      "issuer": "Coursera · DeepLearning.AI",
-      "date": "2024",
-      "modules": "5 courses",
+      "id": "google-cybersecurity",
+      "title": "Google Cybersecurity Professional Certificate",
+      "issuer": "Google · Coursera",
+      "date": "2025/05",
+      "modules": "8 courses",
+      "link": null,
+      "color": "green"
+    },
+    {
+      "id": "vertex-prompt-design",
+      "title": "Prompt Design in Vertex AI Skill Badge",
+      "issuer": "Google Cloud",
+      "date": "2024/08",
+      "modules": "Skill badge",
       "link": null,
       "color": "purple"
     },
     {
-      "id": "langchain-llm",
-      "title": "LangChain for LLM Application Development",
-      "issuer": "DeepLearning.AI",
-      "date": "2024",
-      "modules": "Short course",
-      "link": null,
-      "color": "purple"
-    },
-    {
-      "id": "full-stack-open",
-      "title": "Full Stack Open",
-      "issuer": "University of Helsinki",
-      "date": "2023",
-      "modules": "Parts 0–9",
+      "id": "google-cloud-track",
+      "title": "Google 數位探索人才計畫 — Google Cloud 學程",
+      "issuer": "Google",
+      "date": "",
+      "modules": "",
       "link": null,
       "color": "cyan"
     },
     {
-      "id": "cs50",
-      "title": "CS50: Introduction to Computer Science",
-      "issuer": "Harvard / edX",
-      "date": "2022",
-      "modules": "11 weeks",
+      "id": "google-marketing-track",
+      "title": "Google 數位探索人才計畫 — 數位行銷學程",
+      "issuer": "Google",
+      "date": "",
+      "modules": "",
       "link": null,
-      "color": "green"
+      "color": "amber"
     }
+  ],
+  "events": [
+    { "id": "cybersec-2026", "name": "CYBERSEC 2026 臺灣資安大會", "date": "2026" },
+    { "id": "smart-pole-2026", "name": "智慧杆資料應用整合工作坊（初階 / 進階）", "date": "2026/05" },
+    { "id": "hitcon-2025", "name": "HITCON 2025 台灣駭客年會", "date": "2025/08" },
+    { "id": "cybersec-2024", "name": "CYBERSEC 2024 臺灣資安大會", "date": "2024" },
+    { "id": "tsmc-it-meetup", "name": "TSMC IT Community Meetup 台積電資訊技術聚會", "date": "" },
+    { "id": "emi-genai", "name": "EMI Teacher Training Workshop — Generative AI Principles and Applications（國立中興大學）", "date": "" },
+    { "id": "devfest-2023", "name": "DevFest Taichung 2023 — Google Developer Groups", "date": "2023" },
+    { "id": "coscup-2023", "name": "COSCUP 2023 開源人年會", "date": "2023" },
+    { "id": "cam-2022", "name": "2022 國際輔助醫學高峰會跨領域智慧醫學應用學術論壇", "date": "2022" },
+    { "id": "moe-iot-2022", "name": "教育部智慧創新跨域人才培育聯盟 — 創新 IoT 應用與雛型設計跨域工作坊", "date": "2022" }
   ]
 }

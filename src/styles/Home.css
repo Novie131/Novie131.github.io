@@ -211,7 +211,8 @@
   position: relative;
   overflow: hidden;
   border-top: 1px solid var(--border);
-  margin: 2rem -2.5rem -2.5rem;
+  margin: 2rem calc(-1 * var(--page-pad-x)) calc(-1 * var(--page-pad-y));
+  border-radius: 0 0 var(--radius) var(--radius);
   padding: 0.875rem 0;
   background: rgba(0, 229, 255, 0.02);
 }

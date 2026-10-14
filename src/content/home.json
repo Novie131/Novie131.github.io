@@ -2,49 +2,65 @@
   "avatar": "/img/avatar.webp",
   "stats": [
     {
-      "value": "3+",
-      "labelKey": "stat.years",
+      "value": "6",
+      "labelKey": "stat.industry",
       "color": "cyan"
     },
     {
-      "value": "5",
-      "labelKey": "stat.projects",
+      "value": "4",
+      "labelKey": "stat.certs",
       "color": "purple"
     },
     {
-      "value": "18+",
-      "labelKey": "stat.stack",
+      "value": "110+",
+      "labelKey": "stat.articles",
       "color": "green"
     },
     {
-      "value": "∞",
-      "labelKey": "stat.commits",
+      "value": "42",
+      "labelKey": "stat.events",
       "color": "amber"
     }
   ],
   "ticker": [
     {
-      "label": "React",
-      "color": "cyan"
+      "label": "Python",
+      "color": "purple"
     },
     {
       "label": "Go",
       "color": "cyan"
     },
     {
-      "label": "Python",
+      "label": "MCP",
       "color": "purple"
     },
     {
-      "label": "TypeScript",
-      "color": "cyan"
+      "label": "LangGraph",
+      "color": "purple"
     },
     {
-      "label": "FastAPI",
+      "label": "Google ADK",
+      "color": "amber"
+    },
+    {
+      "label": "NeMo Guardrails",
       "color": "green"
     },
     {
-      "label": "Node.js",
+      "label": "n8n",
+      "color": "pink"
+    },
+    {
+      "label": "Entra ID · OAuth 2.0",
+      "color": "cyan"
+    },
+    {
+      "label": "OpenResty",
+      "color": "green"
+    },
+    {
+      "label": "FastAPI",
       "color": "green"
     },
     {
@@ -52,62 +68,54 @@
       "color": "amber"
     },
     {
-      "label": "Docker",
-      "color": "cyan"
-    },
-    {
-      "label": "LangChain",
-      "color": "purple"
-    },
-    {
-      "label": "PyTorch",
-      "color": "purple"
-    },
-    {
-      "label": "Gemini API",
+      "label": "Elasticsearch",
       "color": "amber"
-    },
-    {
-      "label": "Claude API",
-      "color": "purple"
-    },
-    {
-      "label": "GitHub Actions",
-      "color": "green"
-    },
-    {
-      "label": "Linux",
-      "color": "amber"
-    },
-    {
-      "label": "Next.js",
-      "color": "cyan"
     },
     {
       "label": "Redis",
       "color": "pink"
     },
     {
+      "label": "PySpark",
+      "color": "amber"
+    },
+    {
+      "label": "Docker",
+      "color": "cyan"
+    },
+    {
+      "label": "Kubernetes",
+      "color": "cyan"
+    },
+    {
+      "label": "Ollama",
+      "color": "purple"
+    },
+    {
       "label": "RAG",
       "color": "purple"
     },
     {
-      "label": "GCP",
-      "color": "amber"
+      "label": "React",
+      "color": "cyan"
+    },
+    {
+      "label": "Claude Code",
+      "color": "purple"
     }
   ],
   "terminal": [
     {
-      "key": "OS",
-      "value": "Web v2025.04"
+      "key": "Edu",
+      "value": "NUTC CSIE · M.S."
     },
     {
       "key": "Shell",
-      "value": "react@19.2"
+      "value": "zsh"
     },
     {
       "key": "Editor",
-      "value": "VS Code · Neovim"
+      "value": "VS Code · Claude Code"
     },
     {
       "key": "Uptime",
@@ -115,7 +123,7 @@
     },
     {
       "key": "Focus",
-      "value": "LLM · RAG · Full-Stack"
+      "value": "AI Agent · MCP · Zero Trust"
     }
   ],
   "pokemon": {
