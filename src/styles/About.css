@@ -99,6 +99,9 @@
   min-width: 0;
 }
 
+/* 從導覽列子選單跳過來時，標題不要被 sticky navbar 蓋住 */
+.about-main > section { scroll-margin-top: calc(var(--nav-h) + 1.5rem); }
+
 /* Bio —— 第一段拉高視覺層級當作開場，其餘是補充。 */
 .about-bio p {
   color: var(--text-2);

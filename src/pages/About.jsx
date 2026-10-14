@@ -73,14 +73,14 @@ export default function About() {
 
         {/* ── Right: Bio + Stack ────────────────── */}
         <div className="about-main">
-          <section className="about-bio">
+          <section className="about-bio" id="bio">
             <h2 className="section-title">
               {t('about.bio')}
             </h2>
             {bio[lang].map((para, i) => <RichText key={i} text={para} />)}
           </section>
 
-          <section className="timeline-section">
+          <section className="timeline-section" id="timeline">
             <h2 className="section-title">
               {t('about.timeline')}
             </h2>
@@ -104,7 +104,7 @@ export default function About() {
             </div>
           </section>
 
-          <section className="stack-section">
+          <section className="stack-section" id="stack">
             <h2 className="section-title">
               {t('about.stack')}
             </h2>

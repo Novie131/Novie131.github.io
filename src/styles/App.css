@@ -131,6 +131,63 @@ body {
   border-color: var(--border);
 }
 
+/* ── Nav 子選單：hover 或鍵盤 focus 時往下展開 ─── */
+.nav-item { position: relative; }
+
+.nav-sub {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 50%;
+  z-index: 110;
+  min-width: 10.5rem;
+  margin: 0;
+  padding: 0.35rem;
+  list-style: none;
+  background: var(--surface);
+  border: 1px solid var(--border-hi);
+  border-radius: 8px;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, -6px);
+  /* 收起時 visibility 延後切換，淡出動畫才看得到；也給滑鼠一點容錯時間 */
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s linear 0.18s;
+}
+
+/* 主選項和子選單之間有 0.5rem 空隙；補一塊透明橋接，滑鼠往下移時不會斷掉 hover */
+.nav-sub::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -0.6rem;
+  height: 0.6rem;
+}
+
+.nav-item:hover > .nav-sub,
+.nav-item:focus-within > .nav-sub {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+  transition-delay: 0s;
+}
+
+.nav-links .nav-sub a {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  color: var(--text-2);
+  padding: 0.45rem 0.75rem;
+  border: none;
+  border-radius: 5px;
+  white-space: nowrap;
+}
+
+.nav-links .nav-sub a:hover,
+.nav-links .nav-sub a:focus-visible {
+  color: var(--text);
+  background: var(--surface-2);
+}
+
 /* ── Layout ────────────────────────────────────────── */
 /* 以前整頁包在一個帶邊框的大卡片裡（四角還有裝飾括號），裡面的區塊又是卡片，
    卡片裡再有卡片 —— 三層邊框疊在一起就是雜亂的主因。
@@ -454,6 +511,9 @@ body {
     border-bottom: 1px solid var(--border);
     display: none;
   }
+
+  /* 手機沒有 hover；子選單的目的地在各頁內都有錨點列／篩選列可到，這裡不重複 */
+  .nav-sub { display: none; }
 
   .nav-links.nav-open {
     display: flex;

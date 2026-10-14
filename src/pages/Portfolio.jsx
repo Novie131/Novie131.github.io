@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { useLang } from '../context/LangContext'
 import projects from '../content/projects.json'
 import '../styles/Portfolio.css'
@@ -7,7 +7,10 @@ const { items, filters } = projects
 
 export default function Portfolio() {
   const { lang, t } = useLang()
-  const [active, setActive] = useState('All')
+  /* 篩選放在網址（?filter=AI），導覽列的子選單才能直接帶著篩選進來 */
+  const [params, setParams] = useSearchParams()
+  const active = filters.includes(params.get('filter')) ? params.get('filter') : 'All'
+  const setActive = key => setParams(key === 'All' ? {} : { filter: key }, { replace: true })
 
   const visible = active === 'All'
     ? items
