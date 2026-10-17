@@ -264,12 +264,26 @@ body::before {
   margin: 0 0 1.25rem;
   padding-bottom: 0.75rem;
   border-bottom: 1px solid var(--border);
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--muted);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+/* 標題前的暖黃短線，讓分段一眼可辨 */
+.section-title::before {
+  content: '';
+  flex-shrink: 0;
+  width: 4px;
+  height: 1.1em;
+  border-radius: 2px;
+  background: var(--primary);
+}
+
+@media (max-width: 640px) {
+  .section-title { font-size: 1.15rem; }
 }
 
 /* ── Shared: 技術標籤 ──────────────────────────────── */

@@ -38,6 +38,8 @@
 
 .resume-count {
   margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
   font-weight: 500;
   color: var(--dim);
   letter-spacing: 0;
