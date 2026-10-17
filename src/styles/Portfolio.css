@@ -168,7 +168,7 @@
 }
 
 .project-link.primary { color: var(--primary); }
-.project-link.primary:hover { color: #67e8f9; }
+.project-link.primary:hover { color: #ffd966; }
 
 .project-link.secondary { color: var(--text-2); }
 .project-link.secondary:hover { color: var(--text); }

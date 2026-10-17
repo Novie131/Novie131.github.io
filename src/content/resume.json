@@ -231,7 +231,8 @@
       "issuer": "NVIDIA",
       "date": "2026",
       "credentialId": null,
-      "link": null,
+      "link": "https://www.credly.com/badges/4bc72985-ce95-42a3-9577-d5ea42f02bf5",
+      "badge": "/img/badges/nvidia.webp",
       "tag": "AI",
       "color": "green"
     },
@@ -241,7 +242,8 @@
       "issuer": "Amazon Web Services",
       "date": "2025",
       "credentialId": null,
-      "link": null,
+      "link": "https://www.credly.com/badges/c4d577be-e812-445f-b2a7-8f7bc012660c",
+      "badge": "/img/badges/aws.webp",
       "tag": "AWS",
       "color": "amber"
     },
@@ -252,6 +254,7 @@
       "date": "",
       "credentialId": null,
       "link": null,
+      "badge": null,
       "tag": "Azure",
       "color": "cyan"
     },
@@ -261,7 +264,8 @@
       "issuer": "Certiport",
       "date": "2023",
       "credentialId": null,
-      "link": null,
+      "link": "https://www.credly.com/badges/fdc09b38-b965-4f42-88fb-80b501181564",
+      "badge": "/img/badges/python.webp",
       "tag": "Python",
       "color": "purple"
     },
@@ -272,6 +276,7 @@
       "date": "",
       "credentialId": null,
       "link": null,
+      "badge": null,
       "tag": "CPE",
       "color": "purple"
     },
@@ -282,6 +287,7 @@
       "date": "",
       "credentialId": null,
       "link": null,
+      "badge": null,
       "tag": "AI",
       "color": "green"
     },
@@ -292,6 +298,7 @@
       "date": "",
       "credentialId": null,
       "link": null,
+      "badge": null,
       "tag": "Office",
       "color": "cyan"
     }
@@ -442,7 +449,7 @@
       "issuer": "Google Cloud",
       "date": "2024/08",
       "modules": "Skill badge",
-      "link": null,
+      "link": "https://www.credly.com/badges/5345f064-bc63-4f03-9398-0beaa9dbc2de",
       "color": "purple"
     },
     {

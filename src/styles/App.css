@@ -1,20 +1,20 @@
 /* ── Design Tokens ─────────────────────────────────── */
 :root {
   /* Background layers —— 中性深灰，不再偏藍紫 */
-  --bg-deep:     #0b0e14;
-  --bg:          #0f131b;
-  --surface:     #121722;
-  --surface-2:   #171d2a;
+  --bg-deep:     #071322;
+  --bg:          #0b1d33;
+  --surface:     rgba(14, 33, 58, 0.78);
+  --surface-2:   rgba(20, 43, 72, 0.9);
 
   /* Borders */
-  --border:      #222a38;
-  --border-hi:   #323c4e;
+  --border:      #1f3a56;
+  --border-hi:   #2f4f72;
 
   /* Text */
-  --text:        #e6e8ee;
-  --text-2:      #b9c0cc;
-  --muted:       #8a93a3;
-  --dim:         #5d6676;
+  --text:        #e8eef5;
+  --text-2:      #bccbdb;
+  --muted:       #8fa3b8;
+  --dim:         #627a93;
 
   /* Neons —— 介面只用 --primary；其餘留給主題覆寫與終端機語法色 */
   --neon-cyan:   #22d3ee;
@@ -24,9 +24,9 @@
   --neon-amber:  #fbbf24;
 
   /* Semantic */
-  --primary:      var(--neon-cyan);
-  --primary-dim:  rgba(34, 211, 238, 0.1);
-  --primary-glow: rgba(34, 211, 238, 0.35);
+  --primary:      #ffc93c;
+  --primary-dim:  rgba(255, 201, 60, 0.1);
+  --primary-glow: rgba(255, 201, 60, 0.35);
 
   /* Fonts */
   --font-display: 'Space Grotesk', system-ui, sans-serif;
@@ -34,7 +34,7 @@
 
   --radius: 8px;
   --nav-h: 64px;
-  --nav-bg: rgba(11, 14, 20, 0.8);
+  --nav-bg: rgba(7, 19, 34, 0.82);
 }
 
 /* ── Reset ─────────────────────────────────────────── */
@@ -45,11 +45,25 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: var(--font-display);
-  background: var(--bg-deep);
+  background-color: var(--bg-deep);
   color: var(--text);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* 背景：固定在視窗的漸層＋水面光暈＋極淡網格，長頁面捲動不會有接縫 */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 80% 45% at 50% -8%, rgba(45, 212, 191, 0.16), transparent 70%),
+    repeating-linear-gradient(0deg, rgba(120, 180, 230, 0.035) 0 1px, transparent 1px 44px),
+    repeating-linear-gradient(90deg, rgba(120, 180, 230, 0.03) 0 1px, transparent 1px 44px),
+    linear-gradient(180deg, #0b1d33 0%, #071322 60%, #050e1a 100%);
 }
 
 /* Scrollbar */
@@ -126,7 +140,7 @@ body {
 }
 
 .nav-links a.active {
-  color: var(--text);
+  color: var(--primary);
   background: var(--surface-2);
   border-color: var(--border);
 }

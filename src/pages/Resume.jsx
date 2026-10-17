@@ -115,16 +115,23 @@ export default function Resume() {
         <div className="cert-grid">
           {certifications.map(cert => (
             <div key={cert.id} className="cert-card">
-              <div className="cert-tag">{cert.tag}</div>
-              <div className="cert-body">
-                <h3 className="cert-title">{pick(cert.title, lang)}</h3>
-                <p className="cert-issuer">{pick(cert.issuer, lang)}</p>
-                {(cert.date || cert.credentialId) && (
-                  <div className="cert-meta">
-                    {cert.date && <span className="cert-date">{cert.date}</span>}
-                    {cert.credentialId && <span className="cert-id">ID: {cert.credentialId}</span>}
-                  </div>
+              <div className="cert-row">
+                {cert.badge && (
+                  <img className="cert-badge" src={cert.badge} alt="" loading="lazy" />
                 )}
+                <div className="cert-main">
+                  <div className="cert-tag">{cert.tag}</div>
+                  <div className="cert-body">
+                    <h3 className="cert-title">{pick(cert.title, lang)}</h3>
+                    <p className="cert-issuer">{pick(cert.issuer, lang)}</p>
+                    {(cert.date || cert.credentialId) && (
+                      <div className="cert-meta">
+                        {cert.date && <span className="cert-date">{cert.date}</span>}
+                        {cert.credentialId && <span className="cert-id">ID: {cert.credentialId}</span>}
+                      </div>
+                    )}
+                  </div>
+                </div>
               </div>
               {cert.link && (
                 <a href={cert.link} className="cert-link" target="_blank" rel="noreferrer">

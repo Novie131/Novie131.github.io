@@ -47,7 +47,7 @@
   flex-shrink: 0;
   padding: 3px;
   border-radius: 50%;
-  border: 1px solid var(--border-hi);
+  border: 1px solid var(--primary);
 }
 
 .avatar-ring img {
@@ -132,7 +132,7 @@
   border: 1px solid var(--primary);
 }
 
-.btn-primary:hover { background: #67e8f9; border-color: #67e8f9; }
+.btn-primary:hover { background: #ffd966; border-color: #ffd966; }
 
 .btn-arrow { transition: transform 0.2s; }
 .btn-primary:hover .btn-arrow { transform: translateX(3px); }

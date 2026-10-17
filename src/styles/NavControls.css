@@ -142,7 +142,7 @@
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.nc-swatch-cyber     { background: linear-gradient(135deg, #00e5ff, #a855f7); }
+.nc-swatch-cyber     { background: linear-gradient(135deg, #ffc93c, #0b1d33); }
 .nc-swatch-pokemon   { background: linear-gradient(135deg, #cc0000, #ffd700); }
 .nc-swatch-corporate { background: linear-gradient(135deg, #2563eb, #7c3aed); }
 .nc-swatch-blog      { background: linear-gradient(135deg, #e25c2c, #f57f17); }

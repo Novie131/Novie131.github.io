@@ -1,4 +1,5 @@
 import { Field, Text, Select, ListSection } from '../fields'
+import ImagePicker from '../ImagePicker'
 import { COLORS } from '../constants'
 import { uid } from '../util'
 
@@ -10,7 +11,7 @@ const SECTIONS = [
     addLabel: '+ 新增認證',
     blank: () => ({
       id: uid('cert'), title: '', issuer: '', date: '',
-      credentialId: null, link: null, tag: '', color: 'cyan',
+      credentialId: null, link: null, badge: null, tag: '', color: 'cyan',
     }),
     fields: [
       { key: 'title', label: '名稱' },
@@ -19,6 +20,7 @@ const SECTIONS = [
       { key: 'tag', label: '標籤', hint: '卡片角落的小字' },
       { key: 'credentialId', label: 'Credential ID', hint: '留空則不顯示' },
       { key: 'link', label: '驗證連結', hint: '留空則不顯示驗證按鈕' },
+      { key: 'badge', label: '徽章圖', hint: '官方徽章，留空則不顯示', type: 'image' },
       { key: 'color', label: '配色', type: 'color' },
     ],
   },
@@ -91,7 +93,9 @@ export default function ResumeEditor({ data, setData }) {
             <div className="ad-grid-2">
               {section.fields.map(f => (
                 <Field key={f.key} label={f.label} hint={f.hint}>
-                  {f.type === 'color'
+                  {f.type === 'image'
+                    ? <ImagePicker value={item[f.key]} onChange={v => ops.update(i, { [f.key]: v })} />
+                    : f.type === 'color'
                     ? <Select
                         value={item[f.key]}
                         onChange={v => ops.update(i, { [f.key]: v })}

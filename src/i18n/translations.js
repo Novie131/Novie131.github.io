@@ -63,7 +63,7 @@ const translations = {
     'resume.sec.writing':    '技術寫作',
     'resume.sec.courses':    '課程與培訓',
     'resume.sec.events':     '參與的技術活動',
-    'resume.verify':       '驗證 →',
+    'resume.verify':       '驗證證照 ↗',
 
     // Competitions
     'comp.title':          '競賽',
@@ -174,7 +174,7 @@ const translations = {
     'resume.sec.writing':    'writing',
     'resume.sec.courses':    'courses & training',
     'resume.sec.events':     'events attended',
-    'resume.verify':       'verify →',
+    'resume.verify':       'Verify credential ↗',
 
     // Competitions
     'comp.title':          'Competitions',

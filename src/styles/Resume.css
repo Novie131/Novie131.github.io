@@ -255,6 +255,15 @@
   .cert-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
+.cert-row { display: flex; align-items: flex-start; gap: 0.9rem; flex: 1; }
+.cert-main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.cert-badge {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  border-radius: 6px;
+}
 .cert-body { flex: 1; }
 
 .cert-issuer {
@@ -341,7 +350,19 @@
 }
 
 .cert-link:hover,
-.comp-link:hover { color: #67e8f9; }
+.comp-link:hover { color: #ffd966; }
+
+/* 證照驗證：做成按鈕，招募方一眼看得出可驗證 */
+.cert-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.85rem;
+  border: 1px solid var(--primary);
+  border-radius: 6px;
+  background: var(--primary-dim);
+  transition: background 0.2s, color 0.2s;
+}
+.cert-link:hover { background: var(--primary); color: var(--bg-deep); }
 
 /* ── Writing ─────────────────────────────────────── */
 .write-grid {

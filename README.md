@@ -85,12 +85,12 @@ src/
 
 plugins/admin-api.js     # dev-only 的 /__admin/* API（存檔、上傳、刪圖）
 scripts/postbuild.mjs    # 產生每頁 HTML + 404.html
-assets-src/              # 圖片原檔，不會被部署（public/ 裡放壓過的成品）
+assets-src/              # 圖片原檔，只留本機（已 gitignore）；public/ 裡放處理過的成品
 ```
 
 ## 效能上的幾個決定
 
-- **頭像** 顯示尺寸只有 64×64，`public/img/avatar.webp` 是 256×256 的 WebP（25 KB）。原檔 1024×1024 PNG（1.9 MB）留在 `assets-src/`，不進 `public/` —— 放在 `public/` 就算沒被引用也會被複製進 `dist/` 一起部署。
+- **頭像** 顯示尺寸 120×120（手機 96），`public/img/avatar.webp` 是 256×256 的 WebP（14 KB）。原檔留在本機的 `assets-src/`（已 gitignore，不進版控），不進 `public/` —— 放在 `public/` 就算沒被引用也會被複製進 `dist/` 一起部署。原檔常帶有 AI 生成來源標記（C2PA）等中繼資料，成品要用 canvas 重新編碼清掉。
 - **字型** 只載入 cyber 主題實際用到的 Space Grotesk 與 JetBrains Mono。若重新啟用主題切換，corporate 需要 Inter、blog 需要 Lora，屆時建議「切到該主題才動態插入 `<link>`」而不是無條件全載。
 - **路由分割** 首頁同步載入，其餘四頁各自是獨立 chunk。
 - **寶可夢 sprite** 只在 pokemon 主題渲染。先前它們永遠在 DOM 裡但被 CSS 藏起來，瀏覽器仍會去 raw.githubusercontent.com 抓 6 張看不見的 GIF。
