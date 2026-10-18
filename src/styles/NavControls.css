@@ -64,19 +64,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.3rem;
+  /* 與手機版 .hamburger 同尺寸，並排時一致，也接近觸控建議的點擊範圍 */
+  width: 36px;
+  height: 36px;
+  padding: 0;
   background: transparent;
-  border: none;
-  color: var(--muted);
+  border: 1px solid var(--border-hi);
+  border-radius: var(--radius);
+  color: var(--text-2);
   cursor: pointer;
-  transition: color 0.15s;
+  transition: color 0.15s, border-color 0.15s;
 }
 
-.nc-toggle-icon { font-size: 0.9rem; line-height: 1; }
+.nc-toggle-icon { width: 20px; height: 20px; }
 
 .nc-toggle:hover,
 .nc-toggle.is-open {
   color: var(--primary);
+  border-color: var(--primary);
   background: transparent;
 }
 

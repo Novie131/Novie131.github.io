@@ -2,15 +2,27 @@ import { Link } from 'react-router-dom'
 import { useLang } from '../context/LangContext'
 import { useTheme } from '../context/ThemeContext'
 import home from '../content/home.json'
+import resume from '../content/resume.json'
+import projects from '../content/projects.json'
 import '../styles/Home.css'
 
-const { avatar, stats, ticker, terminal, pokemon } = home
+const { avatar, stats, ticker, highlights, featured, pokemon } = home
+
+/* 證照徽章直接讀 resume.json，只取有 Credly 驗證連結的，兩邊不用各維護一份 */
+const verifiedCerts = resume.certifications.filter(c => c.badge && c.link)
+
+/* 依 home.json 的順序挑專案；id 打錯或專案被刪時直接略過 */
+const featuredProjects = featured
+  .map(id => projects.items.find(p => p.id === id))
+  .filter(Boolean)
+
+const BUBBLES = [1, 2, 3, 4, 5, 6]
 
 const BW_SPRITE = id =>
   `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${id}.gif`
 
 export default function Home() {
-  const { t } = useLang()
+  const { lang, t } = useLang()
   const { theme } = useTheme()
   /* 寶可夢區塊只在 pokemon 主題渲染 —— 過去它永遠在 DOM 裡但被 CSS 藏起來，
      瀏覽器仍會去 raw.githubusercontent.com 抓 6 張看不見的 GIF。 */
@@ -19,29 +31,22 @@ export default function Home() {
   return (
     <div className="page home">
 
-      {/* ── Hero Grid ───────────────────────────────── */}
+      {/* ── Hero ────────────────────────────────────── */}
+      {/* 以前右欄是 neofetch 終端機，跟 120px 的小頭像搶視線，又沒傳達任何價值。
+          現在頭像放大當唯一主視覺，左欄用一句標語講清楚在做什麼。 */}
       <div className="home-grid">
 
-        {/* Left: Hero */}
         <section className="hero-col">
-          <div className="hero-profile">
-            <div className="avatar-ring">
-              <img
-                src={avatar}
-                alt="Cheng KT"
-                width="120"
-                height="120"
-                fetchPriority="high"
-                decoding="async"
-              />
-            </div>
-            <span className="hero-badge">{t('home.badge')}</span>
-          </div>
+          <span className="hero-badge">{t('home.badge')}</span>
 
           <h1 className="hero-title">
             <span className="hero-prompt">$ whoami</span>
             <span className="hero-name">Cheng KT</span>
           </h1>
+
+          <p className="hero-tagline">
+            {t('home.tagline.pre')}<em>{t('home.tagline.em')}</em>
+          </p>
 
           <p className="hero-sub">{t('home.sub')}</p>
 
@@ -53,34 +58,20 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Right: Terminal（非 pokemon 主題） */}
         {!showPokemon && (
-          <section className="terminal-col">
-            <div className="terminal-window">
-              <div className="terminal-titlebar">
-                <div className="tb-dots">
-                  <span className="tb-dot" />
-                  <span className="tb-dot" />
-                  <span className="tb-dot" />
-                </div>
-                <span className="tb-title">zsh</span>
-              </div>
-              {/* 以前後面還有一段 ./run_model.py 的假訓練進度（loss / acc），
-                  對不到任何真實專案，被問到反而尷尬 —— 只留 neofetch 的真實資料。 */}
-              <div className="terminal-body">
-                <p className="tl d1"><span className="tl-prompt">❯</span> neofetch</p>
-                <p className="tl d2 tl-user">Cheng KT</p>
-                <p className="tl d3 tl-sep">────────────────</p>
-                {terminal.map((row, i) => (
-                  <p key={row.key} className={`tl d${i + 4}`}>
-                    <span className="tl-key">{row.key.padEnd(7)}</span> {row.value}
-                  </p>
-                ))}
-                <p className={`tl d${terminal.length + 4}`}>
-                  <span className="tl-prompt">❯</span> <span className="cursor-blink">█</span>
-                </p>
-              </div>
+          <section className="hero-visual" aria-hidden>
+            <div className="hero-orbit" />
+            <div className="hero-avatar">
+              <img
+                src={avatar}
+                alt=""
+                width="256"
+                height="256"
+                fetchPriority="high"
+                decoding="async"
+              />
             </div>
+            {BUBBLES.map(n => <span key={n} className={`bubble bubble-${n}`} />)}
           </section>
         )}
 
@@ -110,6 +101,69 @@ export default function Home() {
         )}
 
       </div>
+
+      {/* ── Highlights ──────────────────────────────── */}
+      {/* 最有說服力的成績原本都藏在履歷頁，首頁一個都看不到 */}
+      <section className="home-block">
+        <h2 className="home-block-label">{t('home.proof')}</h2>
+        <div className="proof-grid">
+          {highlights.map(h => (
+            <Link key={h.label} to={h.href} className="proof-card">
+              <span className="proof-label">{h.label}</span>
+              <span className="proof-text">{h.text[lang]}</span>
+            </Link>
+          ))}
+
+          {verifiedCerts.length > 0 && (
+            <div className="proof-card proof-certs">
+              <span className="proof-label">{t('home.proof.certs')}</span>
+              <div className="proof-badges">
+                {verifiedCerts.map(c => (
+                  <a
+                    key={c.id}
+                    href={c.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="proof-badge"
+                    title={c.title}
+                  >
+                    <img src={c.badge} alt={c.title} width="56" height="56" loading="lazy" decoding="async" />
+                    <span>{c.issuer}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* ── Featured projects ───────────────────────── */}
+      {featuredProjects.length > 0 && (
+        <section className="home-block">
+          <div className="home-block-head">
+            <h2 className="home-block-label">{t('home.featured')}</h2>
+            <Link to="/portfolio" className="home-block-more">{t('home.featured.all')}</Link>
+          </div>
+          <div className="feat-grid">
+            {featuredProjects.map(p => {
+              const Card = p.repoLink ? 'a' : Link
+              const linkProps = p.repoLink
+                ? { href: p.repoLink, target: '_blank', rel: 'noreferrer' }
+                : { to: '/portfolio' }
+              return (
+                <Card key={p.id} className="feat-card" {...linkProps}>
+                  <span className="feat-category">{p.category}</span>
+                  <h3 className="feat-title">{p.title}</h3>
+                  <p className="feat-desc">{p.description[lang]}</p>
+                  <div className="tags feat-tech">
+                    {p.tech.slice(0, 4).map(tech => <span key={tech} className="tag">{tech}</span>)}
+                  </div>
+                </Card>
+              )
+            })}
+          </div>
+        </section>
+      )}
 
       {/* ── Stats Bar ───────────────────────────────── */}
       <div className="stats-bar">

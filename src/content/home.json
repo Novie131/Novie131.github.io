@@ -104,27 +104,28 @@
       "color": "purple"
     }
   ],
-  "terminal": [
+  "highlights": [
     {
-      "key": "Edu",
-      "value": "NUTC CSIE · M.S."
+      "label": "COMPUTEX 2025",
+      "text": {
+        "zh": "仁寶 AI 多代理平台現場展出，獲頒感謝狀",
+        "en": "Compal multi-agent platform demoed live; certificate of appreciation"
+      },
+      "href": "/resume#experience"
     },
     {
-      "key": "Shell",
-      "value": "zsh"
-    },
-    {
-      "key": "Editor",
-      "value": "VS Code · Claude Code"
-    },
-    {
-      "key": "Uptime",
-      "value": "3+ years"
-    },
-    {
-      "key": "Focus",
-      "value": "AI Agent · MCP · Zero Trust"
+      "label": "ICoICT 2026",
+      "text": {
+        "zh": "國際研討會論文，擔任發表人",
+        "en": "International conference paper, presenter"
+      },
+      "href": "/resume#publications"
     }
+  ],
+  "featured": [
+    "aivideos",
+    "smartrouteai",
+    "google-linebot-adk"
   ],
   "pokemon": {
     "playground": [

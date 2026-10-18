@@ -64,26 +64,16 @@ export default function HomeEditor({ data, setData }) {
         )}
       </ListSection>
 
-      <ListSection
-        title="終端機視窗"
-        addLabel="+ 新增一行"
-        hint="首頁右側 neofetch 風格的那幾行。左欄名稱不重複、不留空 —— 它同時是 React key。"
-        list={data.terminal}
-        setList={v => setData({ ...data, terminal: v })}
-        blank={() => ({ key: '', value: '' })}
-        compact
-      >
-        {(row, i, ops) => (
-          <div className="ad-crow-grid">
-            <Field label="左欄名稱">
-              <TextReq value={row.key} onChange={v => ops.update(i, { key: v })} />
-            </Field>
-            <Field label="右欄內容">
-              <TextReq value={row.value} onChange={v => ops.update(i, { value: v })} />
-            </Field>
-          </div>
-        )}
-      </ListSection>
+      <section className="ad-section">
+        <div className="ad-section-head">
+          <h3>實績與精選專案</h3>
+        </div>
+        <p className="ad-note">
+          <code>highlights</code> 是首頁「實績」的卡片（label、text.zh/en、href）；
+          <code>featured</code> 是首頁精選專案的 id 清單，對應 projects.json 的 id。
+          證照徽章自動取 resume.json 中同時有 badge 與 link 的證照。儲存時會原樣保留，要編輯請切到上方的 JSON 模式。
+        </p>
+      </section>
 
       <section className="ad-section">
         <div className="ad-section-head">

@@ -141,11 +141,10 @@
   color: var(--primary);
 }
 
-/* ── 玩樂場景（Terminal 替換） ────────────────────── */
+/* ── 玩樂場景（頭像主視覺替換） ────────────────────── */
 .pokemon-playground   { display: none; }
 .pokemon-grass-strip  { display: none; }
 
-[data-theme="pokemon"] .terminal-col        { display: none; }
 [data-theme="pokemon"] .pokemon-playground  { display: flex; flex-direction: column; }
 [data-theme="pokemon"] .pokemon-grass-strip {
   display: flex;
