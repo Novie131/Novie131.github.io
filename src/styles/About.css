@@ -214,47 +214,58 @@
   line-height: 1.65;
 }
 
-.stack-groups {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem 2.5rem;
+.stack-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
 }
 
-@media (min-width: 720px) {
-  .stack-groups { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
+/* 三欄固定寬度，所有類別的技術名稱上下對齊 */
+.stack-table thead th:nth-child(1) { width: 9rem; }
+.stack-table thead th:nth-child(2) { width: 12rem; }
 
-.stack-group-title {
-  margin: 0 0 0.75rem;
-  font-size: 0.92rem;
+.stack-table thead th {
+  padding: 0.7rem 1rem;
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
   font-weight: 600;
-  color: var(--text);
+  color: var(--dim);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border-hi);
 }
 
-.stack-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-}
-
-.stack-item {
-  display: grid;
-  grid-template-columns: minmax(96px, max-content) minmax(0, 1fr);
-  gap: 1rem;
-  align-items: baseline;
-  padding: 0.5rem 0;
+.stack-table td {
+  padding: 0.55rem 1rem;
+  vertical-align: baseline;
   border-top: 1px solid var(--border);
 }
 
-.stack-item:last-child { border-bottom: 1px solid var(--border); }
+/* 類別之間用較亮的線隔開，類別內的列用細線 */
+.stack-group + .stack-group tr:first-child > * { border-top: 1px solid var(--border-hi); }
+
+.stack-group-title {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  vertical-align: top;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary);
+  border-right: 1px solid var(--border);
+}
 
 .stack-tech {
   font-family: var(--font-mono);
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--text);
+  overflow-wrap: anywhere;
 }
 
 .stack-where {
@@ -270,12 +281,33 @@
   color: var(--dim);
 }
 
+/* 手機寬度放不下三欄：類別變成標題列，下面每列「技術｜專案」兩欄 */
+@media (max-width: 640px) {
+  .stack-table,
+  .stack-table tbody,
+  .stack-table tr { display: block; }
+  .stack-table thead { display: none; }
+  .stack-table tr {
+    display: grid;
+    grid-template-columns: 9rem minmax(0, 1fr);
+  }
+  .stack-tech { font-size: 0.8rem; overflow-wrap: normal; }
+  .stack-table td,
+  .stack-group-title { display: block; }
+  .stack-group-title {
+    grid-column: 1 / -1;
+    border-right: none;
+    background: var(--surface-2);
+  }
+  .stack-table td { padding: 0.55rem 0.85rem; }
+  .stack-group + .stack-group tr:first-child > * { border-top: none; }
+  .stack-group + .stack-group .stack-group-title { border-top: 1px solid var(--border-hi); }
+  .stack-group-title + td,
+  .stack-group-title + td + td { border-top: 1px solid var(--border); }
+}
+
 /* ── Mobile ──────────────────────────────────────── */
 @media (max-width: 480px) {
-  .stack-item {
-    grid-template-columns: 1fr;
-    gap: 0.15rem;
-  }
   .tl-item {
     grid-template-columns: 58px 14px 1fr;
     gap: 0 0.6rem;

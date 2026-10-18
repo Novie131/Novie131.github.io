@@ -92,6 +92,9 @@ const translations = {
     // About — 技術棧
     'stack.note': '每項技術都標出實際用過它的專案 —— 這份清單由作品集與產學經歷自動產生。',
     'stack.none': '尚無對應專案',
+    'stack.col.group': '類別',
+    'stack.col.tech':  '技術',
+    'stack.col.used':  '用過的專案',
     'about.title': '關於我',
     'about.bio': '自我介紹',
     'about.timeline': '經歷',
@@ -209,6 +212,9 @@ const translations = {
     // About — tech stack
     'stack.note': 'Each technology lists the projects it was actually used in — generated from the portfolio and industry work.',
     'stack.none': 'no project yet',
+    'stack.col.group': 'Category',
+    'stack.col.tech':  'Technology',
+    'stack.col.used':  'Used in',
     'about.title': 'About me',
     'about.bio': 'Introduction',
     'about.timeline': 'Timeline',

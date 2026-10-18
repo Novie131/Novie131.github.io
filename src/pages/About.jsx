@@ -110,21 +110,32 @@ export default function About() {
             </h2>
             <p className="stack-note">{t('stack.note')}</p>
 
-            <div className="stack-groups">
+            {/* 以前是兩欄各自排列的清單：各組長短不一留下大片空洞，技術名稱欄寬
+                也每組不同、上下對不齊。改成一張表，每個類別一個 tbody。 */}
+            <table className="stack-table">
+              <thead>
+                <tr>
+                  <th scope="col">{t('stack.col.group')}</th>
+                  <th scope="col">{t('stack.col.tech')}</th>
+                  <th scope="col">{t('stack.col.used')}</th>
+                </tr>
+              </thead>
               {stack.map(group => (
-                <div key={group.id} className="stack-group">
-                  <h3 className="stack-group-title">{group.label[lang]}</h3>
-                  <ul className="stack-list">
-                    {group.tech.map(tech => (
-                      <li key={tech} className="stack-item">
-                        <span className="stack-tech">{tech}</span>
-                        <UsedIn list={USED_IN[tech]} none={t('stack.none')} />
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <tbody key={group.id} className="stack-group">
+                  {group.tech.map((tech, i) => (
+                    <tr key={tech}>
+                      {i === 0 && (
+                        <th scope="rowgroup" rowSpan={group.tech.length} className="stack-group-title">
+                          {group.label[lang]}
+                        </th>
+                      )}
+                      <td className="stack-tech">{tech}</td>
+                      <td><UsedIn list={USED_IN[tech]} none={t('stack.none')} /></td>
+                    </tr>
+                  ))}
+                </tbody>
               ))}
-            </div>
+            </table>
           </section>
         </div>
 
