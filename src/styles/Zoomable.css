@@ -1,0 +1,101 @@
+/* ── 卡片縮圖 ─────────────────────────────────────── */
+.zoom-thumb {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  padding: 0;
+  margin: 0 0 1rem;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: zoom-in;
+}
+
+/* 證書有橫有直：contain 才不會把頒發單位或日期裁掉 */
+.zoom-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.zoom-thumb:hover img,
+.zoom-thumb:focus-visible img { transform: scale(1.03); }
+.zoom-thumb:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+
+.zoom-hint {
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  display: grid;
+  place-items: center;
+  width: 1.8rem;
+  height: 1.8rem;
+  font-size: 0.95rem;
+  color: var(--bg-deep);
+  background: var(--primary);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.zoom-thumb:hover .zoom-hint,
+.zoom-thumb:focus-visible .zoom-hint { opacity: 1; }
+
+/* 觸控裝置沒有 hover，提示一直顯示 */
+@media (hover: none) {
+  .zoom-hint { opacity: 0.9; }
+}
+
+/* ── 放大檢視 ─────────────────────────────────────── */
+.zoom-dialog {
+  max-width: min(92vw, 1400px);
+  max-height: 92vh;
+  padding: 0;
+  overflow: visible;
+  background: transparent;
+  border: none;
+}
+
+.zoom-dialog::backdrop {
+  background: rgba(3, 10, 20, 0.88);
+  backdrop-filter: blur(3px);
+}
+
+.zoom-dialog img {
+  display: block;
+  max-width: min(92vw, 1400px);
+  max-height: 92vh;
+  width: auto;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.zoom-close {
+  position: absolute;
+  top: -0.9rem;
+  right: -0.9rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: var(--bg-deep);
+  background: var(--primary);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* 手機上圖已幾乎滿版，關閉鈕移進圖片內側才不會跑出畫面 */
+@media (max-width: 639px) {
+  .zoom-close { top: 0.4rem; right: 0.4rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .zoom-thumb img { transition: none; }
+  .zoom-thumb:hover img { transform: none; }
+}

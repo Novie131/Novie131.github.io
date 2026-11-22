@@ -1,5 +1,6 @@
 import { useLang } from '../context/LangContext'
 import resume from '../content/resume.json'
+import Zoomable from '../components/Zoomable'
 import '../styles/Resume.css'
 
 const {
@@ -101,6 +102,7 @@ export default function Resume() {
         <div className="pub-list">
           {publications.map(pub => (
             <article key={pub.id} className="pub-card">
+              <Zoomable src={pub.image} alt={pick(pub.title, lang)} closeLabel={t('zoom.close')} />
               <span className="pub-scope">{pick(pub.scope, lang)}</span>
               <h3 className="pub-title">{pick(pub.title, lang)}</h3>
               <p className="pub-venue">{pick(pub.venue, lang)}</p>
@@ -115,6 +117,7 @@ export default function Resume() {
         <div className="cert-grid">
           {certifications.map(cert => (
             <div key={cert.id} className="cert-card">
+              <Zoomable src={cert.image} alt={pick(cert.title, lang)} closeLabel={t('zoom.close')} />
               <div className="cert-row">
                 {cert.badge && (
                   <img className="cert-badge" src={cert.badge} alt="" loading="lazy" />
@@ -147,6 +150,7 @@ export default function Resume() {
         <div className="comp-grid">
           {competitions.map(comp => (
             <div key={comp.id} className="comp-card">
+              <Zoomable src={comp.image} alt={comp.title} closeLabel={t('zoom.close')} />
               <div className="comp-card-top">
                 <div className="comp-award">{comp.award}</div>
                 <span className="comp-date">{comp.date}</span>

@@ -209,6 +209,7 @@
         "zh": "EyeCare 眼睛健康閉環系統：以 CoreML 在 iPhone 上即時偵測眼睛疲勞，透過 BLE 連動 ESP32 智慧檯燈調整光線，並以 ARKit 引導遊戲化眼球運動；後端採 Spring Boot、PostgreSQL 與 JWT。",
         "en": "EyeCare, a closed-loop eye-health system: CoreML detects eye fatigue on iPhone in real time, adjusts an ESP32 smart lamp over BLE, and guides gamified eye exercises with ARKit; Spring Boot, PostgreSQL and JWT on the backend."
       },
+      "image": "/img/certs/icoict-2026.webp",
       "color": "pink"
     },
     {
@@ -216,11 +217,12 @@
       "scope": { "zh": "國內研討會", "en": "Domestic" },
       "title": "智慧環控感測系統",
       "venue": { "zh": "數位生活科技研討會暨民生電子論壇（國立高雄科技大學主辦）", "en": "Digital Life Technology Seminar & Consumer Electronics Forum (NKUST)" },
-      "meta": null,
+      "meta": { "zh": "2024/05/17 · 第二作者 · 論文編號 DLT2024-SS08-01", "en": "2024/05/17 · 2nd author · Paper DLT2024-SS08-01" },
       "summary": {
         "zh": "結合多種環境感測器與生成式 AI 運算，建立可即時監控與異常預警的智慧環控系統。",
         "en": "Combines environmental sensors with generative-AI analysis for real-time monitoring and anomaly alerts."
       },
+      "image": "/img/certs/dlt-2024.webp",
       "color": "green"
     }
   ],
@@ -244,6 +246,7 @@
       "credentialId": null,
       "link": "https://www.credly.com/badges/c4d577be-e812-445f-b2a7-8f7bc012660c",
       "badge": "/img/badges/aws.webp",
+      "image": "/img/certs/aws-aif.webp",
       "tag": "AWS",
       "color": "amber"
     },
@@ -251,10 +254,11 @@
       "id": "az-900",
       "title": "Microsoft Certified: Azure Fundamentals (AZ-900)",
       "issuer": "Microsoft",
-      "date": "",
+      "date": "2024",
       "credentialId": null,
       "link": null,
       "badge": null,
+      "image": "/img/certs/az-900.webp",
       "tag": "Azure",
       "color": "cyan"
     },
@@ -266,6 +270,7 @@
       "credentialId": null,
       "link": "https://www.credly.com/badges/fdc09b38-b965-4f42-88fb-80b501181564",
       "badge": "/img/badges/python.webp",
+      "image": "/img/certs/its-python.webp",
       "tag": "Python",
       "color": "purple"
     },
@@ -273,7 +278,7 @@
       "id": "cpe",
       "title": "CPE 大學程式能力檢定",
       "issuer": "CPE",
-      "date": "",
+      "date": "2023",
       "credentialId": null,
       "link": null,
       "badge": null,
@@ -284,10 +289,11 @@
       "id": "aia",
       "title": "Artificial Intelligence Application 認證",
       "issuer": "國內認證 · Taiwan",
-      "date": "",
+      "date": "2022",
       "credentialId": null,
       "link": null,
       "badge": null,
+      "image": "/img/certs/aia.webp",
       "tag": "AI",
       "color": "green"
     },
@@ -295,10 +301,11 @@
       "id": "psa",
       "title": "Packaged Software Application 認證",
       "issuer": "國內認證 · Taiwan",
-      "date": "",
+      "date": "2023",
       "credentialId": null,
       "link": null,
       "badge": null,
+      "image": "/img/certs/psa.webp",
       "tag": "Office",
       "color": "cyan"
     }

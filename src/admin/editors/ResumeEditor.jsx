@@ -11,7 +11,7 @@ const SECTIONS = [
     addLabel: '+ 新增認證',
     blank: () => ({
       id: uid('cert'), title: '', issuer: '', date: '',
-      credentialId: null, link: null, badge: null, tag: '', color: 'cyan',
+      credentialId: null, link: null, badge: null, image: null, tag: '', color: 'cyan',
     }),
     fields: [
       { key: 'title', label: '名稱' },
@@ -21,6 +21,7 @@ const SECTIONS = [
       { key: 'credentialId', label: 'Credential ID', hint: '留空則不顯示' },
       { key: 'link', label: '驗證連結', hint: '留空則不顯示驗證按鈕' },
       { key: 'badge', label: '徽章圖', hint: '官方徽章，留空則不顯示', type: 'image' },
+      { key: 'image', label: '證書圖', hint: '證書掃描或截圖，點了可放大；上傳前先遮掉證書編號等個資', type: 'image' },
       { key: 'color', label: '配色', type: 'color' },
     ],
   },
@@ -30,7 +31,7 @@ const SECTIONS = [
     addLabel: '+ 新增競賽',
     blank: () => ({
       id: uid('comp'), title: '', event: '', organizer: '', date: '',
-      award: '', description: '', link: null, color: 'pink',
+      award: '', description: '', link: null, image: null, color: 'pink',
     }),
     fields: [
       { key: 'title', label: '競賽名稱' },
@@ -40,6 +41,7 @@ const SECTIONS = [
       { key: 'award', label: '獎項' },
       { key: 'description', label: '說明', hint: '可留空' },
       { key: 'link', label: '連結', hint: '可留空' },
+      { key: 'image', label: '獎狀圖', hint: '可留空，點了可放大', type: 'image' },
       { key: 'color', label: '配色', type: 'color' },
     ],
   },
@@ -77,7 +79,7 @@ export default function ResumeEditor({ data, setData }) {
   return (
     <>
       <p className="ad-note">
-        學歷、產學合作、論文、社群與技術寫作含中英雙語與條列欄位，請切到上方「JSON」模式編輯。
+        學歷、產學合作、論文、社群與技術寫作含中英雙語與條列欄位，請切到上方「JSON」模式編輯（論文附圖填 image 欄位，例如 /img/certs/xxx.webp）。
       </p>
       {SECTIONS.map(section => (
         <ListSection
