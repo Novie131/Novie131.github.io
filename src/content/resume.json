@@ -48,8 +48,8 @@
         "en": "SYSBrain Multi-agent Platform — MCP Authentication"
       },
       "roles": {
-        "zh": "專案負責人 · 身分驗證架構設計與後端開發",
-        "en": "Project lead · Auth architecture & backend"
+        "zh": "子專案負責人 · 身分驗證架構設計與後端開發",
+        "en": "Sub-project lead · Auth architecture & backend"
       },
       "summary": {
         "zh": "平台的「用代理」功能會呼叫外部 MCP Server（n8n）執行工具，原本這條路徑沒有任何驗證，知道網址即可呼叫。",
@@ -91,12 +91,12 @@
         "en": "SYSBrain Multi-agent Platform — Guardrails"
       },
       "roles": {
-        "zh": "專案負責人 · 內容防護模組開發",
-        "en": "Project lead · Content-safety module"
+        "zh": "子專案負責人 · 內容防護模組開發",
+        "en": "Sub-project lead · Content-safety module"
       },
       "summary": {
-        "zh": "身分驗證把關「誰能呼叫」，這個子專案以 NeMo Guardrails 把關「內容能不能通過」，建立輸入、檢索、執行、輸出四層護欄，共用同一套防護模組與規則。",
-        "en": "Auth decides who may call; this sub-project decides what content may pass — four NeMo Guardrails layers (input, retrieval, execution, output) sharing one rule set."
+        "zh": "身分驗證把關「誰能呼叫」，這個子專案以 AI Guardrails 把關「內容能不能通過」，建立輸入、檢索、執行、輸出四層護欄，共用同一套防護模組與規則。",
+        "en": "Auth decides who may call; this sub-project decides what content may pass — four AI Guardrails layers (input, retrieval, execution, output) sharing one rule set."
       },
       "highlights": {
         "zh": [
@@ -112,7 +112,7 @@
       },
       "tech": [
         "Python",
-        "NeMo Guardrails",
+        "AI Guardrails",
         "RAG",
         "MCP"
       ],
@@ -130,8 +130,8 @@
         "en": "Multi-Agent Collaboration Platform (shown at COMPUTEX 2025)"
       },
       "roles": {
-        "zh": "專案負責人 · 前端與 AI Agent 後端開發",
-        "en": "Project lead · Frontend & agent backend"
+        "zh": "開發者 · 前端與 AI Agent 後端開發",
+        "en": "Developer · Frontend & agent backend"
       },
       "summary": {
         "zh": "LangGraph Supervisor 以地端 Gemma 3 判斷意圖，把請求路由到腦力激盪、摘要、搜尋、RAG、Excel 報表與專家顧問等 Agent；各 Agent 以 FastAPI 微服務部署並依任務分派雲端或地端模型。系統於 COMPUTEX 2025 展示並獲仁寶頒發感謝狀。",
@@ -208,7 +208,7 @@
       "id": "changmao-tpclaw",
       "org": {
         "zh": "長茂科技（竹科廠商）",
-        "en": "長茂科技 (Hsinchu Science Park vendor)"
+        "en": "Changmao Technology (Hsinchu Science Park)"
       },
       "short": "TP-Claw",
       "title": {
@@ -216,8 +216,8 @@
         "en": "TP-Claw Zero-Trust AI Agent Sandbox"
       },
       "roles": {
-        "zh": "驗證整合與 Demo 系統開發",
-        "en": "Auth integration & demo system"
+        "zh": "專案負責人 · 驗證整合與 Demo 系統開發",
+        "en": "Project lead · Auth integration & demo system"
       },
       "summary": {
         "zh": "以開源 AI Agent 專案 OpenClaw 為核心，整合 TekPass 與 PC.Sec 零信任技術，建立 AI Agent 專用的安全執行架構：MCP/OAuth2 驗證閘道、WSL2 Sandbox、Prompt/Memory 安全治理與 ATR 靜態掃描。",
