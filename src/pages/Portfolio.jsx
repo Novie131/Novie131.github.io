@@ -1,6 +1,8 @@
 import { useSearchParams } from 'react-router-dom'
 import { useLang } from '../context/LangContext'
 import projects from '../content/projects.json'
+import Zoomable from '../components/Zoomable'
+import '../styles/Resume.css'
 import '../styles/Portfolio.css'
 
 const { items, filters } = projects
@@ -24,82 +26,62 @@ export default function Portfolio() {
         <p className="page-desc">{t('port.desc')}</p>
       </header>
 
-      <div className="filter-bar">
-        {filters.map(key => (
-          <button
-            key={key}
-            className={`filter-btn${active === key ? ' active' : ''}`}
-            onClick={() => setActive(key)}
-          >
-            {key === 'All' ? t('port.filter.all') : key}
-          </button>
-        ))}
-        <span className="filter-count tc-dim">{visible.length} {t('port.count')}</span>
-      </div>
+      <section className="resume-section">
+        <h2 className="section-title">
+          {t('port.section')}
+          <span className="resume-count">{visible.length} {t('port.count')}</span>
+        </h2>
 
-      <div className="project-grid">
-        {visible.map(project => (
-          <div
-            key={project.id}
-            className={`project-card${project.featured ? ' featured' : ''}`}
-          >
-            {project.image && (
-              <img
-                className="card-image"
-                src={project.image}
-                alt={project.title}
-                width="800"
-                height="450"
-                loading="lazy"
-                decoding="async"
-              />
-            )}
+        <nav className="resume-toc filter-bar" aria-label={t('port.title')}>
+          {filters.map(key => (
+            <button
+              key={key}
+              className={`toc-chip${active === key ? ' active' : ''}`}
+              aria-pressed={active === key}
+              onClick={() => setActive(key)}
+            >
+              {key === 'All' ? t('port.filter.all') : key}
+            </button>
+          ))}
+        </nav>
 
-            <div className="card-content">
-              <p className="card-category">{project.category}</p>
-              <h3 className="card-title">{project.title}</h3>
-              <p className="card-desc">{project.description[lang]}</p>
+        <div className="exp-list project-list">
+          {visible.map(project => (
+            <article
+              key={project.id}
+              className={`exp-card project-card${project.featured ? ' featured' : ''}`}
+            >
+              <Zoomable src={project.image} alt={project.title} closeLabel={t('zoom.close')} />
+              <p className="exp-org">{project.category}</p>
+              <h3 className="exp-title">{project.title}</h3>
+              <p className="exp-summary">{project.description[lang]}</p>
 
-              <ul className="project-features">
-                {project.features[lang].map((f, i) => (
-                  <li key={i}>{f}</li>
-                ))}
+              <ul className="exp-highlights">
+                {project.features[lang].map((f, i) => <li key={i}>{f}</li>)}
               </ul>
 
-              <div className="tags project-tech">
-                {project.tech.map(tech => (
-                  <span key={tech} className="tag">{tech}</span>
-                ))}
+              <div className="tags rs-tags">
+                {project.tech.map(tech => <span key={tech} className="tag">{tech}</span>)}
               </div>
 
               {(project.repoLink || project.demoLink) && (
-              <div className="card-footer">
-                {project.repoLink && (
-                  <a
-                    href={project.repoLink}
-                    className="project-link secondary"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {t('port.github')}
-                  </a>
-                )}
-                {project.demoLink && (
-                  <a
-                    href={project.demoLink}
-                    className="project-link primary"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {t('port.demo')}
-                  </a>
-                )}
-              </div>
+                <div className="project-links">
+                  {project.repoLink && (
+                    <a href={project.repoLink} className="project-link secondary" target="_blank" rel="noreferrer">
+                      {t('port.github')}
+                    </a>
+                  )}
+                  {project.demoLink && (
+                    <a href={project.demoLink} className="project-link primary" target="_blank" rel="noreferrer">
+                      {t('port.demo')}
+                    </a>
+                  )}
+                </div>
               )}
-            </div>
-          </div>
-        ))}
-      </div>
+            </article>
+          ))}
+        </div>
+      </section>
     </div>
   )
 }

@@ -315,7 +315,7 @@ body::before {
    不支援的瀏覽器直接略過、內容照常顯示，不會有「JS 沒跑就空白」的風險 */
 @media (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: view()) {
-    .exp-card, .pub-card, .cert-card, .comp-card, .write-card,
+    .exp-card, .pub-card, .cert-card, .comp-card, .write-card, .project-card,
     .edu-row, .comm-row, .course-row, .event-row {
       animation: revealUp linear both;
       animation-timeline: view();

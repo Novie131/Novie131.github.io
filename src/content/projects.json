@@ -45,35 +45,37 @@
       "image": null
     },
     {
-      "id": "smartrouteai",
-      "slug": "SmartRouteAI",
-      "title": "SmartRouteAI",
+      "id": "chutora",
+      "slug": "Chutora",
+      "title": "Chutora",
       "category": "AI / DevTools",
       "featured": false,
       "description": {
-        "zh": "分層模型委派的 Claude Code Plugin：主對話由 Opus 理解與規劃，執行派給 Sonnet、唯讀檢索交給 Haiku，以 subagent 隔離 context 降低成本。",
-        "en": "A Claude Code plugin for tiered model delegation: Opus plans in the main thread, Sonnet executes, Haiku handles read-only lookups — subagents isolate context to cut cost."
+        "zh": "輕一點，飛更遠：Claude Code Plugin。Opus 當主管負責想，Sonnet 與 Haiku 負責動手，只把結論交回主對話；對話變長時先寫交接筆記，清空後照筆記接著做。",
+        "en": "Fly light, go further: a Claude Code plugin where Opus plans, Sonnet and Haiku execute and return only conclusions; handoff notes carry work across context resets."
       },
       "features": {
         "zh": [
-          "依任務性質自動分派 Opus / Sonnet / Haiku",
-          "跨對話累積的 Markdown 記憶庫：索引只放觸發條件，知識放主題檔",
-          "關鍵詞檢索實作不需向量資料庫的輕量 RAG",
-          "可透過 plugin marketplace 安裝"
+          "分層派工：Opus 規劃、Sonnet 實作、Haiku 大量讀取",
+          "噪音輸出、重複讀檔與 MCP 大量回傳在進入 context 前先瘦身，原文另存",
+          "context 過長提醒與 handoff 交接筆記，清空後自動接回",
+          "loop guard、失敗升級與子 agent 驗證回報，避免無限重試",
+          "Markdown 記憶庫與用量報表、即時看板"
         ],
         "en": [
-          "Routes work to Opus / Sonnet / Haiku by task type",
-          "Markdown memory that persists across sessions — the index holds triggers, topic files hold knowledge",
-          "Keyword retrieval as a lightweight RAG with no vector database",
-          "Installable from the plugin marketplace"
+          "Tiered delegation: Opus plans, Sonnet implements, Haiku handles bulk reads",
+          "Trims noisy output, repeated reads and large MCP payloads before they hit context; originals saved aside",
+          "Context-length reminders and handoff notes that resume after a reset",
+          "Loop guard, escalation and verified sub-agent reports to stop endless retries",
+          "Markdown memory, usage stats and a live agent board"
         ]
       },
       "tech": [
         "Claude Code",
         "Shell",
-        "RAG"
+        "Plugin"
       ],
-      "repoLink": "https://github.com/Novie131/SmartRouteAI",
+      "repoLink": "https://github.com/Novie131/Chutora",
       "demoLink": null,
       "image": null
     },
@@ -153,6 +155,40 @@
         "Linux"
       ],
       "repoLink": "https://github.com/Novie131/Nelo",
+      "demoLink": null,
+      "image": null
+    },
+    {
+      "id": "onboarding-sorter",
+      "slug": "onboarding-sorter",
+      "title": "SortOCR PDF 分類工坊",
+      "category": "AI / Tools",
+      "featured": false,
+      "description": {
+        "zh": "把一整疊新進人員報到文件的掃描檔自動切成每人一份：判斷文件種類、用地端視覺模型讀手寫姓名與學號對應名單，建好資料夾與檔名後打包成 zip。",
+        "en": "Splits a stack of scanned onboarding documents into one folder per person: classifies each page, matches handwritten names and IDs to a roster with a local vision model, then zips the result."
+      },
+      "features": {
+        "zh": [
+          "切文件與分類完全離線，不需辨識手寫字",
+          "AI 配對走 OpenAI 相容 API（Ollama／vLLM），只送出姓名欄與學號欄的小圖",
+          "沒設定 AI 也能用，改依名單順序預設配對",
+          "Streamlit 介面，可在 Raspberry Pi 執行，附 PDF 合併功能"
+        ],
+        "en": [
+          "Page splitting and classification run fully offline",
+          "AI matching via an OpenAI-compatible API (Ollama / vLLM), sending only small name and ID crops",
+          "Works without AI by falling back to roster order",
+          "Streamlit UI that runs on a Raspberry Pi, with a PDF merge tool"
+        ]
+      },
+      "tech": [
+        "Python",
+        "Streamlit",
+        "OCR",
+        "Vision LLM"
+      ],
+      "repoLink": "https://github.com/Novie131/onboarding-sorter",
       "demoLink": null,
       "image": null
     },

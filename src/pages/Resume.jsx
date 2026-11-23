@@ -181,6 +181,7 @@ export default function Resume() {
                 <p className="comm-desc">{pick(item.desc, lang)}</p>
                 <Tags list={item.tech} />
               </div>
+              <Zoomable src={item.image} alt={pick(item.title, lang)} closeLabel={t('zoom.close')} className="zoom-mini" />
             </div>
           ))}
         </div>

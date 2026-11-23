@@ -511,3 +511,13 @@ a.write-card:hover .write-title { color: var(--primary); }
   .write-card { padding: 1.15rem 1.1rem; }
   .course-row { align-items: flex-start; }
 }
+
+/* 社群列附縮圖：第三欄放小縮圖；手機時縮圖靠右、與內文同一列 */
+.comm-row:has(.zoom-mini) { grid-template-columns: minmax(0, 1fr) auto; }
+.comm-row:has(.zoom-mini) .comm-period { grid-column: 1 / -1; }
+.comm-row:has(.zoom-mini) .zoom-mini { align-self: start; margin-top: 0.15rem; }
+
+@media (min-width: 720px) {
+  .comm-row:has(.zoom-mini) { grid-template-columns: 10.5rem minmax(0, 1fr) auto; }
+  .comm-row:has(.zoom-mini) .comm-period { grid-column: auto; }
+}

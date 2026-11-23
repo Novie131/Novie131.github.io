@@ -40,6 +40,7 @@ const translations = {
 
     // Portfolio
     'port.title':          '精選作品',
+    'port.section':        '專案',
     'port.filter.all':     '全部',
     'port.count':          '個作品',
     'port.github':         'GitHub ↗',
@@ -161,6 +162,7 @@ const translations = {
 
     // Portfolio
     'port.title':          'Selected Projects',
+    'port.section':        'Projects',
     'port.filter.all':     'All',
     'port.count':          'projects',
     'port.github':         'GitHub ↗',
