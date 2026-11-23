@@ -55,6 +55,7 @@ export default function Portfolio() {
               <p className="exp-org">{project.category}</p>
               <h3 className="exp-title">{project.title}</h3>
               <p className="exp-summary">{project.description[lang]}</p>
+              {project.note && <p className="project-note" role="note">{project.note[lang]}</p>}
 
               <ul className="exp-highlights">
                 {project.features[lang].map((f, i) => <li key={i}>{f}</li>)}

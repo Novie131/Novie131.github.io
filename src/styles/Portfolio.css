@@ -39,3 +39,15 @@ button.toc-chip {
 .project-link.primary:hover { color: #ffd966; }
 .project-link.secondary { color: var(--text-2); }
 .project-link.secondary:hover { color: var(--text); }
+
+/* 尚不能公開的專案：醒目但不刺眼的提醒 */
+.project-note {
+  margin: 0.2rem 0 0.9rem;
+  padding: 0.6rem 0.85rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--primary);
+  background: rgba(255, 201, 60, 0.08);
+  border: 1px solid rgba(255, 201, 60, 0.35);
+  border-radius: 6px;
+}

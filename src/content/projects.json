@@ -45,6 +45,86 @@
       "image": null
     },
     {
+      "id": "goodloop",
+      "slug": "goodloop",
+      "title": "GoodLoop 善得其所",
+      "category": "AI / Web",
+      "featured": false,
+      "note": {
+        "zh": "⚠ 目前仍在競賽評審期間，功能與程式碼暫時無法公開展示，賽後會補上 Demo 與原始碼。",
+        "en": "⚠ The competition is still under judging, so features and source code can't be shown yet. A demo and the code will be added afterwards."
+      },
+      "description": {
+        "zh": "好心循環的 AI 愛心物資媒合平台，為 2026 三好 AI 創新應用競賽（社會組）所作。捐贈者拍照或描述物品，AI 判斷物品並整理機構需求，再由規則媒合給合適的機構。",
+        "en": "An AI-assisted charity donation matching platform built for the 2026 Sanhao AI Innovation Competition (social track). Donors snap or describe an item, AI identifies it and summarises each charity's needs, and rules match it to a suitable organisation."
+      },
+      "features": {
+        "zh": [
+          "單一 Cloudflare Worker 同時提供網站（React + Vite）與 API（Hono）",
+          "Workers AI 的 Llama 3.2 Vision 看圖判斷物品、整理機構需求",
+          "AI 只負責看懂與整理，適不適合捐與媒合對象由規則決定",
+          "AI 失敗時自動改用手動填寫，流程照樣走得完",
+          "手機端先縮圖再上傳，節省速度與 AI 額度"
+        ],
+        "en": [
+          "One Cloudflare Worker serves both the site (React + Vite) and the API (Hono)",
+          "Workers AI Llama 3.2 Vision identifies items and summarises charity needs",
+          "AI only interprets; suitability and matching are decided by rules",
+          "If AI fails, the flow falls back to manual entry and still completes",
+          "Images are downscaled on the phone before upload to save time and AI quota"
+        ]
+      },
+      "tech": [
+        "TypeScript",
+        "React",
+        "Cloudflare Workers",
+        "Hono",
+        "Workers AI",
+        "D1"
+      ],
+      "repoLink": null,
+      "demoLink": null,
+      "image": null
+    },
+    {
+      "id": "tech-radar",
+      "slug": "tech-radar",
+      "title": "每日技術雷達 Tech Radar",
+      "category": "AI / Bot",
+      "featured": false,
+      "description": {
+        "zh": "每天固定時間抓過去 24 小時的資安、AI、GPU 最新技術資訊，依領域分類後推到 Discord。排程跑在 GitHub Actions，另用樹莓派做第二條獨立備援。",
+        "en": "Every day it collects the past 24 hours of security, AI and GPU news, sorts it by domain and posts it to Discord. It runs on GitHub Actions, with a Raspberry Pi as an independent second path."
+      },
+      "features": {
+        "zh": [
+          "分類不用模型：來源即領域，再加關鍵字標籤",
+          "選用 LLM 為每則寫一句繁中摘要，未設定則退回 RSS 原生描述",
+          "選用 Gemini 直接看 YouTube 影片產出重點與可用做法，並有額度保護",
+          "雙軌冗餘：GitHub Actions 與樹莓派各發一個頻道，一天只發一次、可補發",
+          "金鑰只放 GitHub Secrets"
+        ],
+        "en": [
+          "No model for classification: the source decides the domain, plus keyword tags",
+          "Optional LLM writes a one-line Traditional Chinese summary per item, falling back to the RSS description",
+          "Optional Gemini watches YouTube videos for key points and takeaways, with quota guards",
+          "Dual-path redundancy: GitHub Actions and a Raspberry Pi each post to their own channel, once a day, with catch-up",
+          "Secrets live only in GitHub Secrets"
+        ]
+      },
+      "tech": [
+        "Python",
+        "GitHub Actions",
+        "Discord",
+        "Gemini",
+        "NVIDIA NIM",
+        "Raspberry Pi"
+      ],
+      "repoLink": "https://github.com/Novie131/tech-radar",
+      "demoLink": null,
+      "image": null
+    },
+    {
       "id": "chutora",
       "slug": "Chutora",
       "title": "Chutora",

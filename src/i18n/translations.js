@@ -22,13 +22,13 @@ const translations = {
     'lang.en':     'English',
 
     // Home
-    'home.badge':          'AI AGENT · 後端工程師',
-    'home.sub':            '打造 AI Agent · 守住資安邊界 · 交付上線系統',
+    'home.badge':          'AI · 雲端 · 資安',
+    'home.sub':            'AI Agent 開發 · 雲端部署 · 資安防護',
     'home.btn.projects':   '查看作品集',
     'home.btn.about':      '關於我',
     'home.stack':          '主要技術',
-    'home.tagline.pre':    '把 AI Agent 做到',
-    'home.tagline.em':     '真正上線',
+    'home.tagline.pre':    '讓 AI 跑上雲端，',
+    'home.tagline.em':     '也守得住',
     'home.proof':          '實績',
     'home.proof.certs':    '國際證照 · Credly 驗證',
     'home.featured':       '精選專案',
@@ -45,7 +45,7 @@ const translations = {
     'port.count':          '個作品',
     'port.github':         'GitHub ↗',
     'port.demo':           'Live Demo ↗',
-    'port.desc':           '課餘做的開源作品：地端 AI 影片產線、Claude Code Plugin、AR 手機 App、IoT 冷鏈系統與 Go 工具。產學合作專案請見履歷頁。',
+    'port.desc':           '課餘做的開源作品：地端 AI 影片產線、雲端 AI 媒合平台、每日技術雷達、Claude Code Plugin、AR 手機 App 與 IoT 冷鏈系統。產學合作專案請見履歷頁。',
 
     // Contact
     'contact.title':       '聯絡',
@@ -108,8 +108,8 @@ const translations = {
     'menu.close': '關閉選單',
 
     // Page meta（<title> 與 meta description，每頁一組）
-    'meta.home.title':      '鄭凱擇 Cheng KT | AI Agent · 後端工程師',
-    'meta.home.desc':       '臺中科大資工碩士生，專注 AI Agent、MCP 與零信任資安 — 精誠、仁寶、工研院產學合作經驗。',
+    'meta.home.title':      '鄭凱擇 Cheng KT | AI · 雲端 · 資安工程師',
+    'meta.home.desc':       '臺中科大資工碩士生，專注 AI Agent、雲端部署與零信任資安 — 精誠、仁寶、工研院產學合作經驗。',
     'meta.about.title':     '關於 | Cheng KT',
     'meta.about.desc':      '我的技術背景、學經歷時間軸與技能組成 — AI Agent、身分驗證與資安、後端與資料工程。',
     'meta.portfolio.title': '作品集 | Cheng KT',
@@ -144,13 +144,13 @@ const translations = {
     'lang.en':     'English',
 
     // Home
-    'home.badge':          'AI AGENT · BACKEND ENGINEER',
-    'home.sub':            'Building AI agents · Securing the boundaries · Shipping to production',
+    'home.badge':          'AI · CLOUD · SECURITY',
+    'home.sub':            'AI agent development · Cloud deployment · Security by design',
     'home.btn.projects':   'View projects',
     'home.btn.about':      'About me',
     'home.stack':          'Core stack',
-    'home.tagline.pre':    'AI agents, ',
-    'home.tagline.em':     'built to ship.',
+    'home.tagline.pre':    'AI in the cloud, ',
+    'home.tagline.em':     'secured by design.',
     'home.proof':          'Highlights',
     'home.proof.certs':    'Certifications · verified on Credly',
     'home.featured':       'Featured projects',
@@ -167,7 +167,7 @@ const translations = {
     'port.count':          'projects',
     'port.github':         'GitHub ↗',
     'port.demo':           'Live Demo ↗',
-    'port.desc':           'Open-source side projects: a local AI video pipeline, a Claude Code plugin, an AR mobile app, an IoT cold-chain system and Go tooling. Industry work is on the resume page.',
+    'port.desc':           'Open-source side projects: a local AI video pipeline, a cloud AI matching platform, a daily tech radar, a Claude Code plugin, an AR app and an IoT cold-chain system. Industry work is on the resume page.',
 
     // Contact
     'contact.title':       'Contact',
@@ -230,8 +230,8 @@ const translations = {
     'menu.close': 'Close menu',
 
     // Page meta
-    'meta.home.title':      'Cheng KT | AI Agent · Backend Engineer',
-    'meta.home.desc':       'M.S. student at NUTC focused on AI agents, MCP and zero-trust security — industry projects with SYSTEX, Compal and ITRI.',
+    'meta.home.title':      'Cheng KT | AI · Cloud · Security Engineer',
+    'meta.home.desc':       'M.S. student at NUTC focused on AI agents, cloud deployment and zero-trust security — industry projects with SYSTEX, Compal and ITRI.',
     'meta.about.title':     'About | Cheng KT',
     'meta.about.desc':      'Background, timeline and skills — AI agents, identity & security, backend and data engineering.',
     'meta.portfolio.title': 'Projects | Cheng KT',
