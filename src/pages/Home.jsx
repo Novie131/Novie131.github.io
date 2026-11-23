@@ -41,7 +41,7 @@ export default function Home() {
 
           <h1 className="hero-title">
             <span className="hero-prompt">$ whoami</span>
-            <span className="hero-name">Cheng KT</span>
+            <span className="hero-name">Eldric Cheng</span>
           </h1>
 
           <p className="hero-tagline">

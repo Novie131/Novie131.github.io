@@ -113,7 +113,7 @@ function AppInner() {
         <div className="logo">
           <span className="logo-dot" />
           <span className="logo-bracket">&lt;</span>
-          Cheng KT
+          Eldric Cheng
           <span className="logo-slash">/</span>
           <span className="logo-bracket">&gt;</span>
         </div>
@@ -155,7 +155,7 @@ function AppInner() {
 
       <footer className="footer">
         <p>
-          © {new Date().getFullYear()} Cheng KT · crafted with{' '}
+          © {new Date().getFullYear()} Eldric Cheng · crafted with{' '}
           <a href="https://react.dev"  target="_blank" rel="noreferrer">React</a> ×{' '}
           <a href="https://vitejs.dev" target="_blank" rel="noreferrer">Vite</a>
           {' '}· [system.online]
