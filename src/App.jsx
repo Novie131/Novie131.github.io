@@ -42,7 +42,8 @@ const NAV = [
 function useHashScroll() {
   const { pathname, hash } = useLocation()
   useEffect(() => {
-    if (!hash) return
+    /* 換頁沒有錨點就回到頂端；用 instant，避免 CSS 的 smooth 讓整頁從舊位置慢慢滑上去 */
+    if (!hash) { window.scrollTo({ top: 0, behavior: 'instant' }); return }
     const deadline = performance.now() + 5000
     let raf
     const seek = () => {

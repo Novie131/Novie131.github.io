@@ -304,6 +304,31 @@ body::before {
   gap: 0.35rem;
 }
 
+/* ── Smooth scroll ─────────────────────────────────── */
+/* 站內錨點（履歷頁導覽等）用滑動而不是瞬間跳；系統開了「減少動態效果」就維持原樣 */
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+/* ── Scroll reveal ─────────────────────────────────── */
+/* 卡片進入視窗時淡入上移。純 CSS（scroll-driven animation），
+   不支援的瀏覽器直接略過、內容照常顯示，不會有「JS 沒跑就空白」的風險 */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .exp-card, .pub-card, .cert-card, .comp-card, .write-card,
+    .edu-row, .comm-row, .course-row, .event-row {
+      animation: revealUp linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 30%;
+    }
+  }
+}
+
+@keyframes revealUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 /* ── Page Transition ───────────────────────────────── */
 .route-wrapper {
   animation: pageEnter 0.35s ease-out both;

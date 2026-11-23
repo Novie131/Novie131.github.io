@@ -50,6 +50,16 @@
   .zoom-hint { opacity: 0.9; }
 }
 
+/* 列表用的小縮圖：課程與活動是一行一列，不適合整張卡片寬的圖 */
+.zoom-thumb.zoom-mini {
+  width: 4.2rem;
+  margin: 0;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+.zoom-mini .zoom-hint { display: none; }
+
 /* ── 放大檢視 ─────────────────────────────────────── */
 .zoom-dialog {
   max-width: min(92vw, 1400px);

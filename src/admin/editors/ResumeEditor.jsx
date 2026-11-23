@@ -51,7 +51,7 @@ const SECTIONS = [
     addLabel: '+ 新增課程',
     blank: () => ({
       id: uid('course'), title: '', issuer: '', date: '',
-      modules: '', link: null, color: 'cyan',
+      modules: '', link: null, image: null, color: 'cyan',
     }),
     fields: [
       { key: 'title', label: '課程名稱' },
@@ -59,6 +59,7 @@ const SECTIONS = [
       { key: 'date', label: '年份' },
       { key: 'modules', label: '規模', hint: '例如 5 courses' },
       { key: 'link', label: '連結', hint: '可留空' },
+      { key: 'image', label: '證書圖', hint: '可留空，點了可放大', type: 'image' },
       { key: 'color', label: '配色', type: 'color' },
     ],
   },
@@ -66,11 +67,12 @@ const SECTIONS = [
     key: 'events',
     title: '參與的技術活動',
     addLabel: '+ 新增活動',
-    blank: () => ({ id: uid('event'), name: '', date: '' }),
+    blank: () => ({ id: uid('event'), name: '', date: '', image: null }),
     titleKey: 'name',
     fields: [
       { key: 'name', label: '活動名稱' },
       { key: 'date', label: '日期', hint: '可留空' },
+      { key: 'image', label: '證明圖', hint: '可留空，點了可放大', type: 'image' },
     ],
   },
 ]

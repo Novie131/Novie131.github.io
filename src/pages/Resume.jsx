@@ -227,6 +227,7 @@ export default function Resume() {
               {course.link && (
                 <a href={course.link} className="course-link" target="_blank" rel="noreferrer">→</a>
               )}
+              <Zoomable src={course.image} alt={pick(course.title, lang)} closeLabel={t('zoom.close')} className="zoom-mini" />
             </div>
           ))}
         </div>
@@ -238,6 +239,7 @@ export default function Resume() {
             <li key={ev.id} className="event-row">
               <span className="event-name">{pick(ev.name, lang)}</span>
               {ev.date && <span className="event-date">{ev.date}</span>}
+              <Zoomable src={ev.image} alt={pick(ev.name, lang)} closeLabel={t('zoom.close')} className="zoom-mini" />
             </li>
           ))}
         </ul>
