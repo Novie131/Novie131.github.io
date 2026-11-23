@@ -3,40 +3,47 @@ import { useLang } from '../context/LangContext'
 import '../styles/NavControls.css'
 
 export default function NavControls({ isMobile, onToggleView }) {
-  const { lang, setLang, t } = useLang()
+  const { lang, setLang } = useLang()
   const [open, setOpen] = useState(false)
   const [themeOpen, setThemeOpen] = useState(false)
-  const [langOpen, setLangOpen] = useState(false)
   const ref = useRef(null)
 
   useEffect(() => {
-    if (!open && !themeOpen && !langOpen) return
+    if (!open && !themeOpen) return
     function onOutside(e) {
       if (ref.current && !ref.current.contains(e.target)) {
         setOpen(false)
         setThemeOpen(false)
-        setLangOpen(false)
       }
     }
     document.addEventListener('mousedown', onOutside)
     return () => document.removeEventListener('mousedown', onOutside)
-  }, [open, themeOpen, langOpen])
+  }, [open, themeOpen])
 
   function handleMainToggle() {
     if (open) {
       setThemeOpen(false)
-      setLangOpen(false)
     }
     setOpen(v => !v)
   }
 
-  function handleLangToggle() {
-    setThemeOpen(false)
-    setLangOpen(v => !v)
-  }
-
   return (
     <div className="nav-controls" ref={ref}>
+      {/* 語言切換：直接放在導覽列，海外訪客一眼就看得到 */}
+      <div className="lang-switch" role="group" aria-label="Language">
+        {[['zh', '中文'], ['en', 'EN']].map(([code, label]) => (
+          <button
+            key={code}
+            type="button"
+            className={`lang-opt${lang === code ? ' is-active' : ''}`}
+            aria-pressed={lang === code}
+            lang={code === 'zh' ? 'zh-Hant' : 'en'}
+            onClick={() => setLang(code)}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
       {open && (
         <div className="nc-actions">
           {/* 平台切換 */}
@@ -60,15 +67,6 @@ export default function NavControls({ isMobile, onToggleView }) {
           </button>
           */}
 
-          {/* 語言切換 */}
-          <button
-            className={`nc-btn${langOpen ? ' is-active' : ''}`}
-            onClick={handleLangToggle}
-            title="切換語言"
-          >
-            <span className="nc-icon" aria-hidden>🌐</span>
-            <span className="nc-label">{lang === 'zh' ? 'ZH' : 'EN'}</span>
-          </button>
         </div>
       )}
 
@@ -117,26 +115,6 @@ export default function NavControls({ isMobile, onToggleView }) {
       )}
       */}
 
-      {/* 語言下拉 */}
-      {langOpen && (
-        <div className="nc-theme-panel" role="menu">
-          <div className="nc-panel-header">{t('panel.lang')}</div>
-          {['zh', 'en'].map(langOpt => (
-            <button
-              key={langOpt}
-              className={`nc-theme-option${lang === langOpt ? ' is-active' : ''}`}
-              onClick={() => { setLang(langOpt); setLangOpen(false); setOpen(false) }}
-              role="menuitem"
-            >
-              <span className={`nc-swatch nc-swatch-lang-${langOpt}`} />
-              <span className="nc-option-info">
-                <span className="nc-option-label">{t(`lang.${langOpt}`)}</span>
-              </span>
-              {lang === langOpt && <span className="nc-check" aria-hidden>✓</span>}
-            </button>
-          ))}
-        </div>
-      )}
     </div>
   )
 }

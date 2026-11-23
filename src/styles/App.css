@@ -597,3 +597,9 @@ body::before {
   color: var(--muted);
   font-size: 0.95rem;
 }
+
+/* 手機窄螢幕：導覽列要同時放 logo、漢堡、語言切換與設定鈕，logo 不換行並省略括號 */
+@media (max-width: 480px) {
+  .navbar .logo { white-space: nowrap; font-size: 0.85rem; }
+  .navbar .logo-bracket, .navbar .logo-slash { display: none; }
+}

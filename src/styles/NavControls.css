@@ -210,3 +210,38 @@
   font-family: 'Lora', Georgia, serif;
   font-style: italic;
 }
+
+/* ── 語言切換（常駐導覽列）──────────────────────────────────── */
+.lang-switch {
+  display: flex;
+  height: 36px;
+  border: 1px solid var(--border-hi);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.lang-opt {
+  padding: 0 0.7rem;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 0.15s, background 0.15s;
+}
+
+.lang-opt + .lang-opt { border-left: 1px solid var(--border-hi); }
+.lang-opt:hover { color: var(--text); background: var(--surface-2); }
+
+.lang-opt.is-active {
+  color: var(--bg-deep);
+  background: var(--primary);
+}
+
+@media (max-width: 480px) {
+  .lang-opt { padding: 0 0.5rem; font-size: 0.8rem; }
+}
+
+.lang-opt { white-space: nowrap; }
