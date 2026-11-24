@@ -603,3 +603,23 @@ body::before {
   .navbar .logo { white-space: nowrap; font-size: 0.85rem; }
   .navbar .logo-bracket, .navbar .logo-slash { display: none; }
 }
+
+/* ── 語言切換過場 ──────────────────────────────────── */
+/* 只在切語言時（.lang-transition）套用，不影響其他情況；整頁淡出再淡入並帶一點模糊 */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+.lang-transition::view-transition-old(root) {
+  animation: langOut 0.28s ease both;
+}
+.lang-transition::view-transition-new(root) {
+  animation: langIn 0.38s ease both;
+}
+@keyframes langOut {
+  to { opacity: 0; filter: blur(6px); transform: scale(0.99); }
+}
+@keyframes langIn {
+  from { opacity: 0; filter: blur(6px); transform: scale(1.01); }
+}
