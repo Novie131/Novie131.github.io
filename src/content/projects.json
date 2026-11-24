@@ -3,6 +3,7 @@
     "All",
     "AI",
     "DevTools",
+    "Security",
     "Mobile",
     "IoT",
     "Web",
@@ -156,6 +157,41 @@
         "Plugin"
       ],
       "repoLink": "https://github.com/Novie131/Chutora",
+      "demoLink": null,
+      "image": null
+    },
+    {
+      "id": "imac-soc",
+      "slug": "imac-soc",
+      "title": "IMAC-SOC 研究室資安監控平台",
+      "category": "Security / Ops",
+      "featured": false,
+      "description": {
+        "zh": "為研究室網路建置的輕量 SOC：收集路由器、交換器和主機的日誌與流量，比對威脅情資後即時把告警推送到 Discord／LINE，並自動在邊界封鎖惡意 IP。",
+        "en": "A lightweight SOC for the lab network: collects router, switch and host logs and traffic, matches them against threat intel, pushes real-time alerts to Discord/LINE and auto-blocks malicious IPs at the edge."
+      },
+      "features": {
+        "zh": [
+          "以 Graylog、OpenSearch 集中收集路由器、交換器與主機的日誌和流量",
+          "比對威脅情資，告警即時推送到 Discord／LINE",
+          "以 nftables 在網路邊界自動封鎖惡意 IP",
+          "獨立開發，以 Docker 部署"
+        ],
+        "en": [
+          "Centralizes router, switch and host logs and traffic in Graylog and OpenSearch",
+          "Matches events against threat intel and pushes real-time alerts to Discord/LINE",
+          "Auto-blocks malicious IPs at the network edge with nftables",
+          "Solo project, deployed with Docker"
+        ]
+      },
+      "tech": [
+        "Graylog",
+        "OpenSearch",
+        "Docker",
+        "Python",
+        "nftables"
+      ],
+      "repoLink": null,
       "demoLink": null,
       "image": null
     },

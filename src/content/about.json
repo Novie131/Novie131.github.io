@@ -221,7 +221,11 @@
         "Ollama",
         "Azure OpenAI",
         "RAG",
-        "Claude Code"
+        "Claude Code",
+        "Azure Speech",
+        "PyTorch",
+        "Transformers",
+        "Sentence Transformers"
       ]
     },
     {
@@ -235,7 +239,11 @@
         "OAuth 2.0",
         "JWT",
         "OpenResty",
-        "SAML"
+        "SAML",
+        "Prompt Injection Defense",
+        "Graylog",
+        "OpenSearch",
+        "nftables"
       ]
     },
     {
@@ -264,6 +272,9 @@
       },
       "tech": [
         "Docker",
+        "Docker Compose",
+        "Kubernetes",
+        "GPU Monitoring & Scheduling",
         "Grafana",
         "GitHub Actions",
         "Linux"
