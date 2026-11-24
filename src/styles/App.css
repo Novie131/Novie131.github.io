@@ -605,21 +605,21 @@ body::before {
 }
 
 /* ── 語言切換過場 ──────────────────────────────────── */
-/* 只在切語言時（.lang-transition）套用，不影響其他情況；整頁淡出再淡入並帶一點模糊 */
+/* 只在切語言時（.lang-transition）套用：舊畫面淡出，新畫面由下往上浮入 */
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none;
   mix-blend-mode: normal;
 }
 .lang-transition::view-transition-old(root) {
-  animation: langOut 0.28s ease both;
+  animation: langOut 0.22s ease both;
 }
 .lang-transition::view-transition-new(root) {
-  animation: langIn 0.38s ease both;
+  animation: langIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
 }
 @keyframes langOut {
-  to { opacity: 0; filter: blur(6px); transform: scale(0.99); }
+  to { opacity: 0; }
 }
 @keyframes langIn {
-  from { opacity: 0; filter: blur(6px); transform: scale(1.01); }
+  from { opacity: 0; transform: translateY(16px); }
 }
