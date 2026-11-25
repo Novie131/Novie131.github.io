@@ -13,7 +13,7 @@ const { identity, sysInfo, bio, timeline, stack } = about
  * 技術棧以前是一組自評百分比，跟作品集互相獨立 —— 於是宣稱了站上找不到證據的
  * 技術，又漏掉了真正用過的（例如 Nelo 的 Go）。改成從作品推導之後，
  * 兩邊不可能對不起來，而且新增專案時這一區會自己更新。
- * 同一個平台拆成多個子專案時（SYSBrain）共用 short 名稱，這裡去重。
+ * 同一個平台拆成多個子專案時（例如企業多代理平台）共用 short 名稱，這裡去重。
  */
 const USED_IN = [
   ...projects.items.map(p => ({ name: p.title, tech: p.tech })),

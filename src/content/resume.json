@@ -37,34 +37,34 @@
   ],
   "experience": [
     {
-      "id": "systex-sysbrain-auth",
+      "id": "enterprise-agent-auth",
       "org": {
-        "zh": "精誠資訊（上市公司）",
-        "en": "SYSTEX (listed company)"
+        "zh": "上市公司－資訊服務業",
+        "en": "Listed IT services company"
       },
-      "short": "SYSBrain",
+      "short": "Enterprise Multi-agent",
       "title": {
-        "zh": "SYSBrain Multi-agent 平台 — MCP 身分驗證",
-        "en": "SYSBrain Multi-agent Platform — MCP Authentication"
+        "zh": "企業多代理平台 — MCP 身分驗證",
+        "en": "Enterprise Multi-agent Platform — MCP Authentication"
       },
       "roles": {
         "zh": "子專案負責人 · 身分驗證架構設計與後端開發",
         "en": "Sub-project lead · Auth architecture & backend"
       },
       "summary": {
-        "zh": "平台的「用代理」功能會呼叫外部 MCP Server（n8n）執行工具，原本這條路徑沒有任何驗證，知道網址即可呼叫。",
-        "en": "The platform's agent feature called an external MCP server (n8n) to run tools — and that path had no authentication at all; anyone with the URL could call it."
+        "zh": "平台對外呼叫 MCP 工具的路徑原本沒有身分驗證，這個子專案為它加上驗證。",
+        "en": "The platform's outbound MCP tool calls had no authentication; this sub-project added it."
       },
       "highlights": {
         "zh": [
-          "設計並導入以 Microsoft Entra ID 為基礎的 OAuth 2.0 驗證，後端以 client credentials 換發 Access Token 並快取於 Redis",
-          "在 MCP Server 前架設 OpenResty MCP Gateway，逐請求驗證簽章、aud、azp 與 MCP.Invoke 應用程式角色",
-          "以主機白名單限制 Token 傳送範圍，讓驗證與工具執行分離"
+          "設計以 Microsoft Entra ID 為基礎的 OAuth 2.0 身分驗證，Access Token 以 Redis 快取",
+          "以 OpenResty 建置 MCP 閘道，逐次驗證請求",
+          "限制 Token 的傳送範圍，讓驗證與工具執行分離"
         ],
         "en": [
-          "Designed OAuth 2.0 on Microsoft Entra ID: the backend obtains tokens via client credentials and caches them in Redis",
-          "Put an OpenResty MCP gateway in front of the server, verifying signature, aud, azp and the MCP.Invoke app role on every request",
-          "Restricted token delivery with a host allowlist, separating authentication from tool execution"
+          "Designed OAuth 2.0 authentication on Microsoft Entra ID, with access tokens cached in Redis",
+          "Built an OpenResty MCP gateway that verifies every request",
+          "Limited where tokens can be sent, separating authentication from tool execution"
         ]
       },
       "tech": [
@@ -80,34 +80,34 @@
       "color": "cyan"
     },
     {
-      "id": "systex-sysbrain-guardrails",
+      "id": "enterprise-agent-guardrails",
       "org": {
-        "zh": "精誠資訊（上市公司）",
-        "en": "SYSTEX (listed company)"
+        "zh": "上市公司－資訊服務業",
+        "en": "Listed IT services company"
       },
-      "short": "SYSBrain",
+      "short": "Enterprise Multi-agent",
       "title": {
-        "zh": "SYSBrain Multi-agent 平台 — Guardrails 內容防護",
-        "en": "SYSBrain Multi-agent Platform — Guardrails"
+        "zh": "企業多代理平台 — AI Guardrails 內容防護",
+        "en": "Enterprise Multi-agent Platform — AI Guardrails"
       },
       "roles": {
         "zh": "子專案負責人 · 內容防護模組開發",
         "en": "Sub-project lead · Content-safety module"
       },
       "summary": {
-        "zh": "身分驗證把關「誰能呼叫」，這個子專案以 AI Guardrails 把關「內容能不能通過」，建立輸入、檢索、執行、輸出四層護欄，共用同一套防護模組與規則。",
-        "en": "Auth decides who may call; this sub-project decides what content may pass — four AI Guardrails layers (input, retrieval, execution, output) sharing one rule set."
+        "zh": "身分驗證把關「誰能呼叫」，這個子專案以 AI Guardrails 把關「內容能不能通過」，建立多層護欄、共用同一套防護模組。",
+        "en": "Auth decides who may call; this sub-project decides what content may pass, with multiple AI Guardrails layers sharing one module."
       },
       "highlights": {
         "zh": [
           "攔截 Prompt Injection（要求忽略規則、洩漏內部設定）",
-          "攔截高風險與違禁物品請求",
-          "自動遮罩姓名、電話、Email、地址、身分證等個資"
+          "攔截高風險請求",
+          "自動遮罩個資"
         ],
         "en": [
           "Blocks prompt injection (ignore-the-rules, leak-the-config attempts)",
-          "Blocks high-risk and prohibited-item requests",
-          "Auto-masks PII: names, phone numbers, email, addresses, national IDs"
+          "Blocks high-risk requests",
+          "Auto-masks personal data"
         ]
       },
       "tech": [
@@ -119,23 +119,23 @@
       "color": "cyan"
     },
     {
-      "id": "compal-multi-agent",
+      "id": "multi-agent-platform",
       "org": {
-        "zh": "仁寶電腦（上市公司）",
-        "en": "Compal Electronics (listed company)"
+        "zh": "上市公司－電子製造業",
+        "en": "Listed electronics manufacturer"
       },
-      "short": "Compal Multi-Agent",
+      "short": "Multi-Agent Platform",
       "title": {
-        "zh": "AI Agent 多元代理協作平台（COMPUTEX 2025 展示）",
-        "en": "Multi-Agent Collaboration Platform (shown at COMPUTEX 2025)"
+        "zh": "AI Agent 多代理協作平台（國際展會展出）",
+        "en": "Multi-Agent Collaboration Platform (shown at an international trade show)"
       },
       "roles": {
         "zh": "開發者 · 前端與 AI Agent 後端開發",
         "en": "Developer · Frontend & agent backend"
       },
       "summary": {
-        "zh": "LangGraph Supervisor 以地端 Gemma 3 判斷意圖，把請求路由到腦力激盪、摘要、搜尋、RAG、Excel 報表與專家顧問等 Agent；各 Agent 以 FastAPI 微服務部署並依任務分派雲端或地端模型。系統於 COMPUTEX 2025 展示並獲仁寶頒發感謝狀。",
-        "en": "A LangGraph supervisor running local Gemma 3 routes requests to brainstorming, summarisation, search, RAG, Excel-report and expert agents, each a FastAPI microservice using cloud or local models. Demoed at COMPUTEX 2025; received a certificate of appreciation from Compal."
+        "zh": "以 LangGraph Supervisor 判斷意圖，把請求分派給多種任務型 Agent；各 Agent 以 FastAPI 微服務部署，地端與雲端模型混用。系統於國際展會展出並獲感謝狀。",
+        "en": "A LangGraph supervisor routes requests to specialized agents, each a FastAPI microservice mixing local and cloud models. Shown at an international trade show; received a certificate of appreciation."
       },
       "highlights": {
         "zh": [
@@ -164,34 +164,34 @@
       "color": "purple"
     },
     {
-      "id": "compal-misop",
+      "id": "work-instruction-generator",
       "org": {
-        "zh": "仁寶電腦（上市公司）",
-        "en": "Compal Electronics (listed company)"
+        "zh": "上市公司－電子製造業",
+        "en": "Listed electronics manufacturer"
       },
-      "short": "Compal MI/SOP",
+      "short": "Work-Instruction Generator",
       "title": {
-        "zh": "MI/SOP 產線作業指導書自動生成系統（Phase 2）",
-        "en": "Automated MI/SOP Work-Instruction Generator (Phase 2)"
+        "zh": "產線作業指導書自動產生系統",
+        "en": "Automated Work-Instruction Generator"
       },
       "roles": {
         "zh": "桌面端與後端 API 開發",
         "en": "Desktop & backend API developer"
       },
       "summary": {
-        "zh": "把產品 DFM 設計文件自動轉成產線作業指導書：上傳 DFM PDF 後擷取流程圖頁，以 GPT-4o 視覺模型解析成各工站並產出指導書草稿，於 12 宮格畫面調整後套用 Excel 模板批次匯出。",
-        "en": "Turns DFM design PDFs into production-line work instructions: GPT-4o vision parses flowchart pages into stations and drafts instructions, which are refined in a 12-panel editor and batch-exported through Excel templates."
+        "zh": "以 Azure OpenAI 視覺模型把設計文件轉成產線作業指導書草稿，於編輯畫面調整後以 Excel 模板匯出。",
+        "en": "Azure OpenAI vision turns design documents into draft production-line work instructions, refined in an editor and exported through Excel templates."
       },
       "highlights": {
         "zh": [
-          "參與 C# WinForms 桌面端與 Python FastAPI 後端，串接 PDF 轉圖、流程圖轉工站、組裝說明轉 MI 與中英翻譯 API",
-          "實作 SOP 圖片編輯器（裁切、圖層、色塊與文字框）與工站自動配對",
-          "Excel 模板自動產生、合併與匯出，並撰寫系統流程圖與部署說明書"
+          "參與 C# WinForms 桌面端與 Python FastAPI 後端 API 開發",
+          "實作作業指導書的圖片編輯器（裁切、圖層、色塊與文字框）",
+          "Excel 模板產生與匯出，並撰寫系統流程圖與部署說明書"
         ],
         "en": [
-          "Worked on the C# WinForms client and Python FastAPI backend: PDF-to-image, flowchart-to-station, MI drafting and translation APIs",
-          "Built the SOP image editor (crop, layers, shapes, text boxes) and automatic station matching",
-          "Excel template generation, merging and export; wrote the flow diagrams and deployment guide"
+          "Worked on the C# WinForms client and Python FastAPI backend APIs",
+          "Built the image editor for work instructions (crop, layers, shapes, text boxes)",
+          "Excel template generation and export; wrote the flow diagrams and deployment guide"
         ]
       },
       "tech": [
@@ -205,36 +205,35 @@
       "color": "purple"
     },
     {
-      "id": "changmao-tpclaw",
+      "id": "zero-trust-sandbox",
       "org": {
-        "zh": "長茂科技（竹科廠商）",
-        "en": "Changmao Technology (Hsinchu Science Park)"
+        "zh": "竹科科技公司",
+        "en": "Technology company, Hsinchu Science Park"
       },
-      "short": "TP-Claw",
+      "short": "Zero-Trust Sandbox",
       "title": {
-        "zh": "TP-Claw 零信任 AI 代理沙箱平台",
-        "en": "TP-Claw Zero-Trust AI Agent Sandbox"
+        "zh": "零信任 AI Agent 沙盒平台",
+        "en": "Zero-Trust AI Agent Sandbox"
       },
       "roles": {
         "zh": "專案負責人 · 驗證整合與 Demo 系統開發",
         "en": "Project lead · Auth integration & demo system"
       },
       "summary": {
-        "zh": "以開源 AI Agent 專案 OpenClaw 為核心，整合 TekPass 與 PC.Sec 零信任技術，建立 AI Agent 專用的安全執行架構：MCP/OAuth2 驗證閘道、WSL2 Sandbox、Prompt/Memory 安全治理與 ATR 靜態掃描。",
-        "en": "A secure runtime for AI agents built on the open-source OpenClaw, integrating TekPass and PC.Sec zero-trust tech: MCP/OAuth2 gateway, WSL2 sandbox, prompt/memory governance and ATR static scanning."
+        "zh": "為 AI Agent 建立零信任的安全執行環境，讓 Agent 在 WSL2 沙盒中執行並通過身分驗證。",
+        "en": "A zero-trust runtime for AI agents: agents run inside a WSL2 sandbox and must pass identity verification."
       },
       "highlights": {
         "zh": [
-          "參與 MCP OAuth 與 TekPass Keep 驗證流程整合",
-          "建置 TPClaw Demo 驗證系統：Agent 偵測訊息後於背景建立驗證檔並啟動監控，外部驗證完成後透過 session key 將結果注入 OpenClaw TUI"
+          "在沙盒化的 Agent 執行環境中，整合 MCP OAuth 與外部身分驗證流程",
+          "建置端到端展示系統，呈現 Agent 在沙盒內完成身分驗證的完整流程"
         ],
         "en": [
-          "Integrated MCP OAuth with the TekPass Keep verification flow",
-          "Built the end-to-end demo: the agent spawns a verification job in the background and, once external verification completes, injects the result into the OpenClaw TUI via session key"
+          "Integrated MCP OAuth with an external identity verification flow on the sandboxed agent runtime",
+          "Built the end-to-end demo showing an agent completing identity verification inside the sandbox"
         ]
       },
       "tech": [
-        "OpenClaw",
         "MCP",
         "OAuth 2.0",
         "SAML",
@@ -244,34 +243,34 @@
       "color": "green"
     },
     {
-      "id": "itri-tami",
+      "id": "audience-analytics",
       "org": {
-        "zh": "工業技術研究院",
-        "en": "ITRI"
+        "zh": "研究機構",
+        "en": "Research institute"
       },
-      "short": "ITRI TAMI",
+      "short": "Audience Analytics",
       "title": {
-        "zh": "TAMI 受眾分析平台（已上線，供台灣大哥大員工使用）",
-        "en": "TAMI Audience Analytics (in production at Taiwan Mobile)"
+        "zh": "受眾分析平台（已正式上線）",
+        "en": "Audience Analytics Platform (in production)"
       },
       "roles": {
         "zh": "後端與資料處理開發",
         "en": "Backend & data engineering"
       },
       "summary": {
-        "zh": "提供使用者查詢客戶受眾比率並產出報表的平台，已上線供台灣大哥大內部員工使用。",
-        "en": "A platform for querying customer audience ratios and generating reports, in production for Taiwan Mobile staff."
+        "zh": "查詢受眾比率並產出報表的平台，已正式上線。",
+        "en": "A platform for querying audience ratios and generating reports, now in production."
       },
       "highlights": {
         "zh": [
-          "門號雜湊比對：雜湊資料存入 HDFS，以 PySpark 平行運算後寫入 Elasticsearch",
-          "Flask API 依使用者權限組出 Elasticsearch 查詢，產出行動上網行為變化報表",
-          "以 Celery 非同步彙整擴大受眾報表、定時監控 SFTP 自動下載，並匯出 .xlsx"
+          "以 PySpark 在 Hadoop 上平行處理資料，結果寫入 Elasticsearch",
+          "Flask API 依使用者權限組出查詢並產出報表",
+          "以 Celery 處理非同步報表與排程匯入，並匯出 .xlsx"
         ],
         "en": [
-          "Hashed phone-number matching: data in HDFS, processed in parallel with PySpark, written to Elasticsearch",
-          "Flask API building permission-scoped Elasticsearch queries for mobile-usage trend reports",
-          "Celery jobs for audience-expansion reports and scheduled SFTP ingestion, with .xlsx export"
+          "Parallel data processing with PySpark on Hadoop, results written to Elasticsearch",
+          "Flask API building permission-scoped queries and reports",
+          "Celery for async reports and scheduled ingestion, with .xlsx export"
         ]
       },
       "tech": [
@@ -286,34 +285,34 @@
       "color": "amber"
     },
     {
-      "id": "itri-kbro",
+      "id": "media-analytics",
       "org": {
-        "zh": "工業技術研究院",
-        "en": "ITRI"
+        "zh": "研究機構",
+        "en": "Research institute"
       },
-      "short": "ITRI KBRO",
+      "short": "Media Analytics",
       "title": {
-        "zh": "KBRO 媒體分析平台",
-        "en": "KBRO Media Analytics Platform"
+        "zh": "媒體分析平台",
+        "en": "Media Analytics Platform"
       },
       "roles": {
         "zh": "後端與資料處理開發",
         "en": "Backend & data engineering"
       },
       "summary": {
-        "zh": "有線電視收視資料的分析平台。",
-        "en": "An analytics platform for cable-TV viewing data."
+        "zh": "影音收視資料的分析平台。",
+        "en": "An analytics platform for viewing data."
       },
       "highlights": {
         "zh": [
-          "MyVideo 收視紀錄：以 PySpark 彙整觀看紀錄存入 PostgreSQL，計算週／月統計後寫入 Elasticsearch",
-          "以 Flask 將使用者的二進位資料轉成可下載的報表",
-          "密碼 90 天未更換即強制更換，新密碼以 SHA-512 雜湊儲存"
+          "以 PySpark 彙整收視紀錄存入 PostgreSQL，統計後寫入 Elasticsearch",
+          "以 Flask 將資料轉成可下載的報表",
+          "實作密碼定期更換，新密碼以 SHA-512 雜湊儲存"
         ],
         "en": [
-          "MyVideo viewing logs aggregated with PySpark into PostgreSQL, weekly/monthly stats pushed to Elasticsearch",
-          "Flask service converting binary user data into downloadable reports",
-          "Forced rotation of passwords older than 90 days, stored as SHA-512 hashes"
+          "Viewing logs aggregated with PySpark into PostgreSQL, with stats pushed to Elasticsearch",
+          "Flask service turning data into downloadable reports",
+          "Periodic password rotation, with new passwords stored as SHA-512 hashes"
         ]
       },
       "tech": [

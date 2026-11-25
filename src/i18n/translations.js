@@ -109,13 +109,13 @@ const translations = {
 
     // Page meta（<title> 與 meta description，每頁一組）
     'meta.home.title':      'Eldric Cheng | AI · 雲端 · 資安工程師',
-    'meta.home.desc':       '臺中科大資工碩士生，專注 AI Agent、雲端部署與零信任資安 — 精誠、仁寶、工研院產學合作經驗。',
+    'meta.home.desc':       '臺中科大資工碩士生，專注 AI Agent、雲端部署與零信任資安 — 上市公司與研究機構產學合作經驗。',
     'meta.about.title':     '關於 | Eldric Cheng',
     'meta.about.desc':      '我的技術背景、學經歷時間軸與技能組成 — AI Agent、身分驗證與資安、後端與資料工程。',
     'meta.portfolio.title': '作品集 | Eldric Cheng',
     'meta.portfolio.desc':  '地端 AI 影片產線、Claude Code Plugin、AR 手機 App、IoT 冷鏈系統等開源作品。',
     'meta.resume.title':    '履歷 | Eldric Cheng',
-    'meta.resume.desc':     '學歷、產學合作（精誠、仁寶、長茂、工研院）、研討會論文、證照與社群經歷。',
+    'meta.resume.desc':     '學歷、產學合作（上市公司、竹科科技公司、研究機構）、研討會論文、證照與社群經歷。',
     'meta.contact.title':   '聯絡 | Eldric Cheng',
     'meta.contact.desc':    '合作機會、技術交流或專案想法，歡迎透過 Email、GitHub 或 LinkedIn 聯繫。',
     'meta.404.title':       '404 | Eldric Cheng',
@@ -231,7 +231,7 @@ const translations = {
 
     // Page meta
     'meta.home.title':      'Eldric Cheng | AI · Cloud · Security Engineer',
-    'meta.home.desc':       'M.S. student at NUTC focused on AI agents, cloud deployment and zero-trust security — industry projects with SYSTEX, Compal and ITRI.',
+    'meta.home.desc':       'M.S. student at NUTC focused on AI agents, cloud deployment and zero-trust security — industry projects with listed companies and a research institute.',
     'meta.about.title':     'About | Eldric Cheng',
     'meta.about.desc':      'Background, timeline and skills — AI agents, identity & security, backend and data engineering.',
     'meta.portfolio.title': 'Projects | Eldric Cheng',
