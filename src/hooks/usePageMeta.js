@@ -21,8 +21,10 @@ function setMeta(selector, attr, value) {
  * 沒有這段，所有頁面在瀏覽紀錄、分頁列與分享預覽裡都長得一模一樣。
  */
 export default function usePageMeta() {
-  const { pathname } = useLocation()
+  const { pathname: raw } = useLocation()
   const { lang, t } = useLang()
+  // GitHub Pages 會把 /resume 轉成 /resume/，比對前去掉結尾斜線（根路徑 / 保留）
+  const pathname = raw.length > 1 ? raw.replace(/\/+$/, '') : raw
 
   useEffect(() => {
     const prefix = ROUTE_META[pathname] ?? 'meta.404'
