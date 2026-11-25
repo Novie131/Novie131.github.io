@@ -611,13 +611,13 @@
         "en": "Protocols, Frameworks, Architecture: How AI Agents Are Built"
       },
       "event": {
-        "zh": "2026 iT 邦幫忙鐵人賽 · 完賽",
-        "en": "2026 iThome Ironman Contest · completed"
+        "zh": "2026 iT 邦幫忙鐵人賽 · 團體組完賽",
+        "en": "2026 iThome Ironman Contest · team, completed"
       },
-      "count": 30,
+      "count": 10,
       "desc": {
-        "zh": "從 MCP 協定原理到 Agent 框架、多代理協作與安全實作。",
-        "en": "From MCP internals to agent frameworks, multi-agent collaboration and security."
+        "zh": "團隊共 30 篇，我負責第 21～30 天。系列從 MCP 協定原理到 Agent 框架、多代理協作與安全實作。",
+        "en": "Team series of 30 posts; I wrote days 21–30. Covers MCP internals, agent frameworks, multi-agent collaboration and security."
       },
       "tech": [
         "MCP",
@@ -634,8 +634,8 @@
         "en": "Linux from 0 to 100"
       },
       "event": {
-        "zh": "2024 iT 邦幫忙鐵人賽 · 完賽",
-        "en": "2024 iThome Ironman Contest · completed"
+        "zh": "2024 iT 邦幫忙鐵人賽 · 個人組完賽",
+        "en": "2024 iThome Ironman Contest · solo, completed"
       },
       "count": 30,
       "desc": {
@@ -656,8 +656,8 @@
         "en": "That Time I Got Reincarnated as a Go Beginner"
       },
       "event": {
-        "zh": "2023 iT 邦幫忙鐵人賽 · 完賽",
-        "en": "2023 iThome Ironman Contest · completed"
+        "zh": "2023 iT 邦幫忙鐵人賽 · 個人組完賽",
+        "en": "2023 iThome Ironman Contest · solo, completed"
       },
       "count": 30,
       "desc": {
