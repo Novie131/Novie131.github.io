@@ -12,8 +12,8 @@
       },
       "period": "2025/09 – 2027/06",
       "note": {
-        "zh": "研究方向：基於可觀測性與零信任的 Kubernetes 智能自動擴展。以研究獎助生身分參與盧永豐副教授的研究計畫，建置 Kubernetes 測試環境。",
-        "en": "Research: observability- and zero-trust-driven intelligent autoscaling on Kubernetes. Research assistant on Assoc. Prof. Lu's project, building the Kubernetes testbed."
+        "zh": "論文：基於 Kubernetes Security Sidecar 之 AI Agent 零信任安全政策集中治理與即時防護平台。以研究獎助生身分參與盧永豐副教授的研究計畫，建置 Kubernetes 測試環境。",
+        "en": "Thesis: A Zero Trust Platform for Centralized Security Policy Governance and Real-Time Enforcement of AI Agents Based on Kubernetes Security Sidecars. Research assistant on Assoc. Prof. Lu's project, building the Kubernetes testbed."
       },
       "color": "cyan"
     },
