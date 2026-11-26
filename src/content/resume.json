@@ -698,6 +698,55 @@
   ],
   "courses": [
     {
+      "id": "anthropic-claude-api",
+      "title": "Building with the Claude API",
+      "issuer": "Anthropic Academy",
+      "date": "2026/05",
+      "modules": "Certificate of completion",
+      "link": "https://verify.skilljar.com/c/6qkd5hratmvs",
+      "color": "amber",
+      "image": "/img/certs/anthropic-claude-api.webp"
+    },
+    {
+      "id": "anthropic-mcp-advanced",
+      "title": "Model Context Protocol: Advanced Topics",
+      "issuer": "Anthropic Academy",
+      "date": "2026/05",
+      "modules": "Certificate of completion",
+      "link": "https://verify.skilljar.com/c/oq4pba5f4j6d",
+      "color": "purple",
+      "image": "/img/certs/anthropic-mcp-advanced.webp"
+    },
+    {
+      "id": "anthropic-claude-code-in-action",
+      "title": "Claude Code in Action",
+      "issuer": "Anthropic Academy",
+      "date": "2026/05",
+      "modules": "Certificate of completion",
+      "link": "https://verify.skilljar.com/c/q78g58i9pmcd",
+      "color": "green",
+      "image": "/img/certs/anthropic-claude-code-in-action.webp"
+    },
+    {
+      "id": "anthropic-claude-bedrock",
+      "title": "Claude with Amazon Bedrock",
+      "issuer": "Anthropic Academy",
+      "date": "2026/05",
+      "modules": "Certificate of completion",
+      "link": "https://verify.skilljar.com/c/5xv3mafieo6t",
+      "color": "cyan",
+      "image": "/img/certs/anthropic-claude-bedrock.webp"
+    },
+    {
+      "id": "anthropic-more",
+      "title": { "zh": "Anthropic Academy 其他技術課程", "en": "More Anthropic Academy technical courses" },
+      "issuer": "Introduction to MCP · Claude Code 101 · Agent Skills · Subagents · Claude on Google Cloud",
+      "date": "2026/05",
+      "modules": "5 courses",
+      "link": null,
+      "color": "amber"
+    },
+    {
       "id": "google-cybersecurity",
       "title": "Google Cybersecurity Professional Certificate",
       "issuer": "Google · Coursera",
