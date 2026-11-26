@@ -51,14 +51,14 @@
   "bio": {
     "zh": [
       "我是鄭凱擇，也可以叫我 Eldric。臺中科技大學資訊工程系碩士班二年級。遇到新技術時，我習慣花時間把背後的原理弄懂，**親手做過**才算真正掌握。",
-      "大學期間參與研究機構的受眾分析平台，用 PySpark、Elasticsearch 與 Celery 處理大量資料，平台已正式上線 —— 這是我第一次體會到後端系統在真實環境中的要求。",
-      "研究所後的重心是 **AI Agent 在企業裡的安全落地**：在上市資訊服務公司的企業多代理平台，以 Microsoft Entra ID、OAuth 2.0 與 OpenResty 為 MCP 工具呼叫加上身分驗證，並用 AI Guardrails 建立多層內容防護；也參與上市電子製造公司在國際展會展出的多代理協作平台。",
+      "大學期間參與工研院的 TAMI 受眾分析平台，用 PySpark、Elasticsearch 與 Celery 處理大量資料，平台已正式上線 —— 這是我第一次體會到後端系統在真實環境中的要求。",
+      "研究所後的重心是 **AI Agent 在企業裡的安全落地**：在上市公司精誠資訊的 SYSBrain 企業多代理平台，以 Microsoft Entra ID、OAuth 2.0 與 OpenResty 為 MCP 工具呼叫加上身分驗證，並用 AI Guardrails 建立多層內容防護；也參與上市公司仁寶電腦在 COMPUTEX 2025 展出的多代理協作平台。",
       "課餘我把想法做成開源作品，也擔任 IET On Campus Taichung Tech 社群主席，一年辦了 42 場活動。我在意的不只是會用生成式 AI，而是讓 Agent **安全、可控地**運作。"
     ],
     "en": [
       "I'm Kai-Tse Cheng, and you can call me Eldric. I am a second-year M.S. student in Computer Science at National Taichung University of Science and Technology. With new technology I take the time to understand how it works underneath — I only consider something learned once I've **built it myself**.",
-      "As an undergraduate I worked on a research institute's audience-analytics platform, processing large datasets with PySpark, Elasticsearch and Celery. It's now in production, and it taught me what backend systems demand in the real world.",
-      "In grad school my focus is **making AI agents safe in the enterprise**: on a listed IT services company's multi-agent platform I added authentication to MCP tool calls with Microsoft Entra ID, OAuth 2.0 and OpenResty, and built multiple layers of AI Guardrails. I also worked on a listed electronics manufacturer's multi-agent platform, shown at an international trade show.",
+      "As an undergraduate I worked on ITRI's TAMI audience-analytics platform, processing large datasets with PySpark, Elasticsearch and Celery. It's now in production, and it taught me what backend systems demand in the real world.",
+      "In grad school my focus is **making AI agents safe in the enterprise**: on SYSBrain, the multi-agent platform of listed company SYSTEX, I added authentication to MCP tool calls with Microsoft Entra ID, OAuth 2.0 and OpenResty, and built multiple layers of AI Guardrails. I also worked on a multi-agent platform for listed company Compal Electronics, shown at COMPUTEX 2025.",
       "Outside of that I ship open-source side projects and chair the IET On Campus Taichung Tech community, which ran 42 events in a year. What I care about isn't just using generative AI — it's making agents run **safely and under control**."
     ]
   },
@@ -123,12 +123,12 @@
       "id": "trade-show",
       "year": "2025",
       "title": {
-        "zh": "國際展會展出",
-        "en": "Shown at an international trade show"
+        "zh": "COMPUTEX 2025 展出",
+        "en": "Shown at COMPUTEX 2025"
       },
       "sub": {
-        "zh": "AI Agent 多代理協作平台 · 獲感謝狀",
-        "en": "Multi-agent platform · certificate of appreciation"
+        "zh": "仁寶 AI Agent 多代理協作平台 · 獲感謝狀",
+        "en": "Compal multi-agent platform · certificate of appreciation"
       },
       "color": "purple",
       "type": "project"
@@ -137,12 +137,12 @@
       "id": "research-analytics",
       "year": "2023–2025",
       "title": {
-        "zh": "研究機構產學合作",
-        "en": "Research institute (industry project)"
+        "zh": "工研院產學合作",
+        "en": "ITRI (industry project)"
       },
       "sub": {
-        "zh": "受眾與媒體分析平台 · 已上線",
-        "en": "Audience & media analytics · in production"
+        "zh": "TAMI 受眾與 KBRO 媒體分析平台 · 已上線",
+        "en": "TAMI audience & KBRO media analytics · in production"
       },
       "color": "amber",
       "type": "work"

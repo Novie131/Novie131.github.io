@@ -39,13 +39,13 @@
     {
       "id": "enterprise-agent-auth",
       "org": {
-        "zh": "上市公司－資訊服務業",
-        "en": "Listed IT services company"
+        "zh": "精誠資訊（上市公司）",
+        "en": "SYSTEX (listed company)"
       },
       "short": "Enterprise Multi-agent",
       "title": {
-        "zh": "企業多代理平台 — MCP 身分驗證",
-        "en": "Enterprise Multi-agent Platform — MCP Authentication"
+        "zh": "SYSBrain 企業多代理平台 — MCP 身分驗證",
+        "en": "SYSBrain Enterprise Multi-agent Platform — MCP Authentication"
       },
       "roles": {
         "zh": "子專案負責人 · 身分驗證架構設計與後端開發",
@@ -82,13 +82,13 @@
     {
       "id": "enterprise-agent-guardrails",
       "org": {
-        "zh": "上市公司－資訊服務業",
-        "en": "Listed IT services company"
+        "zh": "精誠資訊（上市公司）",
+        "en": "SYSTEX (listed company)"
       },
       "short": "Enterprise Multi-agent",
       "title": {
-        "zh": "企業多代理平台 — AI Guardrails 內容防護",
-        "en": "Enterprise Multi-agent Platform — AI Guardrails"
+        "zh": "SYSBrain 企業多代理平台 — AI Guardrails 內容防護",
+        "en": "SYSBrain Enterprise Multi-agent Platform — AI Guardrails"
       },
       "roles": {
         "zh": "子專案負責人 · 內容防護模組開發",
@@ -121,21 +121,21 @@
     {
       "id": "multi-agent-platform",
       "org": {
-        "zh": "上市公司－電子製造業",
-        "en": "Listed electronics manufacturer"
+        "zh": "仁寶電腦（上市公司）",
+        "en": "Compal Electronics (listed company)"
       },
       "short": "Multi-Agent Platform",
       "title": {
-        "zh": "AI Agent 多代理協作平台（國際展會展出）",
-        "en": "Multi-Agent Collaboration Platform (shown at an international trade show)"
+        "zh": "AI Agent 多代理協作平台（COMPUTEX 2025 展出）",
+        "en": "Multi-Agent Collaboration Platform (shown at COMPUTEX 2025)"
       },
       "roles": {
         "zh": "開發者 · 前端與 AI Agent 後端開發",
         "en": "Developer · Frontend & agent backend"
       },
       "summary": {
-        "zh": "以 LangGraph Supervisor 判斷意圖，把請求分派給多種任務型 Agent；各 Agent 以 FastAPI 微服務部署，地端與雲端模型混用。系統於國際展會展出並獲感謝狀。",
-        "en": "A LangGraph supervisor routes requests to specialized agents, each a FastAPI microservice mixing local and cloud models. Shown at an international trade show; received a certificate of appreciation."
+        "zh": "以 LangGraph Supervisor 判斷意圖，把請求分派給多種任務型 Agent；各 Agent 以 FastAPI 微服務部署，地端與雲端模型混用。系統於 COMPUTEX 2025 展出並獲感謝狀。",
+        "en": "A LangGraph supervisor routes requests to specialized agents, each a FastAPI microservice mixing local and cloud models. Shown at COMPUTEX 2025; received a certificate of appreciation."
       },
       "highlights": {
         "zh": [
@@ -166,13 +166,13 @@
     {
       "id": "work-instruction-generator",
       "org": {
-        "zh": "上市公司－電子製造業",
-        "en": "Listed electronics manufacturer"
+        "zh": "仁寶電腦（上市公司）",
+        "en": "Compal Electronics (listed company)"
       },
       "short": "Work-Instruction Generator",
       "title": {
-        "zh": "產線作業指導書自動產生系統",
-        "en": "Automated Work-Instruction Generator"
+        "zh": "MI/SOP 產線作業指導書自動產生系統",
+        "en": "MI/SOP Automated Work-Instruction Generator"
       },
       "roles": {
         "zh": "桌面端與後端 API 開發",
@@ -207,13 +207,13 @@
     {
       "id": "zero-trust-sandbox",
       "org": {
-        "zh": "竹科科技公司",
-        "en": "Technology company, Hsinchu Science Park"
+        "zh": "長茂科技（竹科）",
+        "en": "Changmao Technology, Hsinchu Science Park"
       },
       "short": "Zero-Trust Sandbox",
       "title": {
-        "zh": "零信任 AI Agent 沙盒平台",
-        "en": "Zero-Trust AI Agent Sandbox"
+        "zh": "TP-Claw 零信任 AI Agent 沙盒平台",
+        "en": "TP-Claw Zero-Trust AI Agent Sandbox"
       },
       "roles": {
         "zh": "專案負責人 · 驗證整合與 Demo 系統開發",
@@ -245,13 +245,13 @@
     {
       "id": "audience-analytics",
       "org": {
-        "zh": "研究機構",
-        "en": "Research institute"
+        "zh": "工研院",
+        "en": "ITRI (Industrial Technology Research Institute)"
       },
       "short": "Audience Analytics",
       "title": {
-        "zh": "受眾分析平台（已正式上線）",
-        "en": "Audience Analytics Platform (in production)"
+        "zh": "TAMI 受眾分析平台（已正式上線）",
+        "en": "TAMI Audience Analytics Platform (in production)"
       },
       "roles": {
         "zh": "後端與資料處理開發",
@@ -287,13 +287,13 @@
     {
       "id": "media-analytics",
       "org": {
-        "zh": "研究機構",
-        "en": "Research institute"
+        "zh": "工研院",
+        "en": "ITRI (Industrial Technology Research Institute)"
       },
       "short": "Media Analytics",
       "title": {
-        "zh": "媒體分析平台",
-        "en": "Media Analytics Platform"
+        "zh": "KBRO 媒體分析平台",
+        "en": "KBRO Media Analytics Platform"
       },
       "roles": {
         "zh": "後端與資料處理開發",
