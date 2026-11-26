@@ -377,10 +377,25 @@
   .write-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
-.write-card {
+.write-card { position: relative; }
+
+.write-link {
   color: inherit;
   text-decoration: none;
 }
+
+.write-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+}
+
+.write-link:focus-visible { outline: none; }
+.write-link:focus-visible::after { outline: 2px solid var(--primary); outline-offset: 2px; }
+
+/* 縮圖疊在 stretched link 上層，點縮圖是放大、不是開文章 */
+.write-card .zoom-thumb { position: relative; z-index: 1; }
 
 .write-top {
   display: flex;
@@ -396,7 +411,7 @@
   color: var(--muted);
 }
 
-a.write-card:hover .write-title { color: var(--primary); }
+.write-card:has(.write-link):hover .write-title { color: var(--primary); }
 
 .write-desc {
   font-size: 0.88rem;
@@ -521,3 +536,13 @@ a.write-card:hover .write-title { color: var(--primary); }
   .comm-row:has(.zoom-mini) { grid-template-columns: 10.5rem minmax(0, 1fr) auto; }
   .comm-row:has(.zoom-mini) .comm-period { grid-column: auto; }
 }
+
+/* 產學經歷、技術寫作卡片：標題區右側可放小縮圖（感謝狀、獎狀） */
+.card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.card-head-main { flex: 1; min-width: 0; }
+.card-head .zoom-mini { align-self: flex-start; margin-top: 0.15rem; }

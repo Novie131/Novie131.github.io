@@ -120,6 +120,8 @@
     },
     {
       "id": "multi-agent-platform",
+      "image": "/img/certs/compal-computex-2025.webp",
+      "imageAlt": { "zh": "仁寶電腦 COMPUTEX 2025 感謝狀", "en": "Compal COMPUTEX 2025 Certificate of Appreciation" },
       "org": {
         "zh": "仁寶電腦（上市公司）",
         "en": "Compal Electronics (listed company)"
@@ -651,6 +653,8 @@
     },
     {
       "id": "ithome-2023",
+      "image": "/img/certs/ithome-2023.webp",
+      "imageAlt": { "zh": "2023 iThome 鐵人賽「鐵人鍊成」獎狀與獎牌", "en": "2023 iThome Ironman Challenge completion certificate and medal" },
       "title": {
         "zh": "關於我轉生變成 Go 初學者的這檔事",
         "en": "That Time I Got Reincarnated as a Go Beginner"

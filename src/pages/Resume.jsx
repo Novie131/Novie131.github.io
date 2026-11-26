@@ -83,8 +83,13 @@ export default function Resume() {
         <div className="exp-list">
           {experience.map(exp => (
             <article key={exp.id} className="exp-card">
-              <p className="exp-org">{pick(exp.org, lang)}</p>
-              <h3 className="exp-title">{pick(exp.title, lang)}</h3>
+              <div className="card-head">
+                <div className="card-head-main">
+                  <p className="exp-org">{pick(exp.org, lang)}</p>
+                  <h3 className="exp-title">{pick(exp.title, lang)}</h3>
+                </div>
+                <Zoomable src={exp.image} alt={pick(exp.imageAlt ?? exp.title, lang)} closeLabel={t('zoom.close')} className="zoom-mini" />
+              </div>
               {exp.roles && <p className="exp-roles">{pick(exp.roles, lang)}</p>}
               <p className="exp-summary">{pick(exp.summary, lang)}</p>
               {exp.highlights?.[lang]?.length > 0 && (
@@ -189,24 +194,28 @@ export default function Resume() {
 
       <Section id="writing" title={title('writing')} count={writing.length}>
         <div className="write-grid">
-          {writing.map(w => {
-            const Tag = w.link ? 'a' : 'div'
-            return (
-              <Tag
-                key={w.id}
-                className="write-card"
-                {...(w.link && { href: w.link, target: '_blank', rel: 'noreferrer' })}
-              >
-                <div className="write-top">
-                  <span className="write-event">{pick(w.event, lang)}</span>
-                  {w.count && <span className="write-count">{w.count} {t('resume.articles')}</span>}
+          {writing.map(w => (
+            /* 整張卡片可點：連結用 ::after 撐滿卡片（stretched link），
+               縮圖按鈕疊在上層，才不會把 <button> 包進 <a>（不合法，點了也會跳頁） */
+            <article key={w.id} className="write-card">
+              <div className="write-top">
+                <span className="write-event">{pick(w.event, lang)}</span>
+                {w.count && <span className="write-count">{w.count} {t('resume.articles')}</span>}
+              </div>
+              <div className="card-head">
+                <div className="card-head-main">
+                  <h3 className="write-title">
+                    {w.link
+                      ? <a className="write-link" href={w.link} target="_blank" rel="noreferrer">{pick(w.title, lang)}</a>
+                      : pick(w.title, lang)}
+                  </h3>
+                  <p className="write-desc">{pick(w.desc, lang)}</p>
                 </div>
-                <h3 className="write-title">{pick(w.title, lang)}</h3>
-                <p className="write-desc">{pick(w.desc, lang)}</p>
-                <Tags list={w.tech} />
-              </Tag>
-            )
-          })}
+                <Zoomable src={w.image} alt={pick(w.imageAlt ?? w.title, lang)} closeLabel={t('zoom.close')} className="zoom-mini" />
+              </div>
+              <Tags list={w.tech} />
+            </article>
+          ))}
         </div>
       </Section>
 
