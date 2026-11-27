@@ -115,7 +115,7 @@ const translations = {
     'meta.portfolio.title': '作品集 | Eldric Cheng',
     'meta.portfolio.desc':  '地端 AI 影片產線、Claude Code Plugin、AR 手機 App、IoT 冷鏈系統等開源作品。',
     'meta.resume.title':    '履歷 | Eldric Cheng',
-    'meta.resume.desc':     '學歷、產學合作（上市資服公司、上市電子科技大廠、竹科科技公司、研發法人）、研討會論文、證照與社群經歷。',
+    'meta.resume.desc':     '學歷、產學合作（上市資服公司、上市電子科技大廠、竹科資安公司、研發法人）、研討會論文、證照與社群經歷。',
     'meta.contact.title':   '聯絡 | Eldric Cheng',
     'meta.contact.desc':    '合作機會、技術交流或專案想法，歡迎透過 Email、GitHub 或 LinkedIn 聯繫。',
     'meta.404.title':       '404 | Eldric Cheng',
