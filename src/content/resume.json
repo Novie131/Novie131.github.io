@@ -39,13 +39,13 @@
     {
       "id": "enterprise-agent-auth",
       "org": {
-        "zh": "精誠資訊（上市公司）",
-        "en": "SYSTEX (listed company)"
+        "zh": "上市資服公司",
+        "en": "A listed IT services company"
       },
-      "short": "Enterprise Multi-agent",
+      "short": "Enterprise Agentic RAG",
       "title": {
-        "zh": "SYSBrain 企業多代理平台 — MCP 身分驗證",
-        "en": "SYSBrain Enterprise Multi-agent Platform — MCP Authentication"
+        "zh": "企業 Agentic RAG 平台 — MCP 身分驗證",
+        "en": "Enterprise Agentic RAG Platform — MCP Authentication"
       },
       "roles": {
         "zh": "子專案負責人 · 身分驗證架構設計與後端開發",
@@ -82,13 +82,13 @@
     {
       "id": "enterprise-agent-guardrails",
       "org": {
-        "zh": "精誠資訊（上市公司）",
-        "en": "SYSTEX (listed company)"
+        "zh": "上市資服公司",
+        "en": "A listed IT services company"
       },
-      "short": "Enterprise Multi-agent",
+      "short": "Enterprise Agentic RAG",
       "title": {
-        "zh": "SYSBrain 企業多代理平台 — AI Guardrails 內容防護",
-        "en": "SYSBrain Enterprise Multi-agent Platform — AI Guardrails"
+        "zh": "企業 Agentic RAG 平台 — AI Guardrails 內容防護",
+        "en": "Enterprise Agentic RAG Platform — AI Guardrails"
       },
       "roles": {
         "zh": "子專案負責人 · 內容防護模組開發",
@@ -120,11 +120,9 @@
     },
     {
       "id": "multi-agent-platform",
-      "image": "/img/certs/compal-computex-2025.webp",
-      "imageAlt": { "zh": "仁寶電腦 COMPUTEX 2025 感謝狀", "en": "Compal COMPUTEX 2025 Certificate of Appreciation" },
       "org": {
-        "zh": "仁寶電腦（上市公司）",
-        "en": "Compal Electronics (listed company)"
+        "zh": "上市電子科技大廠",
+        "en": "A listed electronics manufacturer"
       },
       "short": "Multi-Agent Platform",
       "title": {
@@ -168,8 +166,8 @@
     {
       "id": "work-instruction-generator",
       "org": {
-        "zh": "仁寶電腦（上市公司）",
-        "en": "Compal Electronics (listed company)"
+        "zh": "上市電子科技大廠",
+        "en": "A listed electronics manufacturer"
       },
       "short": "Work-Instruction Generator",
       "title": {
@@ -209,13 +207,13 @@
     {
       "id": "zero-trust-sandbox",
       "org": {
-        "zh": "長茂科技（竹科）",
-        "en": "Changmao Technology, Hsinchu Science Park"
+        "zh": "竹科科技公司",
+        "en": "A tech company in Hsinchu Science Park"
       },
       "short": "Zero-Trust Sandbox",
       "title": {
-        "zh": "TP-Claw 零信任 AI Agent 沙盒平台",
-        "en": "TP-Claw Zero-Trust AI Agent Sandbox"
+        "zh": "零信任 AI Agent 沙盒平台",
+        "en": "Zero-Trust AI Agent Sandbox"
       },
       "roles": {
         "zh": "專案負責人 · 驗證整合與 Demo 系統開發",
@@ -247,13 +245,13 @@
     {
       "id": "audience-analytics",
       "org": {
-        "zh": "工研院",
-        "en": "ITRI (Industrial Technology Research Institute)"
+        "zh": "科技與產業研發法人機構",
+        "en": "An industrial technology research institute"
       },
       "short": "Audience Analytics",
       "title": {
-        "zh": "TAMI 受眾分析平台（已正式上線）",
-        "en": "TAMI Audience Analytics Platform (in production)"
+        "zh": "受眾分析平台（已正式上線）",
+        "en": "Audience Analytics Platform (in production)"
       },
       "roles": {
         "zh": "後端與資料處理開發",
@@ -289,13 +287,13 @@
     {
       "id": "media-analytics",
       "org": {
-        "zh": "工研院",
-        "en": "ITRI (Industrial Technology Research Institute)"
+        "zh": "科技與產業研發法人機構",
+        "en": "An industrial technology research institute"
       },
       "short": "Media Analytics",
       "title": {
-        "zh": "KBRO 媒體分析平台",
-        "en": "KBRO Media Analytics Platform"
+        "zh": "媒體分析平台",
+        "en": "Media Analytics Platform"
       },
       "roles": {
         "zh": "後端與資料處理開發",
